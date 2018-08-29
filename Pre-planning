@@ -1,0 +1,47 @@
+What is the minimum viable product that we can create in a week?
+    An interactive map that allows users to select restaurants and bars via pin, as well as add their own pins to the map
+
+User stories
+    As a user, I want to learn about and connect to the history of San Francisco through places that have been a part of the various neighborhoods for decades, contributing to the collective identity and culture of the city.
+
+    As a user, I want to preserve and support the different establishments that have become so beloved by citizens and visitors for decades, in order to help them continue to be a part of future generations.
+
+Database models and ERD
+    Our app with have 3 models: a user, a legacy map/list, and comments. Many users will be able to make many submissions to the legacy map, and also comment on previous submissions. The many legacy items can also have many comments from all users. 
+    
+    The Users schema will have:
+        - name: string,
+        - email: string,
+        - password: string,
+        - location: string
+    
+    The Legacy schema will have:
+        - name: string,
+        - address: string,
+        - yearOpened: number,
+        - stillInBusiness: boolean,
+        - createdBy: string
+
+    The Comment schema will have:
+        - name: user.id,
+        - legacy: legacy.id,
+        - dateSubmitted: timestamp,
+        - comment: string
+
+
+The user:
+    1. Navigate to the "/" route landing page, where:
+        - there is a background static image of San Francisco
+        - there is a login prompt (username & password) over the map
+        - a signup link opens a modal prompting the user to create an account containing
+            - username
+            - password
+    2. Once user logs in or signs up, user is prompted to accept geolocation
+    3. User is then taken to a page with a map centered on their location
+        - if no concent, user is taken to a page with a map of the entire city
+    4. Both map pages also contain
+        - a nav bar to toggle views between map and list (index), as well as a submit button
+            - submit button prompts a modal for user to add a suggested legacy site
+        - a footer with About and Contact information
+    5. Each site on the map will be represented by a pin, which the user can select
+        - brings up modal of site name and address
