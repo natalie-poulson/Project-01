@@ -51,15 +51,22 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*  end sass */
+
 
 body {
   height: 100%;
   width: 100%;
   max-width: 1200px;
   display: flex;
-  background-color: yellow;
+
   /* background-image: url(); */
-  background-size: cover;
+  /* background-size: cover; */
 }
+
+#map {
+  height: 80vh;
+  width:80vw;
+  }
 
 /*# sourceMappingURL=styles.css.map */
