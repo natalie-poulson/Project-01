@@ -55,29 +55,117 @@ table {
 
 
 body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   max-width: 1200px;
   display: flex;
-
-  /* background-image: url(); */
-  /* background-size: cover; */
+  flex-direction: column;
 }
 
-body{
-  background-color: #B4D455;
-  background-image: url("../public/images/TEMP_historical_map_of_san_francisco.jpg");
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 100, 100, 0.35)), url("../images/TEMP_historical_map_of_san_francisco.jpg");
   background-size: cover;
 }
 
-#map {
-  height: 80vh;
-  width:80vw;
-  }
+h1 {
+  font-size: 3em;
+  margin-bottom: 5%;
+  font-weight: bold;
+  color: #FFFFFF;
+}
 
-form {
+.login {
+  border: 2px solid #6d6d6d;
+  border-radius: 5px;
+  height: 4vh;
+  font-size: 0.75em;
+  margin: 0.5%;
+  text-align: center;
+}
+
+#formLogin {
+  display: flex;
+  align-items: center;
+}
+
+#buttonModal {
+  font-size: 0.85em;
+  color: #FFFFFF;
+  background: transparent;
+  border: none;
+}
+
+#buttonModal:hover {
+  text-decoration: underline;
+}
+
+#landingModal {
+  display: none;
+  grid-template-rows: 4% 24% 24% 24% 24%;
+  width: 50%;
+  height: 50%;
+  padding: 5px;
+  border: 1px solid #000000;
+  position: fixed;
+  z-index: 1;
+  background: #FFFFFF;
+}
+
+span {
+  text-align: right;
+}
+
+#formSignUp {
+  display: grid;
+  align-items: center;
+}
+
+.signUp {
+  border: 2px solid black;
+  height: 4vh;
+  font-size: 0.75em;
+  margin: 0.5%;
+  text-align: center;
+}
+
+#signUpName {
+  grid-column: 2;
+}
+
+header {
+  font-size: 2em;
   margin: 0 auto;
-  display: column;
+  font-weight: bold;
+  color: #000000;
+}
+
+nav {
+  background: orange;
+  border-top: 2.5px solid #000000;
+  border-bottom: 3px solid #000000;
+  padding: 1.25%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  font-size: 1.1em;
+  color: #000000;
+  background: orange;
+  border: 1px solid #FFFFFF;
+  border-radius: 15px;
+  margin: 0 auto;
+}
+
+.navbar:active {
+  color: orange;
+  background: #000000;
 }
 
 /*# sourceMappingURL=styles.css.map */

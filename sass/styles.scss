@@ -4,8 +4,8 @@ body {
     height: 100vh;
     width: 100vw;
     max-width: 1200px;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(100,100,100,.35)), url('../public/images/TEMP_historical_map_of_san_francisco.jpg');
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
 #map {
@@ -19,6 +19,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(rgba(0,0,0,.5), rgba(100,100,100,.35)), url('../images/TEMP_historical_map_of_san_francisco.jpg');
+    background-size: cover;
 }
 
 h1 {
@@ -28,13 +30,8 @@ h1 {
     color: #FFFFFF;
 }
 
-form {
-    display: flex;
-    align-items: center;
-}
-
 .login {
-    border: 1px solid black;
+    border: 2px solid #6d6d6d;
     border-radius: 5px;
     height: 4vh;
     font-size: .75em;
@@ -42,8 +39,94 @@ form {
     text-align: center;
 }
 
-button {
-    font-size: .85em;
-    color: #FFFFFF;
+#formLogin {
+    display: flex;
+    align-items: center;
 }
 
+
+
+#buttonModal {
+    font-size: .85em;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+}
+
+#buttonModal:hover {
+    text-decoration: underline;
+}
+
+#landingModal {
+    display: none;
+    grid-template-rows: 4% 24% 24% 24% 24%;
+    width: 50%;
+    height: 50%;
+    padding: 5px;
+    border: 1px solid #000000;
+    position: fixed;
+    z-index: 1;
+    background: #FFFFFF;
+}
+
+span {
+    text-align: right;
+}
+
+#formSignUp {
+    display: grid;
+    align-items: center;
+}
+
+.signUp {
+    border: 2px solid black;
+    height: 4vh;
+    font-size: .75em;
+    margin: .5%;
+    text-align: center;
+}
+
+#signUpName {
+    grid-column: 2;
+}
+
+// #signUpEmail {
+//     grid-row: 3 / span 2;
+// }
+
+// #signUpPassword {
+//     grid-row: 4 / span 2;
+// }
+
+// #signUpSubmit {
+//     grid-row: 5 / span 1;
+// }
+
+header {
+    font-size: 2em;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #000000;
+}
+nav {
+    background: orange;
+    border-top: 2.5px solid #000000;
+    border-bottom: 3px solid #000000;
+    padding: 1.25%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    font-size: 1.1em;
+    color: #000000;
+    background: orange;
+    border: 1px solid #FFFFFF;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.navbar:focus {
+    color: orange;
+    background: #000000;
+}
