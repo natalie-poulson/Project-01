@@ -64,14 +64,16 @@ body {
   /* background-size: cover; */
 }
 
-#map {
-  height: 80vh;
-  width:80vw;
-  }
+body{
   background-color: #B4D455;
   background-image: url("../public/images/TEMP_historical_map_of_san_francisco.jpg");
   background-size: cover;
 }
+
+#map {
+  height: 80vh;
+  width:80vw;
+  }
 
 form {
   margin: 0 auto;

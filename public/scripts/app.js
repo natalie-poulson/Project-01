@@ -1,5 +1,6 @@
 console.log("hello");
 
+// Map and Geolocation
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
     var latitude = position.coords.latitude;
@@ -27,5 +28,23 @@ if (navigator.geolocation) {
     alert("Geolocation API is not supported in your browser. :(");
 }
 
+// Ajax
+///////////////Get all ///////
+$.ajax({
+    method: 'GET',
+    url: '/api/legacy',
+    success: handleSuccess,
+    error: handleError
+});
+function handleSuccess (json) {
+    var legacies = json.data
+    legacies.forEach( legacy => {
+        $('#legacyTarget').append(`<li><p id="name">${legacy.name}</p><p id="address">${legacy.address}<p><p id="year">opened ${legacy.yearOpened}</p><button type="update" value="update" class="update" data-id=${legacy._id}>Update</button> <button type="delete" value="delete" class="delete" data-id=${legacy._id}>Delete</button></li>`);
+    });
+};
 
-
+///////////Error
+function handleError(e) {
+    console.log('error', e);
+    $('#legacyTarget').text('Failed to laod books, is the server working?');
+}
