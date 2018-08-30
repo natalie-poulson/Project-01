@@ -53,18 +53,46 @@ table {
 }
 
 body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   max-width: 1200px;
-  display: flex;
-  background-color: #B4D455;
-  background-image: url("../public/images/TEMP_historical_map_of_san_francisco.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 100, 100, 0.35)), url("../public/images/TEMP_historical_map_of_san_francisco.jpg");
   background-size: cover;
 }
 
+main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 5%;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
 form {
-  margin: 0 auto;
-  display: column;
+  display: flex;
+  align-items: center;
+}
+
+.login {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 4vh;
+  font-size: 0.75em;
+  margin: 0.5%;
+  text-align: center;
+}
+
+a {
+  font-size: 0.85em;
+  color: #FFFFFF;
 }
 
 /*# sourceMappingURL=styles.css.map */
