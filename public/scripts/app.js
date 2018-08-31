@@ -24,6 +24,63 @@ if (navigator.geolocation) {
     alert("Geolocation API is not supported in your browser. :(");
 }
 
+localStorage.length > 0 ? console.log(localStorage) : console.log('no local storage');
+
+let loggedIn ;
+let user ;
+
+const checkForLogin;
+
+$('#formSignUp').on('click', submitSignup)
+$('#formLogin').on('submit', submitLogin)
+
+function submitSignup(e){
+    e.preventDefault();
+    let userData = $(this).serialize()
+    $.ajax({
+      method: "POST",
+      url: "/user/signup",
+      data: userData,
+      error: function signupError(e1,e2,e3) {
+        console.log(e1);
+        console.log(e2);
+        console.log(e3);
+      },
+      success: function signupSuccess(json) {
+        console.log(json);
+        user = {email: json.result.email, _id: json.result._id}
+        localStorage.token = json.signedJwt;
+        $('#formSignUp').toggleClass('show');
+        $('#noToken').toggleClass('show');
+        checkForLogin;
+  
+      }
+  
+    })
+  }
+
+  function submitLogin(e){
+    e.preventDefault();
+    console.log("LOGIN FORM SUBMITTED")
+    let userData = $(this).serialize()
+    console.log("LOGIN: ", userData)
+    $.ajax({
+      method: "POST",
+      url: "/user/login",
+      data: userData,
+    }).done(function loginSuccess(json) {
+      console.log("LOG IN SUCCESSFUL")
+      console.log(json);
+      localStorage.token = json.token;
+      $('#noToken').toggleClass('show')
+      $('#formLogin').toggleClass('show')
+      checkForLogin;
+    }).fail(function loginError(e1,e2,e3) {
+      console.log(e2);
+    })
+  }
+
+
 // Ajax
 // Get all Heritages
 $.ajax({
