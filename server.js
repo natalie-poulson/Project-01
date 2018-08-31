@@ -34,6 +34,7 @@ app.get('/api', (req, res) => {
       {method: "GET", path: "/api/heritage", description: "View all SF Heritage Legacy bars and restaurants"}, 
       {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Heritage Legacy bar or restaurant by id"}, 
       {method: "POST", path: "/api/legacy", description: "Show a user submitted SF Legacy bar or restaurant"},
+      {method: "GET", path: "/api/legacy", description: "View all user submitted SF Legacy bars and restaurants"},
     ]
   })
 });
@@ -63,9 +64,12 @@ app.get('/api/heritage', (req, res) => {
 //Create a new legacy
 app.post('/api/legacy' , (req,res) => {
   //grab what the user entered in the body
-  console.log(req.body);
+  // console.log(req.body.coordinates);
   let newLegacy = req.body;
+  newLegacy.coordinates = [parseFloat(req.body.lat),parseFloat(req.body.lon)]
+  console.log(newLegacy)
   //take the req body and create a new legacy in the db
+// res.json(newLegacy)
   db.Legacy.create( newLegacy, (err,savedLegacy) => {
     if(err) {return console.log(err)};
     res.json(savedLegacy);
