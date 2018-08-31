@@ -44,37 +44,81 @@ app.get('/api', (req, res) => {
   })
 });
 
-app.post('/api/user'), (req, res) => {
-  db.User.find(email)
-    if(email == req.body.email) {return res.status(409).json({
-      message: "Email already exists"
-    })
-  } else {
-    bcrypt.hash(req.body.password, 10, (err, hash) => {
-      if(err){ 
-        console.log("hashing error:", err);
-        res.status(200).json({error: err})
-      } else {
-        db.User.create({
-          name: req.body.name,
-          email: req.body.email,
-          password: hash
-        }, {password: 0}, (err, result) => {
-          result = [0]
-          jwt.sign({result},
-          "secret",
-            (err, signedJwt) => {
-              res.status(200).json ({
-                message: "Welcome",
-                result,
-                signedJwt
-              })
+
+app.post('/signup', (req, res) => {
+  console.log('helloooo?');
+  db.User.find({email: req.body.email})
+    .exec()
+    .then( user => {
+      if (user.length >= 1) {
+        return res.status(409).json({
+          message: "email already exists"
+        })
+        } else {
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if(err){ 
+            console.log("hashing error:", err);
+            res.status(200).json({error: err})
+          } else {
+            db.User.create({
+              name: req.body.name,
+              email: req.body.email,
+              password: hash
+            }, {password: 0}, (err, result) => {
+            result = result[0]
+            jwt.sign(
+                {result},
+                "secret",
+                (err, signedJwt) => {
+                res.status(200).json({
+                  message: 'User Created',
+                  result,
+                  signedJwt
+                })
+              });
             })
-          })
+          }
+        })
       }
     })
+    .catch( err => {
+      console.log(err);
+      res.status(500).json({err})
+    })
+});
+
+app.post('/verify', verifyToken, (req, res) => {
+  let verified= jwt.verify(req.token, 'secret')
+  console.log("verified: ", verified)
+  res.json(verified)
+})
+
+// FORMAT OF TOKEN
+// Authorization: Bearer <access_token>
+
+// Verify Token
+function verifyToken(req, res, next) {
+  console.log("in verify...");
+  // Get auth header value
+  // when we send our token, we want to send it in our header
+  const bearerHeader = req.headers['authorization'];
+  console.log(bearerHeader)
+  // Check if bearer is undefined
+  if(typeof bearerHeader !== 'undefined'){
+    const bearer = bearerHeader.split(' ');
+    // Get token from array
+    const bearerToken = bearer[1];
+    // Set the token
+    req.token = bearerToken;
+    // Next middleware
+    next();
+
+  } else {
+    // Forbidden
+    res.sendStatus(403);
   }
 }
+
 
 
 //Get all heritages request
@@ -110,51 +154,6 @@ app.post('/api/legacy' , (req,res) => {
     res.json(savedLegacy);
   });
 });
-
-app.post('/', (req, res) => {
-  console.log(req.name);
-  let newUser = req.name;
-  db.User.create(newUser, (err, savedUser) => {
-    if(err) {res.json('Nooooooo');
-    } else {
-      res.json(savedUser)
-    }
-  })
-})
-
-
-app.post('/verify', verifyToken, (req, res) => {
-  let verified= jwt.verify(req.token, 'waffles')
-  console.log("verified: ", verified)
-  res.json(verified)
-})
-
-// FORMAT OF TOKEN
-// Authorization: Bearer <access_token>
-
-// Verify Token
-function verifyToken(req, res, next) {
-  console.log("in verify...");
-  // Get auth header value
-  // when we send our token, we want to send it in our header
-  const bearerHeader = req.headers['authorization'];
-  console.log(bearerHeader)
-  // Check if bearer is undefined
-  if(typeof bearerHeader !== 'undefined'){
-    const bearer = bearerHeader.split(' ');
-    // Get token from array
-    const bearerToken = bearer[1];
-    // Set the token
-    req.token = bearerToken;
-    // Next middleware
-    next();
-
-  } else {
-    // Forbidden
-    res.sendStatus(403);
-  }
-}
-
 
 // Server
 app.listen(process.env.PORT || 3000, () => {
