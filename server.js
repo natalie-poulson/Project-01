@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
-// const userRoutes = require('./routes/user')
-// const jwt = require('jsonwebtoken')
+const bodyParser = require('body-parser');
+// const userRoutes = require('./routes/user');
+// const jwt = require('jsonwebtoken');
 
 
 // Middleware
@@ -21,6 +21,10 @@ app.use(express.static('public'));
 //HTML Endpoints
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
+})
+
+app.get('/map', (req, res) => {
+  res.sendFile(__dirname + '/views/map.html');
 })
 
 //JSON API Endpoints
@@ -72,6 +76,24 @@ app.post('/api/legacy' , (req,res) => {
   });
 });
 
+app.post('/', (req, res) => {
+  console.log(req.name);
+  let newUser = req.name;
+  db.User.create(newUser, (err, savedUser) => {
+    if(err) {res.json('Nooooooo');
+    } else {
+      res.json(savedUser)
+    }
+  })
+})
+
+
+app.post('/verify', verifyToken, (req, res) => {
+  let verified= jwt.verify(req.token, 'waffles')
+  console.log("verified: ", verified)
+  res.json(verified)
+})
+
 // protected route - a route only a user with a jwt token in their header can access.
 // app.post('/api/posts', verifyToken, (req, res) => {
 //   console.log(req.token)
@@ -91,33 +113,33 @@ app.post('/api/legacy' , (req,res) => {
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
 
-// // Verify Tokenj 
-// function verifyToken(req, res, next) {
-//   console.log("in verify...");
-//   // Get auth header value
-//   // when we send our token, we want to send it in our header
-//   const bearerHeader = req.headers['authorization'];
-//   console.log(bearerHeader)
-//   // Check if bearer is undefined
-//   if(typeof bearerHeader !== 'undefined'){
-//     const bearer = bearerHeader.split(' ');
-//     // Get token from array
-//     const bearerToken = bearer[1];
-//     // Set the token
-//     req.token = bearerToken;
-//     // Next middleware
-//     next();
+// Verify Token
+function verifyToken(req, res, next) {
+  console.log("in verify...");
+  // Get auth header value
+  // when we send our token, we want to send it in our header
+  const bearerHeader = req.headers['authorization'];
+  console.log(bearerHeader)
+  // Check if bearer is undefined
+  if(typeof bearerHeader !== 'undefined'){
+    const bearer = bearerHeader.split(' ');
+    // Get token from array
+    const bearerToken = bearer[1];
+    // Set the token
+    req.token = bearerToken;
+    // Next middleware
+    next();
 
-//   } else {
-//     // Forbidden
-//     res.sendStatus(403);
-//   }
-// }
+  } else {
+    // Forbidden
+    res.sendStatus(403);
+  }
+}
 
 
 // Server
 app.listen(process.env.PORT || 3000, () => {
-  console.log('Express server is up and running on http://localhost:3000/');
+  console.log('Red 5 standing by on http://localhost:3000/');
 });
 
 
