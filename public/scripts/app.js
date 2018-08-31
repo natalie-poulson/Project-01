@@ -1,5 +1,3 @@
-console.log("hello");
-
 // Map and Geolocation
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
@@ -15,36 +13,36 @@ if (navigator.geolocation) {
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoibmF0YWxpZXBsc24iLCJhIjoiY2psZm8ybnFnMHl4NDNwcG16eGFmMTdwaCJ9.2xYdBHCpcf5cdap8BvhVgQ'
     }).addTo(map);
-    
+
     map.locate({setView: true, maxZoom: 16});
     function onLocationFound(e) {
-      var radius = e.accuracy / 2;
-      L.marker(e.latlng).addTo(map)
-          .bindPopup("You are here").openPopup();
-      L.circle(e.latlng, radius).addTo(map);
+        var radius = e.accuracy / 2;
+        L.marker(e.latlng).addTo(map)
     }
     map.on('locationfound', onLocationFound);
-}else {
+} else {
     alert("Geolocation API is not supported in your browser. :(");
 }
 
 // Ajax
-///////////////Get all ///////
+// Get all Heritages
 $.ajax({
     method: 'GET',
-    url: '/api/legacy',
+    url: '/api/heritage',
     success: handleSuccess,
     error: handleError
 });
+
 function handleSuccess (json) {
-    var legacies = json.data
-    legacies.forEach( legacy => {
-        $('#legacyTarget').append(`<li><p id="name">${legacy.name}</p><p id="address">${legacy.address}<p><p id="year">opened ${legacy.yearOpened}</p><button type="update" value="update" class="update" data-id=${legacy._id}>Update</button> <button type="delete" value="delete" class="delete" data-id=${legacy._id}>Delete</button></li>`);
-    });
+    // add heritage restaurant markers to map
+    var heritageArray = json.data;
+    $.each(heritageArray, function () {
+        var popupContent = this.name;
+        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>${this.yearOpened}</p>`).openPopup().addTo(map);
+    })
 };
 
-///////////Error
+///Error
 function handleError(e) {
     console.log('error', e);
-    $('#legacyTarget').text('Failed to laod books, is the server working?');
-}
+};

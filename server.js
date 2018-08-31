@@ -15,7 +15,6 @@ app.use(express.static('public'))
 // Database
 const db = require('./models');
 
-
 //Routes
 app.use(express.static('public'));
 
@@ -26,46 +25,42 @@ app.get('/', (req, res) => {
 
 //JSON API Endpoints
 app.get('/api', (req, res) => {
-  // TODO: Document all your api endpoints below as a simple hardcoded JSON object.
-  // It would be seriously overkill to save any of this to your database.
-  // But you should change almost every line of this response.
   res.json({
     message: "Welcome to my personal API! Here's what you need to know!",
     documentationUrl: "https://github.com/natalie-poulson/personal-api", 
     baseUrl: "https://hidden-falls-48101.herokuapp.com/", 
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/legacy", description: "View all SF Legacy bars and restaurants"}, 
-      {method: "GET", path: "/api/legacy/:id", description: "View a specific SF Legacy bar or restaurant by id"}, 
+      {method: "GET", path: "/api/heritage", description: "View all SF Legacy bars and restaurants"}, 
+      {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Legacy bar or restaurant by id"}, 
       {method: "POST", path: "/api/legacy", description: "Create a new SF Legacy bar or restaurant"},
     ]
   })
 });
 
-//get all legacys request
-app.get('/api/legacy', (req, res) => {
-  //find all legacys in db
-  db.Legacy.find( {}, (err, allLegacies) => {
+//Get all heritages request
+app.get('/api/heritage', (req, res) => {
+  //find all heritages in db
+  db.Heritage.find( {}, (err, allHeritages) => {
     //if err, send err
     if(err){console.log(err)};
-    //else, respond with a json object of all the legacies
-    // console.log(allLegacies);
-    res.json({data: allLegacies});
+    //else, respond with a json object of all the heritages
+    res.json({data: allHeritages});
     });
   });
 
-  //get a specific legacy by id
-  app.get('/api/legacy/:id' , (req, res) => {
+  //Get a specific heritage by id
+  app.get('/api/heritage/:id' , (req, res) => {
     //get id from url parameters
-    let legacyId = req.params.id;
-  //find legacy in db by id
-    db.Legacy.findById( legacyId , (err, foundLegacy) => {
+    let heritageId = req.params.id;
+  //find heritage in db by id
+    db.Heritage.findById( heritageId , (err, foundHeritage) => {
       if(err) { return console.log(err) };
-      res.json(foundLegacy);
+      res.json(foundHeritage);
     });
   }); 
 
-//create a new legacy
+//Create a new legacy
 app.post('/api/legacy' , (req,res) => {
   //grab what the user entered in the body
   console.log(req.body);
@@ -121,7 +116,6 @@ app.post('/api/legacy' , (req,res) => {
 
 
 // Server
-// listen on the port that Heroku prescribes (process.env.PORT) OR port 3000
 app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on http://localhost:3000/');
 });
