@@ -5,7 +5,7 @@ const heritageSchema = new Schema({
 name: String,
 address: String,
 yearOpened: String,
-coordinates: [Number,Number],
+coordinates: [Number],
 });
 
 const Heritage = mongoose.model('Heritage', heritageSchema);

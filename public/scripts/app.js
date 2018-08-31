@@ -28,6 +28,7 @@ if (navigator.geolocation) {
     alert("Geolocation API is not supported in your browser. :(");
 };
 
+// Geocoding
 function addr_search() {
     var inp = document.getElementById("search");
 
@@ -35,6 +36,7 @@ function addr_search() {
         var items = [];
 
         $.each(data, function(key, val) {
+            console.log(val)
         items.push(
             "<li><a href='#' onclick='chooseAddr(" +
             val.lat + ", " + val.lon + ");return false;'>" + val.display_name +
@@ -54,6 +56,7 @@ function addr_search() {
         lat: lat,
         lon: lon
     }
+    console.log(newLegacy);
     $.ajax({
         method: 'POST',
         url:'/api/legacy',
@@ -66,6 +69,7 @@ function addr_search() {
 
         $('#results').empty();
         if (items.length != 0) {
+            console.log(items);
         $('<p>', { html: "Search results:" }).appendTo('#results');
         $('<ul/>', {
             'class': 'my-new-list',
@@ -100,23 +104,43 @@ $.ajax({
     error: handleError
 });
 
+//Get all legacies
+$.ajax({
+    method: 'GET',
+    url: '/api/legacy',
+    success: handleLegacySuccess,
+    error: handleError
+});
+
 function handleSuccess (json) {
     // add heritage restaurant markers to map
     var heritageArray = json.data;
     $.each(heritageArray, function () {
         var popupContent = this.name;
-        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>${this.yearOpened}</p>`).openPopup().addTo(map);
+        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
     })
 };
 
+function handleLegacySuccess (json) {
+    var legacyArray = json.data;
+    console.log(legacyArray)
+    // add legacy restaurant markers to map
+    $.each(legacyArray, function () {
+        // var popupContent = this.name;
+        // var coords = this.coordinates[0]
+        // console.log(coords)
+        // // console.log(popupContent)
+        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+    })
+};
 
 function newLegacySuccess (json) {
-    var heritage = json;
+    var legacy = json;
     // console.log(heritage)
-    var popupContent = heritage.name;
+    var popupContent = legacy.name;
     // console.log(popupContent);
     // console.log(heritage.coordinates[1])
-    L.marker([heritage.coordinates[0], heritage.coordinates[1]]).bindPopup(`<p>${heritage.name}<br>${heritage.address}<br>${heritage.yearOpened}</p>`).openPopup().addTo(map);
+    L.marker([legacy.coordinates[0], legacy.coordinates[1]]).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
 }
 
 ///Error

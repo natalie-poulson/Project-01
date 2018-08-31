@@ -66,6 +66,7 @@ app.post('/api/legacy' , (req,res) => {
   //grab what the user entered in the body
   // console.log(req.body.coordinates);
   let newLegacy = req.body;
+  console.log(newLegacy)
   newLegacy.coordinates = [parseFloat(req.body.lat),parseFloat(req.body.lon)]
   console.log(newLegacy)
   //take the req body and create a new legacy in the db
@@ -75,6 +76,17 @@ app.post('/api/legacy' , (req,res) => {
     res.json(savedLegacy);
   });
 });
+
+//Get all legacies request
+app.get('/api/legacy', (req, res) => {
+  //find all heritages in db
+  db.Legacy.find( {}, (err, allLegacies) => {
+    //if err, send err
+    if(err){console.log(err)};
+    //else, respond with a json object of all the heritages
+    res.json({data: allLegacies});
+    });
+  });
 
 // protected route - a route only a user with a jwt token in their header can access.
 // app.post('/api/posts', verifyToken, (req, res) => {
