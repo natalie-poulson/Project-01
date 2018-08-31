@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 // const userRoutes = require('./routes/user');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 
 // Middleware
@@ -38,9 +39,43 @@ app.get('/api', (req, res) => {
       {method: "GET", path: "/api/heritage", description: "View all SF Heritage Legacy bars and restaurants"}, 
       {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Heritage Legacy bar or restaurant by id"}, 
       {method: "POST", path: "/api/legacy", description: "Show a user submitted SF Legacy bar or restaurant"},
+      {method: "POST", path: "/api/user", description: "Add new user to database"}
     ]
   })
 });
+
+app.post('/api/user'), (req, res) => {
+  db.User.find(email)
+    if(email == req.body.email) {return res.status(409).json({
+      message: "Email already exists"
+    })
+  } else {
+    bcrypt.hash(req.body.password, 10, (err, hash) => {
+      if(err){ 
+        console.log("hashing error:", err);
+        res.status(200).json({error: err})
+      } else {
+        db.User.create({
+          name: req.body.name,
+          email: req.body.email,
+          password: hash
+        }, {password: 0}, (err, result) => {
+          result = [0]
+          jwt.sign({result},
+          "secret",
+            (err, signedJwt) => {
+              res.status(200).json ({
+                message: "Welcome",
+                result,
+                signedJwt
+              })
+            })
+          })
+      }
+    })
+  }
+}
+
 
 //Get all heritages request
 app.get('/api/heritage', (req, res) => {
@@ -93,22 +128,6 @@ app.post('/verify', verifyToken, (req, res) => {
   console.log("verified: ", verified)
   res.json(verified)
 })
-
-// protected route - a route only a user with a jwt token in their header can access.
-// app.post('/api/posts', verifyToken, (req, res) => {
-//   console.log(req.token)
-//   jwt.verify(req.token, 'waffles', (err, authData) => {
-//     if(err) {
-//       res.sendStatus(403);
-//     } else {
-//       res.json({
-//         message: 'Post created',
-//         authData
-//       });
-//     }
-
-//   });
-// });
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
