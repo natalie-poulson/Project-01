@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/user');
-const jwt = require('jsonwebtoken');
+// const userRoutes = require('./routes/user');
+// const jwt = require('jsonwebtoken');
 
 
 // Middleware
@@ -29,10 +29,6 @@ app.get('/map', (req, res) => {
 
 //JSON API Endpoints
 app.get('/api', (req, res) => {
-<<<<<<< HEAD
-
-=======
->>>>>>> ce6d9b6dc00a32052acd3d8af689ace1c3651830
   res.json({
     message: "Welcome to my personal API! Here's what you need to know!",
     documentationUrl: "https://github.com/natalie-poulson/personal-api", 

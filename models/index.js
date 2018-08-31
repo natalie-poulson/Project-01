@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-mongoose.connect( "mongodb://localhost/jwt-auth", {useNewUrlParser: true});
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/personal-api", {useMongoClient: true});
 
 const Legacy = require("./legacy");
 const Heritage = require("./heritage");
