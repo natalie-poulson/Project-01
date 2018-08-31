@@ -31,9 +31,9 @@ app.get('/api', (req, res) => {
     baseUrl: "https://hidden-falls-48101.herokuapp.com/", 
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/heritage", description: "View all SF Legacy bars and restaurants"}, 
-      {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Legacy bar or restaurant by id"}, 
-      {method: "POST", path: "/api/legacy", description: "Create a new SF Legacy bar or restaurant"},
+      {method: "GET", path: "/api/heritage", description: "View all SF Heritage Legacy bars and restaurants"}, 
+      {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Heritage Legacy bar or restaurant by id"}, 
+      {method: "POST", path: "/api/legacy", description: "Show a user submitted SF Legacy bar or restaurant"},
     ]
   })
 });
