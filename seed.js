@@ -1,5 +1,13 @@
 const db = require('./models');
 
+let userList = [
+    {
+    name: "Natalie",
+    email: "natalieplsn@gmail.com",
+    password: "cowboys"
+    }
+]
+
 let legacyList = [
     {
         name: "Tonga Room & Hurricane Bar",
@@ -53,9 +61,19 @@ db.Heritage.remove( {} , (req,res) => {
                     console.log(err);
                 }
                 console.log("Created a new legacy bar or restaraunt", newLegacyBusiness);
-                process.exit();
+        
+                db.User.remove( {} , (req,res) => {
+                    db.User.create(userList, (err, newUser) => {
+                        if(err){
+                            console.log(err);
+                        }
+                        console.log("Created a new user", newUser);
+                        process.exit();
+                    });
+                });
             });
-        });
+        }); 
     });
 });
+
 

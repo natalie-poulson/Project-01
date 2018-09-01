@@ -17,6 +17,19 @@
 </head>
 
 <body>
+    <div id="map"></div>
+  
+    <form id="legacyForm">    
+        <div id="searchBox">
+            <input type="text" name="addr" value="" id="search" size="10">
+            <button type="button" onclick="addr_search();">Search</button>
+            <div id="results"></div>
+        </div>
+        <input type="text" id="legacyName" name="name" placeholder="Name of bar or restaurant">
+        <input type="text" id="legacyAddress" name="address" placeholder="Address">
+        <input type="text" id="legacyYear" name="year" placeholder=" Year established">
+        <input type="submit" id="legacySubmit" value="submit">
+    </form>
     <main>
         <h1>PROJECT ZERO ONE</h1>
 
