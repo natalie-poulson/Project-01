@@ -32,6 +32,16 @@
         </nav>
     </header>
 
+    <div id="legacySearch">
+        <form id="legacyForm">    
+            <div id="searchBox">
+                <input type="text" name="addr" value="" id="search" size="10">
+                <button type="button" onclick="addr_search();">Search</button>
+                    <div id="results"></div>
+            </div>
+        </form>
+    </div>
+    
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
@@ -41,32 +51,20 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    <form id="formSignUp" autocomplete="off" method="POST" action="/map">
-                        <input type="text" class="signUp" id="signUpName" name="name" placeholder="USERNAME">
-                        <input type="text" class="signUp" id="signUpEmail" name="email" placeholder="EMAIL ADDRESS">
-                        <input type="text" class="signUp" id="signUpPassword" name="password" placeholder="PASSWORD">
+                    <form id="heritageForm" autocomplete="off" method="POST" action="/map">
+                        <input type="text" class="signUp" id="heritageName" name="name" placeholder="Suggest Heritage Site Here">
+                        <input type="text" class="signUp" id="heritageAdd" name="address" placeholder="Address">
+                        <input type="text" class="signUp" id="heritageEst" name="established" placeholder="When Opened">
                     </form>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary">Submit</button>
+                  <button id="heritageSubmit" type="button" class="btn btn-secondary">Submit</button>
                 </div>
               </div>
             </div>
           </div>
 
     <div id="map"></div>
-
-    <form id="legacyForm">    
-            <div id="searchBox">
-                <input type="text" name="addr" value="" id="search" size="10">
-                <button type="button" onclick="addr_search();">Search</button>
-                <div id="results"></div>
-            </div>
-            <input type="text" id="legacyName" name="name" placeholder="Name of bar or restaurant">
-            <!-- <input type="text" id="legacyAddress" name="address" placeholder="Address"> -->
-            <input type="text" id="legacyYear" name="year" placeholder=" Year established">
-            <input type="submit" id="legacySubmit" value="submit">
-        </form>
 
 </body>
 
