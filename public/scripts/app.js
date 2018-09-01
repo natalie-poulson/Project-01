@@ -19,7 +19,9 @@ if (navigator.geolocation) {
     map.locate({setView: true, maxZoom: 16});
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
-        L.marker(e.latlng).addTo(map)
+        L.marker(e.latlng)
+        .bindPopup("You are here")
+        .addTo(map)
         }
 
     map.on('locationfound', onLocationFound);
@@ -51,7 +53,7 @@ function addr_search() {
 
     var newLegacy = {
         name: $('#legacyName').val(),
-        address: $('.my-new-list a').text(),
+        address: $('#legacyAddress').val(),
         yearOpened: $('#legacyYear').val(),
         lat: lat,
         lon: lon
@@ -87,9 +89,9 @@ function addr_search() {
         map.panTo(location);
 
         if (type == 'city' || type == 'administrative') {
-        map.setZoom(11);
-        } else {
         map.setZoom(13);
+        } else {
+        map.setZoom(16);
         }
     } 
 
@@ -212,7 +214,7 @@ function handleLegacySuccess (json) {
         // var coords = this.coordinates[0]
         // console.log(coords)
         // // console.log(popupContent)
-        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+        L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
     })
 };
 

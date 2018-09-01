@@ -38,8 +38,9 @@ app.get('/api', (req, res) => {
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/heritage", description: "View all SF Heritage Legacy bars and restaurants"}, 
       {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Heritage Legacy bar or restaurant by id"}, 
-      {method: "POST", path: "/api/legacy", description: "Show a user submitted SF Legacy bar or restaurant"},
+      {method: "POST", path: "/api/legacy", description: "Add a SF Legacy bar or restaurant"},
       {method: "GET", path: "/api/legacy", description: "View all user submitted SF Legacy bars and restaurants"},
+      {method: "GET", path: "/api/legacy/:id", description: "View a specific user submitted Legacy bar or restaurant by id"}, 
       {method: "POST", path: "/api/user", description: "Add new user to database"}
     ]
   })
@@ -170,6 +171,17 @@ app.get('/api/legacy', (req, res) => {
     res.json({data: allLegacies});
     });
   });
+
+ //Get a specific legacy by id
+ app.get('/api/legacy/:id' , (req, res) => {
+  //get id from url parameters
+  let legacyId = req.params.id;
+//find heritage in db by id
+  db.Legacy.findById( legacyId , (err, foundLegacy) => {
+    if(err) { return console.log(err) };
+    res.json(foundLegacy);
+  });
+}); 
 
 // protected route - a route only a user with a jwt token in their header can access.
 // app.post('/api/posts', verifyToken, (req, res) => {
