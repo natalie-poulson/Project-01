@@ -99,7 +99,7 @@ app.get('/api/user', (req, res) => {
     })
 });    
 
-//login page nat
+//login page 
 app.post('/api/login' , (req, res) => {
   console.log("LOGIN CALLED");
   // find the user in our user db
@@ -132,8 +132,6 @@ app.post('/api/login' , (req, res) => {
           res.status(401).json({message: "Email/Password incorrect"})
         }
       })
-
-
     })
     .catch( err => {
       console.log(err);

@@ -60,11 +60,6 @@ body {
   flex-direction: column;
 }
 
-#map {
-  height: 80vh;
-  width: 80vw;
-}
-
 main {
   height: 100vh;
   width: 100vw;
@@ -104,29 +99,42 @@ h1 {
   border: none;
 }
 
-#buttonModal:hover {
-  text-decoration: underline;
+.btn-primary {
+  font-size: 0.85em;
+  color: #FFFFFF;
+  background: transparent;
+  border: none;
 }
 
-#landingModal {
-  display: none;
-  grid-template-rows: 4% 24% 24% 24% 24%;
-  width: 50%;
-  height: 50%;
-  padding: 5px;
-  border: 1px solid #000000;
-  position: fixed;
-  z-index: 1;
-  background: #FFFFFF;
+.btn-primary:hover {
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+  box-shadow: 0 0 0 0rem rgba(0, 0, 0, 0);
+}
+
+.close {
+  float: right;
+  font-size: 1em;
+  font-weight: 700;
+  line-height: 0;
+  color: #000000;
+  text-shadow: none;
+  opacity: 0.5;
 }
 
 span {
-  text-align: right;
+  margin-left: 95%;
 }
 
 #formSignUp {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .signUp {
@@ -135,17 +143,14 @@ span {
   font-size: 0.75em;
   margin: 0.5%;
   text-align: center;
+  width: 90%;
 }
 
-#signUpName {
-  grid-column: 2;
-}
-
-header {
+h2 {
   font-size: 2em;
-  margin: 0 auto;
   font-weight: bold;
   color: #000000;
+  text-align: center;
 }
 
 nav {
@@ -172,8 +177,8 @@ nav {
 }
 
 #map {
-  height: 50vh;
-  width: 50vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 /*# sourceMappingURL=styles.css.map */
