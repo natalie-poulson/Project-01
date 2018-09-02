@@ -28,6 +28,10 @@ app.get('/map', (req, res) => {
   res.sendFile(__dirname + '/views/map.html');
 })
 
+app.get('/about', (req, res) => {
+  res.sendFile(__dirname + '/views/about.html#a1');
+})
+
 //JSON API Endpoints
 app.get('/api', (req, res) => {
   res.json({
