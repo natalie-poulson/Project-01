@@ -1,4 +1,69 @@
 
+// Ajax
+//login 
+$('#formLogin'). on ('submit', function (e) {
+    e.preventDefault();
+    console.log('hi');
+    var user = {
+        email:$('#loginEmail').val(),
+        password: $('#loginPassword').val()
+    }
+    $.ajax({
+        method: 'POST',
+        url:'/api/login',
+        data:user,
+        success:loginSuccess,
+        error: loginError
+    });
+})
+
+// signup page
+$('#formSignUp'). on ('submit', function (e) {
+    e.preventDefault();
+    var newUser = {
+        name: $('#signUpName').val(),
+        email: $('#signUpEmail').val(),
+        password: $('#signUpPassword').val(),
+    }
+    console.log(newUser);
+    
+    $.ajax({
+        method: 'POST',
+        url:'/api/signup',
+        data:newUser,
+        success:signUpSuccess,
+        error: signUpError
+    });
+});
+
+function signUpSuccess (json) {
+    console.log(json)
+}
+
+function signUpError (json) {
+    console.log (json)
+}
+
+function loginSuccess (json) {
+    console.log(json)
+    window.location.pathname = '/map'
+}
+
+function loginError (json) {
+    console.log(json)
+}
+
+function signUpSuccess (json) {
+    console.log(json);
+    window.location.pathname = '/map'
+}
+
+
+///Error
+function handleError(e) {
+    console.log('error', e);
+};
+
 
 // on submit 
 
@@ -82,44 +147,3 @@
 //     })
 //   }
 
-
-// Ajax
-
-
-
-
-//login 
-$('#formLogin'). on ('submit', function (e) {
-    e.preventDefault();
-    console.log('hi');
-})
-
-// signup page
-$('#formSignUp'). on ('submit', function (e) {
-    e.preventDefault();
-    var newUser = {
-        name: $('#signUpName').val(),
-        email: $('#signUpEmail').val(),
-        password: $('#signUpPassword').val(),
-    }
-    console.log(newUser);
-    
-    $.ajax({
-        method: 'POST',
-        url:'/api/signup',
-        data:newUser,
-        success:signUpSuccess,
-        error: handleError
-    });
-});
-
-function signUpSuccess (json) {
-    console.log(json);
-    window.location.pathname = '/map'
-}
-
-
-///Error
-function handleError(e) {
-    console.log('error', e);
-};
