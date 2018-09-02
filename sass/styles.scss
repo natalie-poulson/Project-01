@@ -142,3 +142,70 @@ nav {
 #heritageSubmit {
     margin: 0 auto;
 }
+
+// about and contact
+
+#parallax1 {
+    background-image: url('../images/vesuvio.jpg');
+    min-height: 75%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax2 {
+    background-image: url('../images/its_tops.jpg');
+    min-height: 75%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#parallax3 {
+    background-image: url('../images/vesuvio.jpg');
+    min-height: 75%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+#formContact {
+    padding: 20px;
+    font-size: 1.25em;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.75em;
+}
+
+p {
+    font-size: 1.25em;
+}
