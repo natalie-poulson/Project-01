@@ -20,7 +20,7 @@
     <main>
         <h1>PROJECT ZERO ONE</h1>
 
-        <form id="formLogin" autocomplete="off" method="GET" action="/map">   
+        <form id="formLogin" autocomplete="off">   
             <input type="text" class="login" id="loginName" name="name" placeholder="USERNAME">
             <input type="text" class="login" id="loginPassword" name="password" placeholder="PASSWORD"> 
             <input type="submit" class="login" id="loginSubmit" value="SUBMIT">
@@ -40,16 +40,16 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                    <form id="formSignUp" autocomplete="off" method="POST" action="/map">
+                <form id="formSignUp" autocomplete="off" method="POST" action="/signup">
+                    <div class="modal-body">
                         <input type="text" class="signUp" id="signUpName" name="name" placeholder="USERNAME">
                         <input type="text" class="signUp" id="signUpEmail" name="email" placeholder="EMAIL ADDRESS">
                         <input type="text" class="signUp" id="signUpPassword" name="password" placeholder="PASSWORD">
-                    </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary">Submit</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="signUpSubmit" type="submit" class="btn btn-secondary">Submit</button>
+                    </div>
+                </form>
               </div>
             </div>
           </div>
