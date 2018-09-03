@@ -56,13 +56,13 @@ $('#legacyForm').on('submit', function (e) {
         lat: lat,
         lon: lon
     }
-    console.log(newLegacy);
+    console.log(newLegacy)
     $.ajax({
         method: 'POST',
         url:'/api/legacy',
         data:newLegacy,
         success: newLegacySuccess,
-        error: handleError
+        error: newLegacyError
     });
     $('#exampleModalCenter').modal('toggle'); //or  $('#IDModal').modal('hide');
     return false
@@ -134,6 +134,18 @@ $.ajax({
         var legacy = json;
         var popupContent = legacy.name;
         L.marker([legacy.coordinates[0], legacy.coordinates[1]]).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
+    }
+
+    function newLegacyError (json) {
+        console.log(json)
+        // $('.modal-body input').each(function () {
+        //     if ( $(this).val().length === 0) {
+        //         $(this).siblings().fadeIn(1000);
+        //     }
+        //     if ( $(this).val().length !== 0) {
+        //         $(this).siblings().fadeOut(200);
+        //     }
+        // });
     }
 
 ///Error

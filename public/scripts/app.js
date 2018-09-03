@@ -83,6 +83,10 @@ function handleError(e) {
     console.log('error', e);
 };
 
+//logout
+$('#logout').on ('click', function () {
+    window.location.pathname = '/'
+})
 
 // on submit 
 

@@ -56,12 +56,18 @@
                     <div class="modal-body">
                         <p>SUBMIT A LEGACY</p>
                         <p>Add your favorite San Francisco bar or restaurant to the map</p>
-                        <input type="text" class="signUp" id="legacyName" name="name" placeholder="Name of bar or restaurant">
+                        <div>
+                            <input type="text" class="signUp" id="legacyName" name="name" placeholder="Name of bar or restaurant">
                             <p class="error-message">Please enter a name</p>
-                        <input type="text" class="signUp" id="legacyAddress" name="address" placeholder="Address">
-                            <p class="error-message">Please enter an address.</p>
-                        <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established">
-                            <p class="error-message">Please enter an approximate year</p>
+                        </div>
+                        <div>
+                            <input type="text" class="signUp" id="legacyAddress" name="address" placeholder="Address">
+                            <p class="error-message">Please enter an address</p>
+                        </div>
+                        <div>
+                            <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established">
+                            <p class="error-message">Please enter an approximate year this business was established</p>
+                        </div>       
                     </div>
                     <div class="modal-footer">
                         <button id="legacySubmit" type="submit" class="btn btn-secondary">Submit</button>
@@ -75,7 +81,7 @@
     <footer>
         <a href="about.html#a1">About Us</a>
         <a href="about.html#a2">Contact</a>
-        <p>logout</p>
+        <button id="logout" type="button">Logout</button>
     </footer>
 
 </body>
