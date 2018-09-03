@@ -37,6 +37,7 @@
         <form id="legacySearchForm">    
             <div id="searchBox">
                 <input type="text" name="addr" value="" id="search" size="10">
+                <p class="error-message">Please enter a place or address</p>
                 <button type="button" onclick="addr_search();">Search</button>
                     <div id="results"></div>
             </div>
@@ -56,8 +57,11 @@
                         <p>SUBMIT A LEGACY</p>
                         <p>Add your favorite San Francisco bar or restaurant to the map</p>
                         <input type="text" class="signUp" id="legacyName" name="name" placeholder="Name of bar or restaurant">
+                            <p class="error-message">Please enter a name</p>
                         <input type="text" class="signUp" id="legacyAddress" name="address" placeholder="Address">
+                            <p class="error-message">Please enter an address.</p>
                         <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established">
+                            <p class="error-message">Please enter an approximate year</p>
                     </div>
                     <div class="modal-footer">
                         <button id="legacySubmit" type="submit" class="btn btn-secondary">Submit</button>

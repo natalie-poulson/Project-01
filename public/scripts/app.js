@@ -3,7 +3,7 @@
 //login 
 $('#formLogin'). on ('submit', function (e) {
     e.preventDefault();
-    console.log('hi');
+    console.log($(this))   
     var user = {
         email:$('#loginEmail').val(),
         password: $('#loginPassword').val()
@@ -42,15 +42,24 @@ function signUpSuccess (json) {
 
 function signUpError (json) {
     console.log (json)
+    if ( $('#formSignUp input').val() === '') {
+        $('#formSignUp input').addClass('error');
+        $('#formSignUp input').siblings('.error-message').fadeIn();
+        return;
+    }
 }
+
 
 function loginSuccess (json) {
     console.log(json)
-    window.location.pathname = '/map'
+    $('main p').first('.error-message').fadeOut();
+    setTimeout(function () {
+        window.location.pathname = '/map';}, 400);
 }
 
 function loginError (json) {
     console.log(json)
+    $('main p').first().addClass('.error-message').fadeIn();
 }
 
 function signUpSuccess (json) {

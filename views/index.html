@@ -19,8 +19,8 @@
 <body>
     <main>
         <h1>PROJECT ZERO ONE</h1>
-
-        <form id="formLogin" autocomplete="off">   
+        <p class="error-message">Incorrect Email or Password.</p>  
+        <form id="formLogin" autocomplete="off"> 
             <input type="text" class="login" id="loginEmail" name="email" placeholder="Email">
             <input type="password" class="login" id="loginPassword" name="password" placeholder="Password"> 
             <input type="submit" class="login" id="loginSubmit" value="Login">
@@ -44,8 +44,11 @@
                     <div class="modal-body">
                         <p>Create an account</p>
                         <input type="text" class="signUp" id="signUpName" name="name" placeholder="Name">
+                            <p class="error-message">Please enter your name.</p>
                         <input type="text" class="signUp" id="signUpEmail" name="email" placeholder="Email Address">
+                            <p class="error-message">Please enter an email address.</p>
                         <input type="password" class="signUp" id="signUpPassword" name="password" placeholder="Password">
+                            <p class="error-message">Please enter an password.</p>
                     </div>
                     <div class="modal-footer">
                         <button id="signUpSubmit" type="submit" class="btn btn-secondary">Submit</button>
