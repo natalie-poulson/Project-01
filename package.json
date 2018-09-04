@@ -4,10 +4,12 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "@google/maps": "^0.5.5",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
+    "leaflet-google-places-autocomplete": "0.0.8",
     "mongoose": "^5.2.10",
     "nodemon": "^1.18.4"
   },
