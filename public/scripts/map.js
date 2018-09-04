@@ -18,7 +18,7 @@ if (navigator.geolocation) {
     var hereIcon = L.icon({
         iconUrl: './images/here.png',
         iconSize: [40, 45],
-        iconAnchor: [55, 70]
+        // iconAnchor: [55, 70]
     })
 
     map.locate({setView: true, maxZoom: 16});
@@ -239,7 +239,7 @@ if (navigator.geolocation) {
                 method: 'POST',
                 url:'/api/legacy',
                 data:newLegacy,
-                success: newLegacySuccess,
+                success: handleLegacySuccess,
                 error: newLegacyError
             });
             $('#exampleModalCenter').modal('toggle'); //or  $('#IDModal').modal('hide');
@@ -317,39 +317,67 @@ $.ajax({
     error: handleError
 });
 
-    var heritageIcon = L.icon({
+    let heritageIcon = L.icon({
         iconUrl: './images/heritage.png',
         iconSize: [40, 45],
         iconAnchor: [20, 40]
     })
 
+    let heritageItems = [];
     function handleHeritageSuccess (json) {
         // add heritage restaurant markers to map
-        var heritageArray = json.data;
+        let heritageArray = json.data;
         $.each(heritageArray, function () {
-            var popupContent = this.name;
-            L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+            let popupContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
+            L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+            heritageItems.push(popupContent)
         })
+        $('#list').on('click', function() {
+            for(let i = 0; i < heritageItems.length; i++) {
+                $('#heritageList').append("<li>"+ heritageItems[i]+ "</li>");}
+                $('#heritageList').show();
+                $('#map').hide();
+            })
+        $('#mapToggle').on('click', function () {
+            $('#map').show();
+            $('#heritageList').hide();
+        })    
+
     };
 
-    var legacyIcon = L.icon({
+    let legacyIcon = L.icon({
         iconUrl: './images/legacy.png',
         iconSize: [40, 45],
         iconAnchor: [20, 40]
     })
 
+    let legacyItems = [];
     function handleLegacySuccess (json) {
-        var legacyArray = json.data;
+        let legacyArray = json.data;
         $.each(legacyArray, function () {
-            L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+            let legacyContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
+            L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+            legacyItems.push(legacyContent)
         })
+        console.log(legacyItems)
+
+        $('#list').on('click', function() {
+            for(let i = 0; i < legacyItems.length; i++) {
+                $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
+                $('#heritageList').show();
+                $('#map').hide();
+            })
+        $('#mapToggle').on('click', function () {
+            $('#map').show();
+            $('#heritageList').hide();
+        })   
     };
     
-    function newLegacySuccess (json) {
-        var legacy = json;
-        var popupContent = legacy.name;
-        L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
-    }
+    // function newLegacySuccess (json) {
+    //     var legacy = json;
+    //     var popupContent = legacy.name;
+    //     L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>Est. ${legacy.yearOpened}</p>`).openPopup().addTo(map);
+    // }
 
     function newLegacyError (json) {
         console.log(json)
@@ -362,6 +390,8 @@ $.ajax({
         //     }
         // });
     }
+
+
 
 ///Error
 function handleError(e) {

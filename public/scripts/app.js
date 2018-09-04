@@ -88,6 +88,7 @@ $('#logout').on ('click', function () {
     window.location.pathname = '/'
 })
 
+
 // on submit 
 
 // localStorage.length > 0 ? console.log(localStorage) : console.log('no local storage');
