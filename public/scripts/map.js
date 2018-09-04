@@ -92,7 +92,7 @@ $('#legacyForm').on('submit', function (e) {
         var location = new L.LatLng(lat, lng);
         // console.log(location);
         map.panTo(location) 
-        L.marker(location).addTo(map);
+        L.marker(location, {icon: legacyIcon}).addTo(map);
 
         if (type == 'city' || type == 'administrative') {
         map.setZoom(13);
@@ -156,7 +156,7 @@ $.ajax({
     function newLegacySuccess (json) {
         var legacy = json;
         var popupContent = legacy.name;
-        L.marker([legacy.coordinates[0], legacy.coordinates[1]]).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
+        L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
     }
 
     function newLegacyError (json) {
