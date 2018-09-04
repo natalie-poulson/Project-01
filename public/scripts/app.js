@@ -25,7 +25,7 @@ $('#formSignUp'). on ('submit', function (e) {
         email: $('#signUpEmail').val(),
         password: $('#signUpPassword').val(),
     }
-    console.log(newUser);
+    // console.log(newUser);
     
     $.ajax({
         method: 'POST',
@@ -37,7 +37,6 @@ $('#formSignUp'). on ('submit', function (e) {
 });
 
 function signUpError (json) {
-    console.log (json)
     $('#formSignUp input').each(function () {
     if ( $(this).val().length === 0) {
         $(this).siblings().fadeIn(1000);
@@ -47,15 +46,14 @@ function signUpError (json) {
         $(this).siblings().fadeOut(200);
         return;
     }
-    if ($(this).attr('type') === 'email') {
-        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var isValidEmailAddress = re.test($(this).val());
-        if (!isValidEmailAddress) {
-            $(this).siblings('.error-message').text('Please enter a valid email address.').fadeIn(1000);
-            return;
-        }
-    }
 });
+    if (json.status === 500){
+        $('#emailValidation').fadeIn().text('Please enter a valid email address.');
+    }
+    if (json.status === 409){
+        $('#duplicateMessage').fadeOut();
+        $('#duplicateMessage').fadeIn();
+    }
 };
 
 function loginSuccess (json) {
@@ -76,6 +74,8 @@ function signUpSuccess (json) {
     $('.modal-body .error-message').fadeOut(500);
     setTimeout(function() { alert("User created. Thanks for creating an account with us."); }, 1000);
     setTimeout(function () {window.location.pathname = '/map';}, 1500);
+    
+
 }
 
 ///Error

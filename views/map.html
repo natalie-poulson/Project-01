@@ -50,8 +50,14 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <form id="legacyForm" autocomplete="off" method="POST" action="/map">
-                    <input id="pac-input" class="contorls" type="text"  placeholder="Start typing bar or restaurant here">
-                    <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established">
+                    <div>
+                        <input id="pac-input" class="contorls" type="text"  placeholder="Start typing bar or restaurant here">
+                        <p class="error-message">Please enter a bar or restaurant</p>
+                    </div>
+                    <div>
+                        <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established">
+                        <p class="error-message">Please enter an approx year this business was established</p>
+                    </div>
 
                     <input type="hidden" id="legacyName" name="city2" />
                     <input type="hidden" id="legacyAddress" name="city2" />
