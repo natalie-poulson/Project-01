@@ -258,11 +258,31 @@ if (navigator.geolocation) {
 //         }
 });
 
-//     function chooseAddr(lat, lng, type) {
-//         var location = new L.LatLng(lat, lng);
-//         // console.log(location);
-//         map.panTo(location) 
-//         L.marker(location).addTo(map);
+        $('#results').empty();
+        if (items.length != 0) {
+            console.log(items);
+        $('<p>', { html: "Search results:" }).appendTo('#results');
+        $('<ul/>', {
+            'class': 'my-new-list',
+            html: items.join('')
+        }).appendTo('#results');
+        } else {
+        $('<p>', { html: "No results found" }).appendTo('#results');
+        }
+    });
+}
+
+    function chooseAddr(lat, lng, type) {
+        var location = new L.LatLng(lat, lng);
+        // console.log(location);
+        map.panTo(location) 
+        L.marker(location, {icon: legacyIcon}).addTo(map);
+
+        if (type == 'city' || type == 'administrative') {
+        map.setZoom(13);
+        } else {
+        map.setZoom(18);
+        }
 
 //         if (type == 'city' || type == 'administrative') {
 //         map.setZoom(13);
@@ -326,7 +346,7 @@ $.ajax({
     function newLegacySuccess (json) {
         var legacy = json;
         var popupContent = legacy.name;
-        L.marker([legacy.coordinates[0], legacy.coordinates[1]]).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>Est.${legacy.yearOpened}</p>`).addTo(map).openPopup();
+        L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).openPopup().addTo(map);
     }
 
     function newLegacyError (json) {
@@ -344,7 +364,4 @@ $.ajax({
 ///Error
 function handleError(e) {
     console.log('error', e);
-};
-
-
-
+}
