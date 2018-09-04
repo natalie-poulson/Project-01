@@ -74,7 +74,7 @@ function loginError (json) {
 function signUpSuccess (json) {
     console.log(json);
     $('.modal-body .error-message').fadeOut(500);
-    setTimeout(function() { alert("Thank you for creating an account with us"); }, 1000);
+    setTimeout(function() { alert("User created. Thanks for creating an account with us."); }, 1000);
     setTimeout(function () {window.location.pathname = '/map';}, 1500);
 }
 
