@@ -17,7 +17,8 @@ if (navigator.geolocation) {
     function load_map() {
     var hereIcon = L.icon({
         iconUrl: './images/here.png',
-        iconSize: [40, 45]
+        iconSize: [40, 45],
+        iconAnchor: [55, 70]
     })
 
     map.locate({setView: true, maxZoom: 16});
@@ -258,31 +259,31 @@ if (navigator.geolocation) {
 //         }
 });
 
-        $('#results').empty();
-        if (items.length != 0) {
-            console.log(items);
-        $('<p>', { html: "Search results:" }).appendTo('#results');
-        $('<ul/>', {
-            'class': 'my-new-list',
-            html: items.join('')
-        }).appendTo('#results');
-        } else {
-        $('<p>', { html: "No results found" }).appendTo('#results');
-        }
-    });
-}
+//         $('#results').empty();
+//         if (items.length != 0) {
+//             console.log(items);
+//         $('<p>', { html: "Search results:" }).appendTo('#results');
+//         $('<ul/>', {
+//             'class': 'my-new-list',
+//             html: items.join('')
+//         }).appendTo('#results');
+//         } else {
+//         $('<p>', { html: "No results found" }).appendTo('#results');
+//         }
+//     });
+// }
 
-    function chooseAddr(lat, lng, type) {
-        var location = new L.LatLng(lat, lng);
-        // console.log(location);
-        map.panTo(location) 
-        L.marker(location, {icon: legacyIcon}).addTo(map);
+    // function chooseAddr(lat, lng, type) {
+    //     var location = new L.LatLng(lat, lng);
+    //     // console.log(location);
+    //     map.panTo(location) 
+    //     L.marker(location, {icon: legacyIcon}).addTo(map);
 
-        if (type == 'city' || type == 'administrative') {
-        map.setZoom(13);
-        } else {
-        map.setZoom(18);
-        }
+    //     if (type == 'city' || type == 'administrative') {
+    //     map.setZoom(13);
+    //     } else {
+    //     map.setZoom(18);
+    //     }
 
 //         if (type == 'city' || type == 'administrative') {
 //         map.setZoom(13);
@@ -319,7 +320,7 @@ $.ajax({
     var heritageIcon = L.icon({
         iconUrl: './images/heritage.png',
         iconSize: [40, 45],
-
+        iconAnchor: [20, 40]
     })
 
     function handleHeritageSuccess (json) {
@@ -333,7 +334,8 @@ $.ajax({
 
     var legacyIcon = L.icon({
         iconUrl: './images/legacy.png',
-        iconSize: [40, 45]
+        iconSize: [40, 45],
+        iconAnchor: [20, 40]
     })
 
     function handleLegacySuccess (json) {
