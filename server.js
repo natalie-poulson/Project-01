@@ -248,14 +248,12 @@ app.get('/api/heritage', (req, res) => {
 
 //Create a new legacy
 app.post('/api/legacy' , (req,res) => {
-  //grab what the user entered in the body
-  // console.log(req.body.coordinates);
-  let newLegacy = req.body;
-  console.log(newLegacy)
-  newLegacy.coordinates = [parseFloat(req.body.lat),parseFloat(req.body.lon)]
-  console.log(newLegacy)
-  //take the req body and create a new legacy in the db
-// res.json(newLegacy)
+  let newLegacy = {
+      name: req.body.name,
+      address: req.body.address,
+      yearOpened: req.body.yearOpened,
+      coordinates: [parseFloat(req.body.lat),parseFloat(req.body.lon)]
+  }
   db.Legacy.create( newLegacy, (err,savedLegacy) => {
     if(err) {return console.log(err)};
     res.json(savedLegacy);

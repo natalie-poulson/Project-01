@@ -3,7 +3,7 @@
 //login 
 $('#formLogin'). on ('submit', function (e) {
     e.preventDefault();
-    console.log('hi');
+    console.log($(this))   
     var user = {
         email:$('#loginEmail').val(),
         password: $('#loginPassword').val()
@@ -36,34 +36,57 @@ $('#formSignUp'). on ('submit', function (e) {
     });
 });
 
-function signUpSuccess (json) {
-    console.log(json)
-}
-
 function signUpError (json) {
     console.log (json)
-}
+    $('#formSignUp input').each(function () {
+    if ( $(this).val().length === 0) {
+        $(this).siblings().fadeIn(1000);
+        return;
+    }
+    if ( $(this).val().length !== 0) {
+        $(this).siblings().fadeOut(200);
+        return;
+    }
+    if ($(this).attr('type') === 'email') {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var isValidEmailAddress = re.test($(this).val());
+        if (!isValidEmailAddress) {
+            $(this).siblings('.error-message').text('Please enter a valid email address.').fadeIn(1000);
+            return;
+        }
+    }
+});
+};
 
 function loginSuccess (json) {
     console.log(json)
-    window.location.pathname = '/map'
-}
+    $('main p').first('.error-message').fadeOut();
+    setTimeout(function () {
+        window.location.pathname = '/map';}, 500);
+}   
 
 function loginError (json) {
     console.log(json)
+    $('main p').first('.error-message').fadeOut(200);
+    $('main p').first('.error-message').fadeIn(500);
 }
 
 function signUpSuccess (json) {
     console.log(json);
-    window.location.pathname = '/map'
+    $('.modal-body .error-message').fadeOut(500);
+    setTimeout(function() { alert("User created. Thanks for creating an account with us."); }, 1000);
+    setTimeout(function () {window.location.pathname = '/map';}, 1500);
 }
-
 
 ///Error
 function handleError(e) {
     console.log('error', e);
 };
 
+//logout
+$('#logout').on ('click', function () {
+    window.location.pathname = '/'
+})
 
 // on submit 
 

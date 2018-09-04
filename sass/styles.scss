@@ -244,3 +244,16 @@ h3 {
 p {
     font-size: 1.25em;
 }
+
+// nat added
+.error-message {
+	margin: -8px 0 12px;
+  text-align: left;
+  font-size: .9rem;
+  color: #ED5254;
+  display: none;
+}
+
+.error {
+	border: 2px solid #ED5254;
+}
