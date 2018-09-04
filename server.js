@@ -29,7 +29,11 @@ app.get('/map', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.sendFile(__dirname + '/views/about.html#a1');
+  res.sendFile(__dirname + '/views/about.html');
+})
+
+app.get('/contact', (req, res) => {
+  res.sendFile(__dirname + '/views/about.html');
 })
 
 //JSON API Endpoints

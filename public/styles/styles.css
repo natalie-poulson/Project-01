@@ -178,6 +178,12 @@ nav {
   margin-left: 75px;
 }
 
+.my-new-list {
+  color: #000000;
+  background-color: rgba(100, 100, 100, 0.4);
+  font-style: italic;
+}
+
 #search {
   width: 50%;
 }

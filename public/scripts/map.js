@@ -94,6 +94,13 @@ $('#legacyForm').on('submit', function (e) {
         } else {
         map.setZoom(18);
         }
+
+        $('#results').on('click', function() {
+            $('#results').hide();
+        })
+        $('#searchBtn').on('click', function() {
+            $('#results').show();
+        })
     } 
 
     window.onload = load_map;

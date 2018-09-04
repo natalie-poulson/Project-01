@@ -5,6 +5,11 @@ let userList = [
     name: "Natalie",
     email: "natalieplsn@gmail.com",
     password: "cowboys"
+    },
+    {
+    name: "Alan",
+    email: "a386226@gmail.com",
+    password: "niners"
     }
 ]
 
@@ -59,19 +64,19 @@ let heritageList = [
     coordinates: [37.763304,-122.4007997]
     }, 
     { 
-    name: "Art’s Café",
+    name: "<a href='https://www.yelp.com/biz/arts-cafe-san-francisco' target='_blank'>Art’s Café</a>",
     address: "747 Irving Street, San Francisco, CA 94122",
     yearOpened: "1950s",
     coordinates: [37.763933,-122.4660473]
     }, 
     { 
-    name: "Aub Zam Zam",
+    name: "<a href='https://www.yelp.com/biz/zam-zam-san-francisco' target='_blank'>Aub Zam Zam</a>",
     address: "1633 Haight Street, San Francisco, CA 94117",
     yearOpened: "1942",
     coordinates: [37.769619,-122.449291]
     }, 
     { 
-    name: "Balboa Café",
+    name: "<a href='http://www.balboacafe.com/san-francisco/' target='_blank'>Balboa Café</a>",
     address: "3199 Fillmore Street, San Francisco, CA 94123",
     yearOpened: "1913",
     coordinates: [37.7988167,-122.4360935]
@@ -89,7 +94,7 @@ let heritageList = [
     coordinates: [37.7863576,-122.4302457]
     }, 
     { 
-    name: "Bill’s Place",
+    name: "<a href='https://www.yelp.com/biz/bills-place-san-francisco' target='_blank'>Bill’s Place</a>",
     address: "2315 Clement Street, San Francisco, CA 94121",
     yearOpened: "1960",
     coordinates: [37.7818522,-122.4841716]
@@ -167,7 +172,7 @@ let heritageList = [
     coordinates: [37.8082114,-122.4175701]
     }, 
     { 
-    name: "Cha Cha Cha/Original McCarthy’s",
+    name: "<a href='http://chachachasf.com/' target='_blank'>Cha Cha Cha/Original McCarthy’s</a>",
     address: "2327 Mission Street, San Francisco, CA 94110",
     yearOpened: "1933",
     coordinates: [37.7597878,-122.4189638]
@@ -185,7 +190,7 @@ let heritageList = [
     coordinates: [37.7969298,-122.4055622]
     }, 
     { 
-    name: "<a href='' target='_blank'>Cordon Bleu Vietnamese Restaurant</a>",
+    name: "<a href='https://www.yelp.com/biz/cordon-bleu-san-francisco' target='_blank'>Cordon Bleu Vietnamese Restaurant</a>",
     address: "1574 California Street, San Francisco, CA 94109",
     yearOpened: "1968",
     coordinates: [37.7908834,-122.4202168]
@@ -209,7 +214,7 @@ let heritageList = [
     coordinates: [37.772882,-122.4150134]
     }, 
     { 
-    name: "<a href='' target='_blank'>Double Play</a>",
+    name: "<a href='https://www.yelp.com/biz/double-play-bar-and-grill-san-francisco' target='_blank'>Double Play</a>",
     address: "2401 16th Street, San Francisco, CA 94103",
     yearOpened: "1909",
     coordinates: [37.7654995,-122.4106267]
@@ -221,7 +226,7 @@ let heritageList = [
     coordinates: [37.8087731,-122.4103237]
     }, 
     { 
-    name: "<a href='' target='_blank'>Edinburgh Castle Pub</a>",
+    name: "<a href='https://www.yelp.com/biz/edinburgh-castle-pub-san-francisco-2' target='_blank'>Edinburgh Castle Pub</a>",
     address: "950 Geary Street, San Francisco, CA 94109",
     yearOpened: "1960s",
     coordinates: [37.7861924,-122.4189859]
@@ -389,7 +394,7 @@ let heritageList = [
     coordinates: [37.7678869,-122.4528942]
     }, 
     { 
-    name: "<a href='' target='_blank'>La Rocca’s Corner</a>",
+    name: "<a href='https://www.yelp.com/biz/la-roccas-corner-san-francisco' target='_blank'>La Rocca’s Corner</a>",
     address: "957 Columbus Avenue, San Francisco, CA 94133",
     yearOpened: "1930s",
     coordinates: [37.8031815,-122.4146277]
@@ -407,7 +412,7 @@ let heritageList = [
     coordinates: [37.7904658,-122.4050258]
     }, 
     { 
-    name: "<a href='' target='_blank'>Liguria Bakery</a>",
+    name: "<a href='https://www.yelp.com/biz/liguria-bakery-san-francisco' target='_blank'>Liguria Bakery</a>",
     address: "1700 Stockton Street, San Francisco, CA 94133",
     yearOpened: "1911",
     coordinates: [37.8015477,-122.4092596]
@@ -419,7 +424,7 @@ let heritageList = [
     coordinates: [37.7954238,-122.4064344]
     }, 
     { 
-    name: "<a href='' target='_blank'>Little Shamrock</a>",
+    name: "<a href='https://www.yelp.com/biz/the-little-shamrock-san-francisco' target='_blank'>Little Shamrock</a>",
     address: "807 Lincoln Way, San Francisco, CA 94122",
     yearOpened: "1890s",
     coordinates: [37.7656707,-122.4667374]
@@ -431,13 +436,13 @@ let heritageList = [
     coordinates: [37.8006904,-122.4383892]
     }, 
     { 
-    name: "<a href='' target='_blank'>Mario’s Bohemian Cigar Store Café</a>",
+    name: "<a href='https://www.yelp.com/biz/marios-bohemian-cigar-store-cafe-san-francisco' target='_blank'>Mario’s Bohemian Cigar Store Café</a>",
     address: "566 Columbus Ave, San Francisco, CA 94133",
     yearOpened: "1971",
     coordinates: [37.8002499,-122.4097803]
     }, 
     { 
-    name: "<a href='' target='_blank'>Mauna Loa</a>",
+    name: "<a href='https://www.yelp.com/biz/mauna-loa-club-san-francisco' target='_blank'>Mauna Loa</a>",
     address: "3009 Fillmore Street, San Francisco, CA 94123",
     yearOpened: "1939",
     coordinates: [37.7973143,-122.4357177]
@@ -449,19 +454,19 @@ let heritageList = [
     coordinates: [37.7440901,-122.4228578]
     }, 
     { 
-    name: "<a href='' target='_blank'>Mr. Bing’s</a>",
+    name: "<a href='https://www.yelp.com/biz/mr-bings-san-francisco' target='_blank'>Mr. Bing’s</a>",
     address: "201 Columbus Avenue, San Francisco, CA 94133",
     yearOpened: "1967",
     coordinates: [37.7971443,-122.4059188]
     }, 
     { 
-    name: "<a href='' target='_blank'>Murio’s Trophy Room</a>",
+    name: "<a href='https://www.yelp.com/biz/murios-trophy-room-san-francisco' target='_blank'>Murio’s Trophy Room</a>",
     address: "1811 Haight Street, San Francisco, CA 94117",
     yearOpened: "1959",
     coordinates: [37.7691469,-122.4521865]
     }, 
     { 
-    name: "<a href='' target='_blank'>Northstar Café</a>",
+    name: "<a href='https://www.yelp.com/biz/northstar-cafe-san-francisco' target='_blank'>Northstar Café</a>",
     address: "1560 Powell Street, San Francisco, CA 94133",
     yearOpened: "1882",
     coordinates: [37.7992211,-122.4104132]
@@ -503,7 +508,7 @@ let heritageList = [
     coordinates: [37.7978273,-122.4313074]
     }, 
     { 
-    name: "<a href='' target='_blank'>Philosopher’s Club</a>",
+    name: "<a href='https://www.yelp.com/biz/philosophers-club-san-francisco' target='_blank'>Philosopher’s Club</a>",
     address: "824 Ulloa Street, San Francisco, CA 94127",
     yearOpened: "1960",
     coordinates: [37.7408929,-122.4653664]
@@ -527,13 +532,13 @@ let heritageList = [
     coordinates: [37.7641345,-122.4220234]
     }, 
     { 
-    name: "<a href='' target='_blank'>Red’s Java House</a>",
+    name: "<a href='http://www.redsjavahouse.com/' target='_blank'>Red’s Java House</a>",
     address: "Pier 30, The Embarcadero, San Francisco, CA 94105",
     yearOpened: "1930s",
     coordinates: [37.7872246,-122.3877934]
     }, 
     { 
-    name: "<a href='http://www.redsjavahouse.com/' target='_blank'>Red’s Place</a>",
+    name: "<a href='https://www.yelp.com/biz/reds-place-san-francisco' target='_blank'>Red’s Place</a>",
     address: "672 Jackson Street, San Francisco, CA 94108",
     yearOpened: "1940s",
     coordinates: [37.79615,-122.406447]
@@ -569,7 +574,7 @@ let heritageList = [
     coordinates: [37.7410475,-122.3888398]
     }, 
     { 
-    name: "<a href='' target='_blank'>Sam’s Pizza and Burgers</a>",
+    name: "<a href='https://www.yelp.com/biz/sams-san-francisco' target='_blank'>Sam’s Pizza and Burgers</a>",
     address: "618 Broadway, San Francisco, CA 94133",
     yearOpened: "1966",
     coordinates: [37.7979623,-122.4074263]
@@ -581,7 +586,7 @@ let heritageList = [
     coordinates: [37.7605183,-122.4346253]
     }, 
     { 
-    name: "<a href='' target='_blank'>Savoy Tivoli</a>",
+    name: "<a href='https://www.yelp.com/biz/savoy-tivoli-san-francisco-2' target='_blank'>Savoy Tivoli</a>",
     address: "1434 Grant Avenue, San Francisco, CA 94133",
     yearOpened: "1907",
     coordinates: [37.8002402,-122.407371]
@@ -617,13 +622,13 @@ let heritageList = [
     coordinates: [37.75874,-122.4156501]
     }, 
     { 
-    name: "<a href='' target='_blank'>Silver Crest Donut Shop</a>",
+    name: "<a href='https://www.yelp.com/biz/silver-crest-donut-shop-san-francisco' target='_blank'>Silver Crest Donut Shop</a>",
     address: "340 Bayshore Boulevard, San Francisco, CA 94124",
     yearOpened: "1970",
     coordinates: [37.7423314,-122.4061541]
     }, 
     { 
-    name: "<a href='' target='_blank'>Spec’s Twelve Adler Museum Café</a>",
+    name: "<a href='https://www.yelp.com/biz/specs-twelve-adler-museum-cafe-san-francisco-2' target='_blank'>Spec’s Twelve Adler Museum Café</a>",
     address: "12 Saroyan Place, San Francisco, CA 94133",
     yearOpened: "1968",
     coordinates: [37.7976098,-122.4059625]
@@ -677,7 +682,7 @@ let heritageList = [
     coordinates: [37.7772436,-122.4037707]
     }, 
     { 
-    name: "<a href='' target='_blank'>The Hearth</a>",
+    name: "<a href='https://www.yelp.com/biz/the-hearth-san-francisco' target='_blank'>The Hearth</a>",
     address: "4701 Geary Boulevard, San Francisco, CA 94118",
     yearOpened: "1967",
     coordinates: [37.7804951,-122.4698331]
@@ -755,7 +760,7 @@ let heritageList = [
     coordinates: [37.7915187,-122.4101366]
     }, 
     { 
-    name: "<a href='' target='_blank'>Trad’r Sam</a>",
+    name: "<a href='https://www.yelp.com/biz/tradr-sam-san-francisco-2' target='_blank'>Trad’r Sam</a>",
     address: "6150 Geary Boulevard, San Francisco, CA 94121",
     yearOpened: "1937",
     coordinates: [37.7803547,-122.4856197]
@@ -767,7 +772,7 @@ let heritageList = [
     coordinates: [37.7622826,-122.4349365]
     }, 
     { 
-    name: "<a href='' target='_blank'>Uptown</a>",
+    name: "<a href='https://www.yelp.com/biz/uptown-san-francisco' target='_blank'>Uptown</a>",
     address: "200 Capp Street, San Francisco, CA 94110",
     yearOpened: "1909",
     coordinates: [37.7631901,-122.4186065]
@@ -779,7 +784,7 @@ let heritageList = [
     coordinates: [37.7974835,-122.4065082]
     }, 
     { 
-    name: "<a href='' target='_blank'>Whiz Burger</a>",
+    name: "<a href='https://www.yelp.com/biz/whiz-burgers-drive-in-san-francisco' target='_blank'>Whiz Burger</a>",
     address: "700 South Van Ness Avenue, San Francisco, CA 94110",
     yearOpened: "1955",
     coordinates: [37.761814,-122.4174595]
@@ -827,7 +832,7 @@ let heritageList = [
     coordinates: [37.7771762,-122.4218286]
     }, 
     { 
-    name: "<a href='' target='_blank'>Orphan Andy’s</a>",
+    name: "<a href='https://www.yelp.com/biz/orphan-andys-san-francisco' target='_blank'>Orphan Andy’s</a>",
     address: "3991 17th Street, San Francisco, CA 94114",
     yearOpened: "1977",
     coordinates: [37.762326,-122.4348896]
