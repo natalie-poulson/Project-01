@@ -15,10 +15,15 @@ if (navigator.geolocation) {
     });
 
     function load_map() {
+    var hereIcon = L.icon({
+        iconUrl: './images/here.png',
+        iconSize: [40, 45]
+    })
+
     map.locate({setView: true, maxZoom: 16});
     function onLocationFound(e) {
         var radius = e.accuracy / 2;
-        L.marker(e.latlng).addTo(map)
+        L.marker(e.latlng, {icon: hereIcon}).addTo(map)
         .bindPopup("You are here").openPopup();
         }
     map.on('locationfound', onLocationFound);
@@ -291,19 +296,30 @@ $.ajax({
     error: handleError
 });
 
+    var heritageIcon = L.icon({
+        iconUrl: './images/heritage.png',
+        iconSize: [40, 45],
+
+    })
+
     function handleHeritageSuccess (json) {
         // add heritage restaurant markers to map
         var heritageArray = json.data;
         $.each(heritageArray, function () {
             var popupContent = this.name;
-            L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+            L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
         })
     };
+
+    var legacyIcon = L.icon({
+        iconUrl: './images/legacy.png',
+        iconSize: [40, 45]
+    })
 
     function handleLegacySuccess (json) {
         var legacyArray = json.data;
         $.each(legacyArray, function () {
-            L.marker([this.coordinates[0], this.coordinates[1]]).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+            L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
         })
     };
     
