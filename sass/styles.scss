@@ -7,6 +7,7 @@ body {
     max-width: 1200px;
     display: flex;
     flex-direction: column;
+    font-family: 'EB Garamond', serif;
 }
 
 main {
@@ -22,8 +23,16 @@ main {
 
 h1 {
     font-size: 3em;
-    margin-bottom: 3%;
+    // margin-bottom: 3%;
     font-weight: bold;
+    color: #FFFFFF;
+}
+
+main h4 {
+    color: #27251F;
+    text-align: center;
+    margin: 2%;
+    font-size: 1.25em;
     color: #FFFFFF;
 }
 
@@ -109,6 +118,13 @@ h2 {
     text-align: center;
 }
 
+h4 {
+    color: #27251F;
+    text-align: center;
+    font-size: 1.25em;
+    margin: 1%;
+}
+
 nav {
     background: #FD5A1E;
     border-top: 2.5px solid #27251F;
@@ -132,14 +148,14 @@ nav {
     background: #27251F;
 }
 
-#legacySearch {
-    background: transparent;
-    position: fixed;
-    z-index: 1;
-    width: 50%;
-    margin-top: 100px;
-    margin-left: 75px;
-}
+// #legacySearch {
+//     background: transparent;
+//     position: fixed;
+//     z-index: 1;
+//     width: 50%;
+//     margin-top: 100px;
+//     margin-left: 75px;
+// }
 
 .my-new-list {
     color: #000000;
@@ -152,9 +168,34 @@ nav {
 }
 
 #map {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    z-index: 0;
+    z-index: 1;
+}
+
+#heritageList {
+    color: #EFD19F;
+    font-size: 1.15em;
+    line-height: 1.25em;
+    width: 100%;
+    columns: 2;
+    column-gap: 1%;
+}
+
+#listView {
+    overflow: scroll;
+    background: linear-gradient(rgba(0,0,0,.7), rgba(100,100,100,.35)), url('../images/joes.jpg');
+    background-size: cover;
+}
+
+li {
+    border-bottom: 1px solid #000000;
+    padding: 2%;
+}
+
+li a {
+    text-decoration: none;
+    color: #EFD19F;
 }
 
 #legacySubmit {
@@ -172,9 +213,9 @@ footer {
     color: #EFD19F;
 }
 
-a {
+footer a {
     text-decoration: none;
-    color: #FFFFFF;
+    color: #EFD19F;
     font-size: 1.15em;
 }
 
@@ -247,7 +288,7 @@ h3 {
     font-size: 1.75em;
 }
 
-p {
+.about p {
     font-size: 1.25em;
 }
 
@@ -264,46 +305,88 @@ p {
 	border: 2px solid #ED5254;
 }
 
-.leaflet-gac-wrapper {
-    height: 30px;
+.pac-container {
+    background-color: white;
+    position: absolute!important;
+    z-index: 10000;
+    border-radius: 2px;
+    border-top: 1px solid #d9d9d9;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: hidden
 }
 
-.leaflet-control-container .leaflet-gac-control {
-    width: 300px;
-    height: 30px;
-    padding: 0 7px;
-    border-radius: 5px;
-    border: 1px #d0d0d0 solid;
+.pac-logo:after {
+    content: "";
+    padding: 1px 1px 1px 0;
+    height: 16px;
+    text-align: right;
+    display: block;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 120px 14px
+}
+.hdpi.pac-logo:after {
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
+}
+.pac-item {
+    cursor: default;
+    padding: 0 4px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 30px;
+    text-align: left;
+    border-bottom: 1px solid #000000;
+    font-size:11px;
+    color: rgb(0, 0, 0) !important;
+}
+.pac-item:hover {
+    background-color: lightgray;
+}
+.pac-item-selected,
+.pac-item-selected:hover {
+    background-color: #ebf2fe
+}
+.pac-matched {
+    font-weight: 700;
+}
+.pac-item-query {
+    font-size: 13px;
+    padding-right: 3px;
+    color: #000;
+    z-index: 20000;
+    margin: 0;
+}
+.pac-icon {
+  display: none;
+    width: 15px;
+    height: 20px;
+    margin-right: 7px;
+    margin-top: 6px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+    background-size: 34px;
+}
+.pac-item-selected .pac-icon-search {
+    background-position: -18px -1px;
+}
+.pac-icon-marker {
+    background-position: -1px -161px;
+    display: none;
+}
+.pac-item-selected .pac-icon-marker {
+    background-position: -18px -161px;
+}
+.pac-placeholder {
+    color: gray;
 }
 
-.leaflet-control-container .leaflet-right .leaflet-gac-control {
-    position: absolute;
-    right: 0;
-    transition: width .3s ease .15s;
-}
-
-.leaflet-control-container .leaflet-gac-control:focus {
-    outline: none;
-}
-
-.leaflet-control-container .leaflet-gac-search-btn {
-    background: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-}
-
-.leaflet-control-container .leaflet-gac-search-btn .leaflet-gac-search-icon {
-    cursor: pointer;
-    width: 100%;
-    height: 100%;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABOUlEQVQ4T6XTLUgmQRgH8N+Ligd+FOu1ww+wKPhxlwxXxHYnqCAGQZtgMBgU4eWaXLhyCgYxiAYVk6igJotgEaNiNYgGL6kHJwOzsO+yGzw3zszzm5nnP1vyzq+UU9+JUbTiCWdYw13eXmmgCr8wlbPwERPYys6lgVA8jSvM4RQfMIQF1KIfR2kkAdpxiRv04CGzUx9OcI02/EvmE+AH5jGG9YK+bmMQ3TjPApsYQXPcJc+Ywc/Y4I0ssIpxdOCi4ATl2Ivv2M0Ck1jBImZzgOrYoxZ8xG0WqI9Hb4pX2UkhNViKMe5jIC+FMPYVezGu4xhjHb7hUyx6wXDeFRK0C79jlMnYX4SmhZfZiwok7ymHwpBGyPs5RnaPRhzicxopAop+sYAc4Av+BPStQIAbsByffPl/gIrTvQLbJDoR8K3H6QAAAABJRU5ErkJggg==") no-repeat center center;
-}
-
-.leaflet-control-container .leaflet-gac-hidden {
-    opacity: 0;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    transition: width .3s ease .15s;
+.pac-item span {
+  color: #000 !important;
+  margin: 0;
 }

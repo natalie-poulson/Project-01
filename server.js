@@ -155,82 +155,28 @@ app.post('/api/legacy' , (req, res) => {
             })
           }
       else {
-          const legacy = new db.Legacy({
+        const legacy = new db.Legacy({
         name: req.body.name,
         address: req.body.address,
         yearOpened: req.body.yearOpened,
         coordinates: [parseFloat(req.body.lat),parseFloat(req.body.lon)]
-    });
+        });
 
-    legacy  
-      .save()
-      .then (result => {
-      res.json({message:'legacy created',
+        legacy  
+          .save()
+          .then (result => {
+          res.json({message:'legacy created',
               legacy: result
               })
-      })
-      .catch ( err => {
-        console.log(err);
-        res.status(500).json({err})
-      })
-    }    
+          })
+          .catch ( err => {
+            console.log(err);
+            res.status(500).json({err})
+          })
+      }    
     });
   });
-  });
-
-
-
-
-
-  // db.Heritage.find({name: req.body.name}, (err, heritage) => {
-  //   if(err) { return console.log(err) };
-  //   if (heritage.length >= 1) {
-  //     return res.status(401).json({
-  //       message: "heritage already exists"
-  //     })
-  //   }
-  // });
-  //   db.Legacy.find({name: req.body.name}, (err, legacy) => {
-  //     if(err) { return console.log(err) };
-  //     if (legacy.length >= 1) {
-  //       return res.status(401).json({
-  //         message: "legacy already exists"
-  //       })
-  //     }
-  //   });
-  
-  //   const legacy = new db.Legacy({
-  //       name: req.body.name,
-  //       address: req.body.address,
-  //       yearOpened: req.body.yearOpened,
-  //       coordinates: [parseFloat(req.body.lat),parseFloat(req.body.lon)]
-  //   });
-
-  //   legacy  
-  //     .save()
-  //     .then (result => {
-  //     res.json({message:'legacy created',
-  //             legacy: result
-  //             })
-  //     })
-  //     .catch ( err => {
-  //       console.log(err);
-  //       res.status(500).json({err})
-  //     })    
-  // });
-
-// app.post('/api/legacy' , (req,res) => {
-//   let newLegacy = {
-//       name: req.body.name,
-//       address: req.body.address,
-//       yearOpened: req.body.yearOpened,
-//       coordinates: [parseFloat(req.body.lat),parseFloat(req.body.lon)]
-//   }
-//   db.Legacy.create( newLegacy, (err,savedLegacy) => {
-//     if(err) {return console.log(err)};
-//     res.json(savedLegacy);
-//   });
-// });
+});
 
 app.get('/api/legacy', (req, res) => {
   db.Legacy.find( {}, (err, allLegacies) => {

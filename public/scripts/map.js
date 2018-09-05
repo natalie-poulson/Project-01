@@ -115,13 +115,11 @@ function newLegacySuccess (json) {
     L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).addTo(map).openPopup()
 };
 
-function newLegacyError (json) {
-
+function newLegacyError (json) 
     if (json.status === 401){
         $('#alreadyExists').fadeOut();
         $('#alreadyExists').fadeIn();
     }
-}
 
 function handleError(e) {
     console.log('error', e);
