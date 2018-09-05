@@ -155,6 +155,10 @@ app.post('/api/legacy' , (req, res) => {
             })
           }
       else {
+        // find a way to grab user id 
+        // need to send along with below info from front end
+
+        //find by id. then create leagcy. then push saved legacy into user.legacy.push(savedLegacy)
         const legacy = new db.Legacy({
         name: req.body.name,
         address: req.body.address,
