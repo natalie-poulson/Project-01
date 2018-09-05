@@ -16,8 +16,8 @@
         <h1>PROJECT ZERO ONE</h1>
         <p class="error-message">Incorrect Email or Password.</p>  
         <form id="formLogin" autocomplete="off"> 
-            <input type="text" class="login" id="loginEmail" name="email" placeholder="Email">
-            <input type="password" class="login" id="loginPassword" name="password" placeholder="Password"> 
+            <input type="text" class="login" id="loginEmail" name="email" placeholder="Email" required>
+            <input type="password" class="login" id="loginPassword" name="password" placeholder="Password" required> 
             <input type="submit" class="login" id="loginSubmit" value="Login">
         </form>
         <!-- Button trigger modal -->
@@ -37,15 +37,15 @@
                     <p>Create an account</p>
                     <div class="modal-body">
                         <div>
-                            <input type="text" class="signUp" id="signUpName" name="name" placeholder="Name">
+                            <input type="text" class="signUp" id="signUpName" name="name" placeholder="Name" required>
                             <p class="error-message">Please enter your name.</p>
                         </div>
                         <div>
-                            <input type="email" class="signUp" id="signUpEmail" name="email" placeholder="Email Address">
+                            <input type="email" class="signUp" id="signUpEmail" name="email" placeholder="Email Address" required>
                             <p id="emailValidation" class="error-message">Please enter an email address.</p>
                         </div>
                         <div>
-                            <input type="password" class="signUp" id="signUpPassword" name="password" placeholder="Password">
+                            <input type="password" class="signUp" id="signUpPassword" name="password" placeholder="Password" required>
                             <p class="error-message">Please enter an password.</p>
                         </div>
                         <p id="duplicateMessage" class="error-message">Account already exists</p>

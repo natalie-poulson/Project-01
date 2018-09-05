@@ -42,7 +42,7 @@ let heritageList = [
     coordinates: [37.7976,-122.4059]
     },
     {
-    name: "Sam Wo Restaurantcliff ",
+    name: "Sam Wo Restaurant",
     address: "2713 Clay St, San Francisco, CA 94108",
     yearOpened: "1912",
     website:"http://www.samworestaurant.com/",
@@ -56,7 +56,7 @@ let heritageList = [
     coordinates: [37.7785, -122.5140]
     },
     { 
-    name: "Alioto’s Restaurant",
+    name: "Alioto's Restaurant",
     address: "8 Fisherman’s Wharf, San Francisco, CA 94133",
     yearOpened: "1925",
     website:"http://aliotos.com/",
@@ -83,20 +83,20 @@ let heritageList = [
     website:"https://www.yelp.com/biz/zam-zam-san-francisco",
     coordinates: [37.769619,-122.449291]
     }, 
-    // { 
-    // name: "<a href='http://www.balboacafe.com/san-francisco/' target='_blank'>Balboa Café</a>",
-    // address: "3199 Fillmore Street, San Francisco, CA 94123",
-    // yearOpened: "1913",
-    // website:
-    // coordinates: [37.7988167,-122.4360935]
-    // }, 
-    // { 
-    // name: "<a href='https://www.beepsburgers.com/' target='_blank'>Beep’s Burgers</a>",
-    // address: "1051 Ocean Avenue, San Francisco, CA 94112",
-    // yearOpened: "1962",
-    // website:
-    // coordinates: [37.7232086,-122.4538672]
-    // }, 
+    { 
+    name: "Balboa Cafe",
+    address: "3199 Fillmore Street, San Francisco, CA 94123",
+    yearOpened: "1913",
+    website:"http://www.balboacafe.com/san-francisco/",
+    coordinates: [37.7988167,-122.4360935]
+    },
+    { 
+    name: "Beep's Burgers",
+    address: "1051 Ocean Avenue, San Francisco, CA 94112",
+    yearOpened: "1962",
+    website:"https://www.beepsburgers.com/",
+    coordinates: [37.7232086,-122.4538672]
+    }, 
     // { 
     // name: "<a href='http://www.benkyodocompany.com/' target='_blank'>Benkyodo Company</a>",
     // address: "1747 Buchanan Street, San Francisco, CA 94115",

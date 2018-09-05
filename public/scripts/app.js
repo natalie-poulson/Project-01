@@ -34,15 +34,18 @@ $('#formSignUp'). on ('submit', function (e) {
 function signUpError (json) {
     $('#formSignUp input').each(function () {
     if ( $(this).val().length === 0) {
+        $('#duplicateMessage').fadeOut();
         $(this).siblings().fadeIn(1000);
         return;
     }
     if ( $(this).val().length !== 0) {
+        $('#duplicateMessage').fadeOut();
         $(this).siblings().fadeOut(200);
         return;
     }
 });
     if (json.status === 500){
+        $('#duplicateMessage').fadeOut();
         $('#emailValidation').fadeIn().text('Please enter a valid email address.');
     }
     if (json.status === 409){
