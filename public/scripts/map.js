@@ -333,14 +333,13 @@ $.ajax({
             heritageItems.push(popupContent)
         })
         $('#list').on('click', function() {
+            $('#heritageList').empty();
             for(let i = 0; i < heritageItems.length; i++) {
                 $('#heritageList').append("<li>"+ heritageItems[i]+ "</li>");}
-                $('#heritageList').show();
-                $('#map').hide();
+                $('#heritageList').show(), $('#map').hide();
             })
         $('#mapToggle').on('click', function () {
-            $('#map').show();
-            $('#heritageList').hide();
+            $('#map').show(), $('#heritageList').hide();
         })    
 
     };
@@ -359,17 +358,14 @@ $.ajax({
             L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
             legacyItems.push(legacyContent)
         })
-        console.log(legacyItems)
 
         $('#list').on('click', function() {
             for(let i = 0; i < legacyItems.length; i++) {
                 $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
-                $('#heritageList').show();
-                $('#map').hide();
+                $('#heritageList').show(), $('#map').hide();
             })
         $('#mapToggle').on('click', function () {
-            $('#map').show();
-            $('#heritageList').hide();
+            $('#map').show(), $('#heritageList').hide();
         })   
     };
     
