@@ -1,31 +1,42 @@
 const db = require('./models');
 
-let userList = [
-    {
-    name: "Natalie",
-    email: "natalieplsn@gmail.com",
-    password: "cowboys"
-    },
-    {
-    name: "Alan",
-    email: "a386226@gmail.com",
-    password: "niners"
-    }
-]
+let singleUser =
+{
+    name:"Natalie",
+    email:"natalieplsn@gmail.com",
+    password:"cowboys",
+}
 
-let legacyList = [
-    {
-        name: "In-N-Out Burger",
-        address: "9333 Jefferson St, San Francisco, CA 94133",
-        yearOpened: 1948,
-        coordinates: [37.8077, -122.4185],
-        website:"https://locations.in-n-out.com/154-San-Francisco"
-        // user: {
-        //     type: mongoose.Schema.Types.ObjectId, 
-        //     ref: 'User'
-        // }
-    }
-];
+// let userList = [
+//     {
+//     name: "Natalie",
+//     email: "natalieplsn@gmail.com",
+//     password: "cowboys"
+//     },
+//     {
+//     name: "Alan",
+//     email: "a386226@gmail.com",
+//     password: "niners"
+//     }
+// ]
+
+let singleLegacy = {
+    name: "In-N-Out Burger",
+    address: "9333 Jefferson St, San Francisco, CA 94133",
+    yearOpened: 1948,
+    coordinates: [37.8077, -122.4185],
+    website:"https://locations.in-n-out.com/154-San-Francisco"
+}
+
+// let legacyList = [
+//     {
+//         name: "In-N-Out Burger",
+//         address: "9333 Jefferson St, San Francisco, CA 94133",
+//         yearOpened: 1948,
+//         coordinates: [37.8077, -122.4185],
+//         website:"https://locations.in-n-out.com/154-San-Francisco"
+//     }
+// ];
 
 let heritageList = [
     {
@@ -996,32 +1007,50 @@ let heritageList = [
     // }
 ];
 
-db.Heritage.remove( {} , (req,res) => {
-    db.Heritage.create(heritageList, (err, newBusiness) => {
-        if(err){
-            console.log(err);
-        }
-        console.log("Created a new heritage bar or restaraunt", newBusiness);
+// db.Heritage.remove( {} , (req,res) => {
+//     db.Heritage.create(heritageList, (err, newBusiness) => {
+//         if(err){
+//             console.log(err);
+//         }
+//         console.log("Created a new heritage bar or restaraunt", newBusiness);
         
-        db.Legacy.remove( {} , (req,res) => {
-            db.Legacy.create(legacyList, (err, newLegacyBusiness) => {
-                if(err){
-                    console.log(err);
-                }
-                console.log("Created a new legacy bar or restaraunt", newLegacyBusiness);
+//         db.Legacy.remove( {} , (req,res) => {
+//             db.Legacy.create(legacyList, (err, newLegacyBusiness) => {
+//                 if(err){
+//                     console.log(err);
+//                 }
+//                 console.log("Created a new legacy bar or restaraunt", newLegacyBusiness);
         
-                db.User.remove( {} , (req,res) => {
-                    db.User.create(userList, (err, newUser) => {
-                        if(err){
-                            console.log(err);
-                        }
-                        console.log("Created a new user", newUser);
-                        process.exit();
-                    });
-                });
-            });
-        }); 
-    });
-});
+//                 db.User.remove( {} , (req,res) => {
+//                     db.User.create(userList, (err, newUser) => {
+//                         if(err){
+//                             console.log(err);
+//                         }
+//                         console.log("Created a new user", newUser);
+//                         process.exit();
+//                     });
+//                 });
+//             });
+//         }); 
+//     });
+// });
+
+db.User.deleteMany( {} , (err, removed) => {
+    console.log('deleted');
+    db.User.create(singleUser, (err, savedUser) => {
+        if (err) {console.log(err)};
+        db.Legacy.deleteMany ( {}, (err, removedLegacy) => {
+            console.log("legacy deleted");
+            db.Legacy.create (singleLegacy, (err, savedLegacy) => {
+                if (err){console.log(err)};
+                savedUser.legacy.push(savedLegacy)
+                savedUser.save((err, saveUserLegacy) => {
+                    if(err){console.log(err)}
+                    else{console.log(saveUserLegacy)}
+                })
+            })
+        })
+    })
+})
 
 

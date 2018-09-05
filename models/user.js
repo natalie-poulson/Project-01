@@ -10,16 +10,12 @@ const userSchema = new Schema({
         required: true, 
         unique: true, 
         match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ },
-    password: { type: String, required: true}
-    // password: { type: String, required: true , select: false}
+    password: { type: String, required: true},
+    legacy: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Legacy'
+    }]
 })
-
-// userSchema.set('toJSON', {
-//   transform: function(doc, ret, opt) {
-//       delete ret['password']
-//       return ret
-//   }
-// })
 
 const User = mongoose.model('User', userSchema);
 

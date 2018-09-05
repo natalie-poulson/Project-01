@@ -7,10 +7,6 @@ address: String,
 yearOpened: String,
 website: String,
 coordinates: [Number]
-// user: {
-//     type: mongoose.Schema.Types.ObjectId, 
-//     ref: 'User'
-// }
 });
 
 const Legacy = mongoose.model('Legacy', legacySchema);
