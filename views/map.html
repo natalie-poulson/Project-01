@@ -29,14 +29,18 @@
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
+                <div class="modal-header">
+                    <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <form id="legacyForm" autocomplete="off" method="POST" action="/map">
                     <div>
-                        <input id="pac-input" class="contorls" type="text"  placeholder="Start typing bar or restaurant here" required>
-                        <p class="error-message">Please enter a bar or restaurant</p>
+                        <input id="pac-input" class="controls" type="text"  placeholder="Start typing bar or restaurant here" required>
                     </div>
                     <div>
                         <input type="text" class="signUp" id="legacyYear" name="established" placeholder="Year(s) Established" required>
-                        <p class="error-message">Please enter an approx year this business was established</p>
                     </div>
                     <div>
                         <input type="hidden" id="legacyName" name="city2" />
@@ -45,14 +49,9 @@
                         <input type="hidden" id="legacyLng" name="cityLng" /> 
                         <!-- <input type="hidden" id="legacyWebsite" name="website" />  -->
                     </div>
-                    <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
                     <button id="legacySubmit" type="submit" class="btn btn-secondary">Submit</button>
                 </form>
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
+
             </div>
             </div>
         </div>

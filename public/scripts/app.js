@@ -65,6 +65,7 @@ function loginError (json) {
     console.log(json)
     $('main p').first('.error-message').fadeOut(200);
     $('main p').first('.error-message').fadeIn(500);
+        $('main p').css('display', 'flex');
 }
 
 function signUpSuccess (json) {

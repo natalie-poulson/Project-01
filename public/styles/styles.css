@@ -105,12 +105,13 @@ main h4 {
   margin-bottom: 1%;
 }
 
-input[type=submit] {
+input[type=submit], #legacySubmit, #signUpSubmit {
   background-color: #4CAF50;
   color: #FFFFFF;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin: 0 auto;
 }
 
 input[type=submit]:hover {
@@ -147,15 +148,26 @@ span {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 1%;
 }
 
-.signUp {
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.signUp, #pac-input {
   border: 2px solid black;
   height: 4vh;
   font-size: 0.85em;
   margin: 0.5%;
   text-align: center;
-  width: 90%;
+  width: 100%;
 }
 
 h2 {
@@ -179,6 +191,7 @@ nav {
   padding: 1.25%;
   display: flex;
   justify-content: center;
+  width: 100vw;
 }
 
 .navbar {
@@ -236,13 +249,10 @@ li a {
   color: #EFD19F;
 }
 
-#legacySubmit {
-  margin: 0 auto;
-}
-
 footer {
   background-color: #27251F;
   height: 7%;
+  width: 100vw;
   border-top: 2.5px solid #EFD19F;
   display: flex;
   justify-content: space-around;
@@ -328,15 +338,13 @@ h3 {
 }
 
 .error-message {
-  margin: -8px 0 12px;
-  text-align: left;
-  font-size: 0.9rem;
-  color: #ED5254;
+  font-size: 1em;
+  color: #ff0000;
   display: none;
-}
-
-.error {
-  border: 2px solid #ED5254;
+  background: linear-gradient(rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0));
+  height: 5%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .pac-container {
