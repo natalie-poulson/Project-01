@@ -91,12 +91,12 @@ $.ajax({
 
 let heritageItems = [];
 function handleHeritageSuccess (json) {
-    var heritageArray = json.data;
-    console.log(heritageArray)
+    let heritageArray = json.data;
     $.each(heritageArray, function () {
-        var popupContent = this.name;
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
-    })
+        let popupContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+        heritageItems.push(popupContent)
+   })
     $('#list').on('click', function() {
         $('#heritageList').empty();
         for(let i = 0; i < heritageItems.length; i++) {
@@ -112,8 +112,10 @@ let legacyItems = [];
 function handleLegacySuccess (json) {
     let legacyArray = json.data;
     $.each(legacyArray, function () {
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
-    })
+        let legacyContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+        legacyItems.push(legacyContent)
+   })
 
     $('#list').on('click', function() {
         for(let i = 0; i < legacyItems.length; i++) {
