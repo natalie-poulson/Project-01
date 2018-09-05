@@ -5,7 +5,7 @@ const legacySchema = new Schema({
 name: String,
 address: String,
 yearOpened: String,
-// website:String,
+website: String,
 coordinates: [Number]
 // user: {
 //     type: mongoose.Schema.Types.ObjectId, 

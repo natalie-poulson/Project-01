@@ -19,6 +19,7 @@ let legacyList = [
         address: "9333 Jefferson St, San Francisco, CA 94133",
         yearOpened: 1948,
         coordinates: [37.8077, -122.4185],
+        website:"https://locations.in-n-out.com/154-San-Francisco"
         // user: {
         //     type: mongoose.Schema.Types.ObjectId, 
         //     ref: 'User'

@@ -18,6 +18,7 @@ var map = L.map('map').setView([37.773972, -122.431297], 12);
 
 var input = document.getElementById("pac-input");
 var autocomplete = new google.maps.places.Autocomplete(input);
+var service = new google.maps.places.PlacesService(input);
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -49,10 +50,12 @@ $('#legacyForm').on('submit', function (e) {
     e.preventDefault();
 
     var place = autocomplete.getPlace();
+    console.log(place.website)
         document.getElementById('legacyName').value = place.name;
         document.getElementById('legacyAddress').value = place.vicinity;
         document.getElementById('legacyLat').value = place.geometry.location.lat();
         document.getElementById('legacyLng').value = place.geometry.location.lng();
+        // document.getElementById('legacyWebsite').value = place.website
 
     map.setView([place.geometry.location.lat(), place.geometry.location.lng()], 16);
 
@@ -60,9 +63,11 @@ $('#legacyForm').on('submit', function (e) {
         name: $('#legacyName').val(),
         address: $('#legacyAddress').val(),
         yearOpened: $('#legacyYear').val(),
+        website: place.website,
         lat: $('#legacyLat').val(),
         lon: $('#legacyLng').val()
     }
+    console.log(newLegacy.website)
 
     $.ajax({
         method: 'POST',
@@ -92,9 +97,10 @@ $.ajax({
 let heritageItems = [];
 function handleHeritageSuccess (json) {
     let heritageArray = json.data;
+    console.log(heritageArray)
     $.each(heritageArray, function () {
-        let popupContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+        let popupContent =`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
         heritageItems.push(popupContent)
    })
     $('#list').on('click', function() {
@@ -112,8 +118,8 @@ let legacyItems = [];
 function handleLegacySuccess (json) {
     let legacyArray = json.data;
     $.each(legacyArray, function () {
-        let legacyContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
+        let legacyContent = (`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
         legacyItems.push(legacyContent)
    })
 

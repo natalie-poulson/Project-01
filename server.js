@@ -159,6 +159,7 @@ app.post('/api/legacy' , (req, res) => {
         name: req.body.name,
         address: req.body.address,
         yearOpened: req.body.yearOpened,
+        website:req.body.website,
         coordinates: [parseFloat(req.body.lat),parseFloat(req.body.lon)]
         });
 
