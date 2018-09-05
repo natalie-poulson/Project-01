@@ -91,16 +91,17 @@ $.ajax({
 
 function handleHeritageSuccess (json) {
     var heritageArray = json.data;
+    console.log(heritageArray)
     $.each(heritageArray, function () {
         var popupContent = this.name;
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
     })
 };
 
 function handleLegacySuccess (json) {
     var legacyArray = json.data;
     $.each(legacyArray, function () {
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
+        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
     })
 };
 
@@ -112,14 +113,15 @@ function newLegacySuccess (json) {
 
     var legacy = json.legacy;
     console.log(legacy)
-    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>${legacy.yearOpened}</p>`).addTo(map).openPopup()
+    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}">${legacy.name}</a><br>${legacy.address}<br>${legacy.yearOpened}</p>`).addTo(map).openPopup()
 };
 
-function newLegacyError (json) 
+function newLegacyError (json) {
     if (json.status === 401){
         $('#alreadyExists').fadeOut();
         $('#alreadyExists').fadeIn();
     }
+}
 
 function handleError(e) {
     console.log('error', e);
