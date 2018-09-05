@@ -47,14 +47,11 @@ if (navigator.geolocation) {
 $('#legacyForm').on('submit', function (e) {
     e.preventDefault();
     var place = autocomplete.getPlace();
-<<<<<<< HEAD
-    console.log(place)
-=======
->>>>>>> ee4fdb2f855b2703421e952ca57d67527f5b3bec
         document.getElementById('legacyName').value = place.name;
         document.getElementById('legacyAddress').value = place.vicinity;
         document.getElementById('legacyLat').value = place.geometry.location.lat();
         document.getElementById('legacyLng').value = place.geometry.location.lng();
+        console.log(place.name);
 
     map.setView([place.geometry.location.lat(), place.geometry.location.lng()], 16);
 
@@ -95,10 +92,6 @@ $.ajax({
 let heritageItems = [];
 function handleHeritageSuccess (json) {
     let heritageArray = json.data;
-<<<<<<< HEAD
-    // console.log(heritageArray)
-=======
->>>>>>> ee4fdb2f855b2703421e952ca57d67527f5b3bec
     $.each(heritageArray, function () {
         let popupContent =`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`
         L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
@@ -128,16 +121,9 @@ function handleLegacySuccess (json) {
 
     $('#list').on('click', function() {
         for(let i = 0; i < legacyItems.length; i++) {
-<<<<<<< HEAD
             $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
             $('#heritageList ').show(), $('#map').hide();
         })
-=======
-            $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");
-        }
-        $('#heritageList').show(), $('#map').hide();
-    })
->>>>>>> ee4fdb2f855b2703421e952ca57d67527f5b3bec
     $('#mapToggle').on('click', function () {
         $('#map').show(), $('#heritageList').hide();
     })   
@@ -150,10 +136,6 @@ function newLegacySuccess (json) {
         alert("thank you for adding a legacy to the map!")
 
     var legacy = json.legacy;
-<<<<<<< HEAD
-    console.log(legacy)
-=======
->>>>>>> ee4fdb2f855b2703421e952ca57d67527f5b3bec
     L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a><br>${legacy.address}<br>Est. ${legacy.yearOpened}</p>`).addTo(map).openPopup()
 };
 
