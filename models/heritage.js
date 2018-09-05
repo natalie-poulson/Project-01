@@ -5,6 +5,7 @@ const heritageSchema = new Schema({
 name: String,
 address: String,
 yearOpened: String,
+website:String,
 coordinates: [Number],
 });
 

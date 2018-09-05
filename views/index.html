@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">  
-
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>
     <script src="scripts/app.js" defer></script>
-
-
     <title>Legacy SF</title>
 </head>
-
 <body>
     <main>
         <h1>PROJECT ZERO ONE</h1>
@@ -25,27 +20,25 @@
             <input type="password" class="login" id="loginPassword" name="password" placeholder="Password"> 
             <input type="submit" class="login" id="loginSubmit" value="Login">
         </form>
-
         <!-- Button trigger modal -->
     <button id="buttonModal" data-toggle="modal" data-target="#exampleModalCenter">
         Sign Up
     </button>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
+            <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
-                  </button>
+                </button>
                 </div>
                 <form id="formSignUp" autocomplete="off">
                     <p>Create an account</p>
                     <div class="modal-body">
                         <div>
                             <input type="text" class="signUp" id="signUpName" name="name" placeholder="Name">
-                             <p class="error-message">Please enter your name.</p>
+                            <p class="error-message">Please enter your name.</p>
                         </div>
                         <div>
                             <input type="email" class="signUp" id="signUpEmail" name="email" placeholder="Email Address">
@@ -61,14 +54,9 @@
                         <button id="signUpSubmit" type="submit" class="btn btn-secondary">Submit</button>
                     </div>
                 </form>
-              </div>
             </div>
-          </div>
-
-
-
+            </div>
+        </div>
     </main>
-
 </body>
-
 </html>
