@@ -91,19 +91,11 @@ $.ajax({
 
 let heritageItems = [];
 function handleHeritageSuccess (json) {
-<<<<<<< HEAD
-    let heritageArray = json.data;
-    $.each(heritageArray, function () {
-        let popupContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
-        heritageItems.push(popupContent)
-=======
     var heritageArray = json.data;
     console.log(heritageArray)
     $.each(heritageArray, function () {
         var popupContent = this.name;
         L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est.${this.yearOpened}</p>`).openPopup().addTo(map);
->>>>>>> 24569f0ff9e27b7823cd16ba4a7dfc5ab1645609
     })
     $('#list').on('click', function() {
         $('#heritageList').empty();
@@ -120,13 +112,7 @@ let legacyItems = [];
 function handleLegacySuccess (json) {
     let legacyArray = json.data;
     $.each(legacyArray, function () {
-<<<<<<< HEAD
-        let legacyContent = (`<p>${this.name}</br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${this.name}<br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
-        legacyItems.push(legacyContent)
-=======
         L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br> Est.${this.yearOpened}</p>`).openPopup().addTo(map);
->>>>>>> 24569f0ff9e27b7823cd16ba4a7dfc5ab1645609
     })
 
     $('#list').on('click', function() {
@@ -146,12 +132,8 @@ function newLegacySuccess (json) {
         alert("thank you for adding a legacy to the map!")
 
     var legacy = json.legacy;
-<<<<<<< HEAD
-    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p>${legacy.name}<br>${legacy.address}<br>Est. ${legacy.yearOpened}</p>`).addTo(map).openPopup()
-=======
     console.log(legacy)
-    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}">${legacy.name}</a><br>${legacy.address}<br>${legacy.yearOpened}</p>`).addTo(map).openPopup()
->>>>>>> 24569f0ff9e27b7823cd16ba4a7dfc5ab1645609
+    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a><br>${legacy.address}<br>${legacy.yearOpened}</p>`).addTo(map).openPopup()
 };
 
 function newLegacyError (json) {
