@@ -280,63 +280,6 @@ a:hover, #logout:hover {
   font-size: 1.15em;
 }
 
-#parallax1 {
-  background-image: url("../images/vesuvio.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#parallax2 {
-  background-image: url("../images/its_tops.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#parallax3 {
-  background-image: url("../images/vesuvio.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.contact {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-.about {
-  background-color: #dadada;
-}
-
-#formContact {
-  padding: 2%;
-  font-size: 1.25em;
-  height: 100%;
-}
-
-h3 {
-  text-align: center;
-  font-size: 1.75em;
-}
-
-.about p {
-  font-size: 1.25em;
-}
-
 .error-message {
   font-size: 1em;
   color: #ff0000;
@@ -393,8 +336,7 @@ h3 {
   background-color: lightgray;
 }
 
-.pac-item-selected,
-.pac-item-selected:hover {
+.pac-item-selected, .pac-item-selected:hover {
   background-color: #ebf2fe;
 }
 
@@ -442,6 +384,63 @@ h3 {
 .pac-item span {
   color: #000 !important;
   margin: 0;
+}
+
+#parallax1 {
+  background-image: url("../images/vesuvio.jpg");
+  min-height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#parallax2 {
+  background-image: url("../images/its_tops.jpg");
+  min-height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#parallax3 {
+  background-image: url("../images/vesuvio.jpg");
+  min-height: 75%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.about {
+  background-color: #dadada;
+}
+
+#formContact {
+  padding: 2%;
+  font-size: 1.25em;
+  height: 100%;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.75em;
+}
+
+.about p {
+  font-size: 1.25em;
 }
 
 /*# sourceMappingURL=styles.css.map */
