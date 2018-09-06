@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
 const db = require('./models');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -49,7 +48,6 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api/signup' , (req, res) => {
-  var name = req.body.name;
   var email = req.body.email;
   var password = req.body.password;
 
@@ -62,42 +60,35 @@ app.post('/api/signup' , (req, res) => {
         })
       } 
         else {
-          console.log('creating user')
           bcrypt.hash(req.body.password, 10, (err, hash) => {
             if (err) {
-              console.log('hashing error:' , err);
-              res.status(200).json({error: err})
+              console.log('hasing error:', err)
+              res.status(500).json({error:err})
             } else {
-                const newUser = {
-                            name:name,
-                            email:email,
-                            password:hash
-                };
-
-                db.User.create( newUser ,(err, users) => {
-                  if(err){console.log(err);}
-                  let newUserId = users._id
-                  jwt.sign(
-                      { email: email, _id: newUserId },
-                      "negroni",
-                      {expiresIn: "1h"},
-                      (err, signedJwt) => {
-                          if(err){console.log(err);}
-                          console.log(signedJwt);
-                          let newUserId =  users._id;
-                          console.log("USER ID WE ARE LOOKING FOR: "+newUserId)
-                          res.status(200).json({
-                              message: 'User Created',
-                              name,
-                              newUserId,
-                              signedJwt
-                          })
-                  });
+                const user = new db.User({
+                  name:req.body.name,
+                  email:req.body.email,
+                  password:hash
                 });
+                user  
+                  .save()
+                  .then (result => {
+                  res.json({message:'User created',
+                          user: result
+                          })
+                  })
+                  .catch ( err => {
+                    console.log(err);
+                    res.status(500).json({err})
+                  })
               }
-          });
-        }
-    });
+            })
+          }
+    })
+    .catch( err => {
+      console.log(err);
+      res.status(500).json({err})
+    })
 });
 
 app.get('/api/user', (req, res) => {
@@ -108,6 +99,9 @@ app.get('/api/user', (req, res) => {
 });    
 
 app.post('/api/login' , (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+
   console.log("LOGIN CALLED");
   db.User.find({email: req.body.email})
     .exec()
@@ -117,25 +111,20 @@ app.post('/api/login' , (req, res) => {
           message: "Email/Password incorrect"
         })
       }
-      db.User.findOne({email: req.body.email, password: req.body.password}, (err, match) => {
-        console.log(match)
-        if(err){return res.status(500).json({err})}
-        if(match){
+      let passCheck = bcrypt.compare(password, users[0].password, (err, match) => {
+        console.log("got to hashing");
+        if (err) {
+          console.log('hasing error:', err);
+          return res.status(401).json({message:"Email/Password incorrect"})
+        } 
+        if (match){
           return res.status(200).json(
-            {
-              message: 'Auth successful'
-            }
+            {message: 'Auth successful'}
           )
-        } else {
-          res.status(401).json({message: "Email/Password incorrect"})
         }
-      })
-    })
-    .catch( err => {
-      console.log(err);
-      res.status(500).json({err})
-    })
-})
+      }); 
+    }); 
+});
 
 app.get('/api/heritage', (req, res) => {
   db.Heritage.find( {}, (err, allHeritages) => {
