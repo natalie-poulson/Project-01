@@ -93,21 +93,16 @@ let heritageItems = [];
 function handleHeritageSuccess (json) {
     let heritageArray = json.data;
     $.each(heritageArray, function () {
-        let popupContent =`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`
+        let popupContent =(`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
         L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
         heritageItems.push(popupContent)
     })
 
     $('#list').on('click', function() {
-        $('#heritageList').empty();
         for(let i = 0; i < heritageItems.length; i++) {
-            $('#heritageList').append("<li>"+ heritageItems[i]+ "</li>");
-        }
+            $('#heritageList').append("<li>"+ heritageItems[i]+ "</li>");}
             $('#heritageList').show(), $('#map').hide();
-    })
-    $('#mapToggle').on('click', function () {
-        $('#map').show(), $('#heritageList').hide();
-    })    
+    })  
 };
 
 let legacyItems = [];
@@ -123,11 +118,13 @@ function handleLegacySuccess (json) {
         for(let i = 0; i < legacyItems.length; i++) {
             $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
             $('#heritageList ').show(), $('#map').hide();
-        })
-    $('#mapToggle').on('click', function () {
-        $('#map').show(), $('#heritageList').hide();
-    })   
+        }) 
 };
+
+$('#mapToggle').on('click', function () {
+    $('#heritageList').empty();
+    $('#map').show(), $('#heritageList').hide();
+})  
 
 function newLegacySuccess (json) {
     $('#alreadyExists').fadeOut();
@@ -137,6 +134,16 @@ function newLegacySuccess (json) {
 
     var legacy = json.legacy;
     L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a><br>${legacy.address}<br>Est. ${legacy.yearOpened}</p>`).addTo(map).openPopup()
+
+    $('#list').on('click', function() {
+        for(let i = 0; i < legacyItems.length; i++) {
+            $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
+            $('#heritageList ').show(), $('#map').hide();
+        })
+    $('#mapToggle').on('click', function () {
+        $('#map').show(), $('#heritageList').hide();
+    }) 
+
 };
 
 function newLegacyError (json) {

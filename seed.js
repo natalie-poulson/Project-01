@@ -20,7 +20,7 @@ let singleUser =
 //     }
 // ]
 
-let singleLegacy = {
+let legacyList = {
     name: "In-N-Out Burger",
     address: "9333 Jefferson St, San Francisco, CA 94133",
     yearOpened: 1948,
