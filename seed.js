@@ -1,42 +1,43 @@
 const db = require('./models');
 
-let singleUser =
-{
-    name:"Natalie",
-    email:"natalieplsn@gmail.com",
-    password:"cowboys",
-}
+// let singleUser =
+// {
+//     name:"Natalie",
+//     email:"natalieplsn@gmail.com",
+//     password:"cowboys",
+//     legacy: []
+// };
 
-// let userList = [
-//     {
-//     name: "Natalie",
-//     email: "natalieplsn@gmail.com",
-//     password: "cowboys"
-//     },
-//     {
-//     name: "Alan",
-//     email: "a386226@gmail.com",
-//     password: "niners"
-//     }
-// ]
+let userList = [
+    {
+    name: "Natalie",
+    email: "natalieplsn@gmail.com",
+    password: "cowboys"
+    },
+    {
+    name: "Alan",
+    email: "a386226@gmail.com",
+    password: "niners"
+    }
+]
 
-let singleLegacy = {
-    name: "In-N-Out Burger",
-    address: "9333 Jefferson St, San Francisco, CA 94133",
-    yearOpened: 1948,
-    coordinates: [37.8077, -122.4185],
-    website:"https://locations.in-n-out.com/154-San-Francisco"
-}
+// let singleLegacy = {
+//     name: "In-N-Out Burger",
+//     address: "9333 Jefferson St, San Francisco, CA 94133",
+//     yearOpened: 1948,
+//     coordinates: [37.8077, -122.4185],
+//     website:"https://locations.in-n-out.com/154-San-Francisco"
+// }
 
-// let legacyList = [
-//     {
-//         name: "In-N-Out Burger",
-//         address: "9333 Jefferson St, San Francisco, CA 94133",
-//         yearOpened: 1948,
-//         coordinates: [37.8077, -122.4185],
-//         website:"https://locations.in-n-out.com/154-San-Francisco"
-//     }
-// ];
+let legacyList = [
+    {
+        name: "In-N-Out Burger",
+        address: "9333 Jefferson St, San Francisco, CA 94133",
+        yearOpened: 1948,
+        coordinates: [37.8077, -122.4185],
+        website:"https://locations.in-n-out.com/154-San-Francisco"
+    }
+];
 
 let heritageList = [
     {
@@ -1007,50 +1008,72 @@ let heritageList = [
     // }
 ];
 
-// db.Heritage.remove( {} , (req,res) => {
-//     db.Heritage.create(heritageList, (err, newBusiness) => {
-//         if(err){
-//             console.log(err);
-//         }
-//         console.log("Created a new heritage bar or restaraunt", newBusiness);
+db.Heritage.remove( {} , (req,res) => {
+    db.Heritage.create(heritageList, (err, newBusiness) => {
+        if(err){
+            console.log(err);
+        }
+        console.log("Created a new heritage bar or restaraunt", newBusiness);
         
-//         db.Legacy.remove( {} , (req,res) => {
-//             db.Legacy.create(legacyList, (err, newLegacyBusiness) => {
-//                 if(err){
-//                     console.log(err);
-//                 }
-//                 console.log("Created a new legacy bar or restaraunt", newLegacyBusiness);
+        db.Legacy.remove( {} , (req,res) => {
+            db.Legacy.create(legacyList, (err, newLegacyBusiness) => {
+                if(err){
+                    console.log(err);
+                }
+                console.log("Created a new legacy bar or restaraunt", newLegacyBusiness);
         
-//                 db.User.remove( {} , (req,res) => {
-//                     db.User.create(userList, (err, newUser) => {
-//                         if(err){
-//                             console.log(err);
-//                         }
-//                         console.log("Created a new user", newUser);
-//                         process.exit();
-//                     });
-//                 });
-//             });
-//         }); 
-//     });
-// });
+                db.User.remove( {} , (req,res) => {
+                    db.User.create(userList, (err, newUser) => {
+                        if(err){
+                            console.log(err);
+                        }
+                        console.log("Created a new user", newUser);
+                        process.exit();
+                    });
+                });
+            });
+        }); 
+    });
+});
+// Legacy (singleLegacy) goes inside User (singleUser)
+// Ingredient (cheddar) goes inside Food (cheesyQuiche)
 
-db.User.deleteMany( {} , (err, removed) => {
-    console.log('deleted');
-    db.User.create(singleUser, (err, savedUser) => {
-        if (err) {console.log(err)};
-        db.Legacy.deleteMany ( {}, (err, removedLegacy) => {
-            console.log("legacy deleted");
-            db.Legacy.create (singleLegacy, (err, savedLegacy) => {
-                if (err){console.log(err)};
-                savedUser.legacy.push(savedLegacy)
-                savedUser.save((err, saveUserLegacy) => {
-                    if(err){console.log(err)}
-                    else{console.log(saveUserLegacy)}
-                })
-            })
-        })
-    })
-})
+// db.Legacy.create( legacyList , (err, savedLegacy) => {
+//     if (err) {
+//         return console.log(err);
+//     } else {
+//         console.log("legacyList successfully saved");
+//         db.User.create( singleUser, (err, savedUser) => {
+//             if(err){
+//                 return console.log(err);
+//             }
+//             savedUser.legacies.push(savedLegacy);
+//             savedUser.save( (err, savedSingleUserLegacy) => {
+//                 if(err) {
+//                     return console.log(err);
+//                 } else {
+//                     console.log('singleLegacy is', savedSingleUserLegacy);
+//                 }
+//             });
+//         })
+//     }
+// });
+// db.User.deleteMany ( {}, (err, removedUser) => {
+//     console.log('deleted');
+//     db.User.create(singleUser, (err, savedUser) => {
+//         if (err) {console.log(err)};
+//         db.Legacy.deleteMany ( {}, (err, removedLegacy) => {
+//             console.log("legacy deleted");
+//             db.Legacy.create (singleLegacy, (err, savedLegacy) => {
+//                 if (err){console.log(err)};
+//                 savedUser.legacy.push(savedLegacy)
+//                 savedUser.save((err, saveUserLegacy) => {
+//                     if(err){console.log(err)}
+//                     else{console.log(saveUserLegacy)}
+//                 })
+//             })
+//         })
+//     })
+// })
 
 
