@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
 const db = require('./models');
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -47,6 +48,9 @@ app.get('/api', (req, res) => {
 });
 
 app.post('/api/signup' , (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+
   db.User.find({email:req.body.email})
     .exec()
     .then ( user => {
@@ -56,14 +60,15 @@ app.post('/api/signup' , (req, res) => {
         })
       } 
         else {
-          // bcrypt.hash(req.body.password, 10, (err, hash) => {
-          //   if (err) {
-          //     res.status(500).json({error:err})
-          //   } else {
+          bcrypt.hash(req.body.password, 10, (err, hash) => {
+            if (err) {
+              console.log('hasing error:', err)
+              res.status(500).json({error:err})
+            } else {
                 const user = new db.User({
                   name:req.body.name,
                   email:req.body.email,
-                  password:req.body.password
+                  password:hash
                 });
                 user  
                   .save()
@@ -76,8 +81,8 @@ app.post('/api/signup' , (req, res) => {
                     console.log(err);
                     res.status(500).json({err})
                   })
-              // }
-            // })
+              }
+            })
           }
     })
     .catch( err => {
@@ -94,6 +99,9 @@ app.get('/api/user', (req, res) => {
 });    
 
 app.post('/api/login' , (req, res) => {
+  var email = req.body.email;
+  var password = req.body.password;
+
   console.log("LOGIN CALLED");
   db.User.find({email: req.body.email})
     .exec()
@@ -103,25 +111,20 @@ app.post('/api/login' , (req, res) => {
           message: "Email/Password incorrect"
         })
       }
-      db.User.findOne({email: req.body.email, password: req.body.password}, (err, match) => {
-        console.log(match)
-        if(err){return res.status(500).json({err})}
-        if(match){
+      let passCheck = bcrypt.compare(password, users[0].password, (err, match) => {
+        console.log("got to hashing");
+        if (err) {
+          console.log('hasing error:', err);
+          return res.status(401).json({message:"Email/Password incorrect"})
+        } 
+        if (match){
           return res.status(200).json(
-            {
-              message: 'Auth successful'
-            }
+            {message: 'Auth successful'}
           )
-        } else {
-          res.status(401).json({message: "Email/Password incorrect"})
         }
-      })
-    })
-    .catch( err => {
-      console.log(err);
-      res.status(500).json({err})
-    })
-})
+      }); 
+    }); 
+});
 
 app.get('/api/heritage', (req, res) => {
   db.Heritage.find( {}, (err, allHeritages) => {

@@ -54,7 +54,6 @@ $('#legacyForm').on('submit', function (e) {
         console.log(place.name);
 
     map.setView([place.geometry.location.lat(), place.geometry.location.lng()], 16);
-
     var newLegacy = {
         name: $('#legacyName').val(),
         address: $('#legacyAddress').val(),

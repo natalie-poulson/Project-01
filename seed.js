@@ -1,25 +1,35 @@
 const db = require('./models');
 
-let singleUser =
-{
-    name:"Natalie",
-    email:"natalieplsn@gmail.com",
-    password:"cowboys",
-}
+// let singleUser =
+// {
+//     name:"Natalie",
+//     email:"natalieplsn@gmail.com",
+//     password:"cowboys",
+//     legacy: []
+// };
 
-// let userList = [
-//     {
-//     name: "Natalie",
-//     email: "natalieplsn@gmail.com",
-//     password: "cowboys"
-//     },
-//     {
-//     name: "Alan",
-//     email: "a386226@gmail.com",
-//     password: "niners"
-//     }
-// ]
+let userList = [
+    {
+    name: "Natalie",
+    email: "natalieplsn@gmail.com",
+    password: "cowboys"
+    },
+    {
+    name: "Alan",
+    email: "a386226@gmail.com",
+    password: "niners"
+    }
+]
 
+<<<<<<< HEAD
+// let singleLegacy = {
+//     name: "In-N-Out Burger",
+//     address: "9333 Jefferson St, San Francisco, CA 94133",
+//     yearOpened: 1948,
+//     coordinates: [37.8077, -122.4185],
+//     website:"https://locations.in-n-out.com/154-San-Francisco"
+// }
+=======
 let legacyList = {
     name: "In-N-Out Burger",
     address: "9333 Jefferson St, San Francisco, CA 94133",
@@ -27,16 +37,17 @@ let legacyList = {
     coordinates: [37.8077, -122.4185],
     website:"https://locations.in-n-out.com/154-San-Francisco"
 }
+>>>>>>> 8378d1e083e87c386c37ad75b5c82fb7591eeaf0
 
-// let legacyList = [
-//     {
-//         name: "In-N-Out Burger",
-//         address: "9333 Jefferson St, San Francisco, CA 94133",
-//         yearOpened: 1948,
-//         coordinates: [37.8077, -122.4185],
-//         website:"https://locations.in-n-out.com/154-San-Francisco"
-//     }
-// ];
+let legacyList = [
+    {
+        name: "In-N-Out Burger",
+        address: "9333 Jefferson St, San Francisco, CA 94133",
+        yearOpened: 1948,
+        coordinates: [37.8077, -122.4185],
+        website:"https://locations.in-n-out.com/154-San-Francisco"
+    }
+];
 
 let heritageList = [
     {
@@ -1034,8 +1045,35 @@ db.Heritage.remove( {} , (req,res) => {
         }); 
     });
 });
+<<<<<<< HEAD
+// Legacy (singleLegacy) goes inside User (singleUser)
+// Ingredient (cheddar) goes inside Food (cheesyQuiche)
+
+// db.Legacy.create( legacyList , (err, savedLegacy) => {
+//     if (err) {
+//         return console.log(err);
+//     } else {
+//         console.log("legacyList successfully saved");
+//         db.User.create( singleUser, (err, savedUser) => {
+//             if(err){
+//                 return console.log(err);
+//             }
+//             savedUser.legacies.push(savedLegacy);
+//             savedUser.save( (err, savedSingleUserLegacy) => {
+//                 if(err) {
+//                     return console.log(err);
+//                 } else {
+//                     console.log('singleLegacy is', savedSingleUserLegacy);
+//                 }
+//             });
+//         })
+//     }
+// });
+// db.User.deleteMany ( {}, (err, removedUser) => {
+=======
 
 // db.User.deleteMany( {} , (err, removed) => {
+>>>>>>> 8378d1e083e87c386c37ad75b5c82fb7591eeaf0
 //     console.log('deleted');
 //     db.User.create(singleUser, (err, savedUser) => {
 //         if (err) {console.log(err)};
