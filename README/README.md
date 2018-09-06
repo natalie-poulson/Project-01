@@ -4,7 +4,7 @@ The flux capacEATor is an interactive map that connects users with bars and rest
 
 All cities experience change over time, and it is important to stay connected to the past in order to remember shared experiences that had significant social impacts. It's easy to read a history book or watch a documentary, but to walk into a place that has served their neighborhood and the community as a whole for decades - oftentimes run by the same family - is a feeling that cannot be conveyed through words or pictures. The flux capacEATor hopes to inspire people to step out of their comfort zone and make their own connection to the past.
 
-Link to project hosted on Heroku
+https://frozen-sea-79124.herokuapp.com/
 
 
 Technologies Used
