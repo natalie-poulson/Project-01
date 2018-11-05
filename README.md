@@ -47,10 +47,10 @@ MongoD/Mongoose
 
 
 ## Users:
-Our user is someone who is:
+Our user is:
 
-* a local and wants to support community business
-* a tourist and wants a distinct and authentic San Francisco dining/bar experience
+* a local who wants to support community business
+* a tourist who wants a distinct and authentic San Francisco dining/bar experience
 * a newcomer to the city and interested in getting to know San Francisco and its culinary roots
 * anyone interested in eating, drinking, history, culture and the relationship between them
 
