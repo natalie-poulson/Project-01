@@ -58,10 +58,11 @@ Our user is:
 ## Features:
 * User signup, login, logout
 * An interactive Open Street Map populated with pins of bars and restaurants from San Francisco Heritage's Legacy Project and user submissions
-  * When user clicks on the name of the bar or restaurant in the pin popup, it opens that bar or restaurant's website in another window
+  * When a user clicks on the name of the bar or restaurant in the pin popup, it opens that bar or restaurant's website in another window
 * Geolocation of user, displayed as a pin on the map when the page loads
 * User's can create a new legacy bar or restaurant 
   * User's can search and select a bar or restaurant with the help of Google Autocomplete, enter the year it was established, and submit it to be added as a pin on the map
+    * Google Places API stores the neccessary information about the bar or restaurant (address, name, website) for the user so the user does not have to enter this information themselves
 * Two different colors of pins, to distinguish the source of the submission (SF Heritage's Legacy Project or user)
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
 * User can toggle between "Map" and "List" views
