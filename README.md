@@ -1,10 +1,10 @@
-# flux capacEATor
+# SF Legacy Eats
 
 ## Scope:
-The flux capacEATor is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historical establishments.
+SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historical establishments.
 
 ## Getting Started:
-To run flux capacEATor on your local machine, clone the repository, then:
+To run SF Legacy Eats on your local machine, clone the repository, then:
 
 1. Install requirements:
   
