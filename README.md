@@ -51,7 +51,7 @@ Our user is:
 
 * a local who wants to support community business
 * a tourist who wants a distinct and authentic San Francisco dining/bar experience
-* a newcomer to the city and interested in getting to know San Francisco and its culinary roots
+* a newcomer to the city who is interested in getting to know San Francisco and its culinary roots
 * anyone interested in eating, drinking, history, culture and the relationship between them
 
 
