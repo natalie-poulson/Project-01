@@ -67,6 +67,10 @@ Our user is:
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
 * User can toggle between "Map" and "List" views
 
+## Unsolved Problems...
+* List page creates duplicate listings on each click
+* Initial map load doesn't show pins (moved to inside a click on the map function)
+
 
 ## Still to Come...
 * Add form validation to "Year Opened" in user submission form
