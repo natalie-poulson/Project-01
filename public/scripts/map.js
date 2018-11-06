@@ -25,14 +25,14 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(map);
 
 if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position){
+    navigator.geolocation.getCurrentPosition((position) => {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
     });
 
-    function load_map() {
+    load_map = () => {
     map.locate({setView: true, maxZoom: 16});
-    function onLocationFound(e) {
+    onLocationFound = (e) => {
         var radius = e.accuracy / 2;
         L.marker(e.latlng, {icon: hereIcon}).addTo(map)
         .bindPopup("You are here").openPopup();
@@ -43,114 +43,118 @@ if (navigator.geolocation) {
     alert("Geolocation API is not supported in your browser.");
 };
 
-$('#legacyForm').on('submit', function (e) {
+$('#legacyForm').on('submit', (e) => {
     e.preventDefault();
     var place = autocomplete.getPlace();
-        document.getElementById('legacyName').value = place.name;
-        document.getElementById('legacyAddress').value = place.vicinity;
-        document.getElementById('legacyLat').value = place.geometry.location.lat();
-        document.getElementById('legacyLng').value = place.geometry.location.lng();
-        console.log(place.name);
-
     map.setView([place.geometry.location.lat(), place.geometry.location.lng()], 16);
     var newLegacy = {
-        name: $('#legacyName').val(),
-        address: $('#legacyAddress').val(),
+        name: place.name,
+        address: place.vicinity,
         yearOpened: $('#legacyYear').val(),
         website: place.website,
-        lat: $('#legacyLat').val(),
-        lon: $('#legacyLng').val()
+        lat: place.geometry.location.lat(),
+        lon: place.geometry.location.lng()
     }
 
     $.ajax({
         method: 'POST',
         url:'/api/legacy',
         data:newLegacy,
-        success: newLegacySuccess,
-        error: newLegacyError
+        success: (json) => {
+            $('#alreadyExists').fadeOut();
+            $('#exampleModalCenter').modal('toggle');
+            alert("thank you for adding a legacy to the map!")
+        
+            let place = json.legacy;
+            L.marker([place.coordinates[0], place.coordinates[1]], {icon: placeIcon}).bindPopup(`<p><a href="${place.website}" target="_blank">${place.name}</a><br>${place.address}<br>Est. ${place.yearOpened}</p>`).addTo(map).openPopup()
+        },
+        error:(json) => {
+            if (json.status === 401){
+                $('#alreadyExists').fadeOut();
+                $('#alreadyExists').fadeIn();
+            }
+        }
     });
 });
 
-window.onload = load_map;
 
-$.ajax({
-    method: 'GET',
-    url: '/api/heritage',
-    success: handleHeritageSuccess,
-    error: handleError
-});
+$('#mapToggle'). on ('click', () => {
+    $.ajax({
+        method: 'GET',
+        url: '/api/heritage',
+        success: (json) => {
+            let heritageArray = json.data;
 
-$.ajax({
-    method: 'GET',
-    url: '/api/legacy',
-    success: handleLegacySuccess,
-    error: handleError
-});
+            heritageArray.forEach ((heritage) => {
+                let popupContent =(`<p><a href="${heritage.website}" target="_blank">${heritage.name}</a></br>${heritage.address}</br>Est. ${heritage.yearOpened}</br></p>`)
+                L.marker([heritage.coordinates[0], heritage.coordinates[1]], {icon: heritageIcon}).bindPopup(popupContent).openPopup().addTo(map);
+            })
+        },
+        error: (e) => {
+            console.log('error', e);
+        }
+    });
 
-let heritageItems = [];
-function handleHeritageSuccess (json) {
-    let heritageArray = json.data;
-    $.each(heritageArray, function () {
-        let popupContent =(`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: heritageIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
-        heritageItems.push(popupContent)
-    })
+    $.ajax({
+        method: 'GET',
+        url: '/api/legacy',
+        success: (json) => {
+            let legacyArray = json.data;
 
-    $('#list').on('click', function() {
-        for(let i = 0; i < heritageItems.length; i++) {
-            $('#heritageList').append("<li>"+ heritageItems[i]+ "</li>");}
-            $('#heritageList').show(), $('#map').hide();
-    })  
-};
-
-let legacyItems = [];
-function handleLegacySuccess (json) {
-    let legacyArray = json.data;
-    $.each(legacyArray, function () {
-        let legacyContent = (`<p><a href="${this.website}" target="_blank">${this.name}</a></br>${this.address}</br>Est. ${this.yearOpened}</br></p>`)
-        L.marker([this.coordinates[0], this.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${this.website}" target="_blank">${this.name}</a><br>${this.address}<br>Est. ${this.yearOpened}</p>`).openPopup().addTo(map);
-        legacyItems.push(legacyContent)
-    })
-
-    $('#list').on('click', function() {
-        for(let i = 0; i < legacyItems.length; i++) {
-            $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
-            $('#heritageList ').show(), $('#map').hide();
-        }) 
-};
-
-$('#mapToggle').on('click', function () {
-    $('#heritageList').empty();
+            legacyArray.forEach((legacy) => {
+                let legacyContent = (`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a></br>${legacy.address}</br>Est. ${legacy.yearOpened}</br></p>`)
+                L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(legacyContent).openPopup().addTo(map);
+            })
+        },
+        error: (e) => {
+            console.log('error', e);
+        }
+    });
     $('#map').show(), $('#heritageList').hide();
-})  
 
-function newLegacySuccess (json) {
-    $('#alreadyExists').fadeOut();
-    setTimeout(function () {
-        $('#exampleModalCenter').modal('toggle');}, 500);
-        alert("thank you for adding a legacy to the map!")
+});
 
-    var legacy = json.legacy;
-    L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a><br>${legacy.address}<br>Est. ${legacy.yearOpened}</p>`).addTo(map).openPopup()
+$('#list'). on ('click', () => {
+    $.ajax({
+        method: 'GET',
+        url: '/api/heritage',
+        success: (json) => {
+            let heritageArray = json.data;
+    
+            heritageArray.forEach ((heritage) => { 
+                $('#heritageList').append(`<li>
+                <p><a href="${heritage.website}">${heritage.name}</a></p>
+                <p>${heritage.address}</p>
+                <p>Year est: ${heritage.yearOpened}</p>
+                </li>`);
+                $('#heritageList').show(), $('#map').hide();
+            })
+        },
+        error: (e) => {
+            console.log('error', e);
+        }
+    });
+    
+    $.ajax({
+        method: 'GET',
+        url: '/api/legacy',
+        success: (json) => {
+            let legacyArray = json.data;
+    
+            legacyArray.forEach ((legacy) => {
+                $('#heritageList').append(`<li>
+                <p><a href="${legacy.website}">${legacy.name}</a></p>
+                <p>${legacy.address}</p>
+                <p>Year est: ${legacy.yearOpened}</p>
+                </li>`);
+                $('#heritageList').show(), $('#map').hide();
+            })
+        },
+        error: (e) => {
+            console.log('error', e);
+        }
+    });
+    
+})
 
-    $('#list').on('click', function() {
-        for(let i = 0; i < legacyItems.length; i++) {
-            $('#heritageList').append("<li>"+ legacyItems[i]+ "</li>");}
-            $('#heritageList ').show(), $('#map').hide();
-        })
-    $('#mapToggle').on('click', function () {
-        $('#map').show(), $('#heritageList').hide();
-    }) 
-
-};
-
-function newLegacyError (json) {
-    if (json.status === 401){
-        $('#alreadyExists').fadeOut();
-        $('#alreadyExists').fadeIn();
-    }
-}
-
-function handleError(e) {
-    console.log('error', e);
-}
+window.onload = load_map;
