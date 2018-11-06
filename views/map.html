@@ -14,7 +14,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>
-    <script src="scripts/app.js" defer></script>
     <script src="scripts/map.js" defer></script>
 
     <title>SF Legacy Eats</title>
@@ -24,8 +23,7 @@
         <h2>SF Legacy Eats</h2>
         <h4>eat and drink your way through San Francisco history</h4>
         <nav>
-            <button id="mapToggle" class="navbar">Map View</button>
-            <button id="list" class="navbar">List View</button>
+            <a href="list">List</a>
             <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter">Add a Pin</button>
         </nav>
     </header>
@@ -57,11 +55,8 @@
         </div>
     </div>
     <div id="map"></div>
-    <div id="listView" style="overflow:scroll">
-        <ul id="heritageList"></ul>
-    </div>
     <footer>
-        <a href="about#a1">About Us</a>
+        <a href="about">About Us</a>
         <button id="logout" type="button">Logout</button>
     </footer>
 </body>

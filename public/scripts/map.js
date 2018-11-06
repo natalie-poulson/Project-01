@@ -66,7 +66,7 @@ $('#legacyForm').on('submit', (e) => {
             alert("thank you for adding a legacy to the map!")
         
             let place = json.legacy;
-            L.marker([place.coordinates[0], place.coordinates[1]], {icon: placeIcon}).bindPopup(`<p><a href="${place.website}" target="_blank">${place.name}</a><br>${place.address}<br>Est. ${place.yearOpened}</p>`).addTo(map).openPopup()
+            L.marker([place.coordinates[0], place.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${place.website}" target="_blank">${place.name}</a><br>${place.address}<br>Est. ${place.yearOpened}</p>`).addTo(map).openPopup()
         },
         error:(json) => {
             if (json.status === 401){
@@ -78,83 +78,40 @@ $('#legacyForm').on('submit', (e) => {
 });
 
 
-$('#mapToggle'). on ('click', () => {
-    $.ajax({
-        method: 'GET',
-        url: '/api/heritage',
-        success: (json) => {
-            let heritageArray = json.data;
+$.ajax({
+    method: 'GET',
+    url: '/api/heritage',
+    success: (json) => {
+        let heritageArray = json.data;
 
-            heritageArray.forEach ((heritage) => {
-                let popupContent =(`<p><a href="${heritage.website}" target="_blank">${heritage.name}</a></br>${heritage.address}</br>Est. ${heritage.yearOpened}</br></p>`)
-                L.marker([heritage.coordinates[0], heritage.coordinates[1]], {icon: heritageIcon}).bindPopup(popupContent).openPopup().addTo(map);
-            })
-        },
-        error: (e) => {
-            console.log('error', e);
-        }
-    });
-
-    $.ajax({
-        method: 'GET',
-        url: '/api/legacy',
-        success: (json) => {
-            let legacyArray = json.data;
-
-            legacyArray.forEach((legacy) => {
-                let legacyContent = (`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a></br>${legacy.address}</br>Est. ${legacy.yearOpened}</br></p>`)
-                L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(legacyContent).openPopup().addTo(map);
-            })
-        },
-        error: (e) => {
-            console.log('error', e);
-        }
-    });
-    $('#map').show(), $('#heritageList').hide();
-
+        heritageArray.forEach ((heritage) => {
+            let popupContent =(`<p><a href="${heritage.website}" target="_blank">${heritage.name}</a></br>${heritage.address}</br>Est. ${heritage.yearOpened}</br></p>`)
+            L.marker([heritage.coordinates[0], heritage.coordinates[1]], {icon: heritageIcon}).bindPopup(popupContent).openPopup().addTo(map);
+        })
+    },
+    error: (e) => {
+        console.log('error', e);
+    }
 });
 
-$('#list'). on ('click', () => {
-    $.ajax({
-        method: 'GET',
-        url: '/api/heritage',
-        success: (json) => {
-            let heritageArray = json.data;
-    
-            heritageArray.forEach ((heritage) => { 
-                $('#heritageList').append(`<li>
-                <p><a href="${heritage.website}">${heritage.name}</a></p>
-                <p>${heritage.address}</p>
-                <p>Year est: ${heritage.yearOpened}</p>
-                </li>`);
-                $('#heritageList').show(), $('#map').hide();
-            })
-        },
-        error: (e) => {
-            console.log('error', e);
-        }
-    });
-    
-    $.ajax({
-        method: 'GET',
-        url: '/api/legacy',
-        success: (json) => {
-            let legacyArray = json.data;
-    
-            legacyArray.forEach ((legacy) => {
-                $('#heritageList').append(`<li>
-                <p><a href="${legacy.website}">${legacy.name}</a></p>
-                <p>${legacy.address}</p>
-                <p>Year est: ${legacy.yearOpened}</p>
-                </li>`);
-                $('#heritageList').show(), $('#map').hide();
-            })
-        },
-        error: (e) => {
-            console.log('error', e);
-        }
-    });
-    
+$.ajax({
+    method: 'GET',
+    url: '/api/legacy',
+    success: (json) => {
+        let legacyArray = json.data;
+
+        legacyArray.forEach((legacy) => {
+            let legacyContent = (`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a></br>${legacy.address}</br>Est. ${legacy.yearOpened}</br></p>`)
+            L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(legacyContent).openPopup().addTo(map);
+        })
+    },
+    error: (e) => {
+        console.log('error', e);
+    }
+});
+
+$('#logout').on ('click', () => {
+    window.location.pathname = '/'
 })
 
 window.onload = load_map;

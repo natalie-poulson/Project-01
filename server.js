@@ -27,6 +27,10 @@ app.get('/map', (req, res) => {
   res.sendFile(__dirname + '/views/map.html');
 })
 
+app.get('/list', (req, res) => {
+  res.sendFile(__dirname + '/views/list.html');
+})
+
 app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/views/about.html');
 })
