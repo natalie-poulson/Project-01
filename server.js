@@ -29,24 +29,9 @@ app.get('/about', (req, res) => {
 
 //JSON API Endpoints
 app.use('/api', routes.api)
-// app.use('/api/heritage', routes.heritage);
+app.use('/api/heritage', routes.heritage);
 // app.use('/api/legacy', routes.legacy);
 
-
-app.get('/api/heritage', (req, res) => {
-  db.Heritage.find( {}, (err, allHeritages) => {
-    if(err){console.log(err)};
-    res.json({data: allHeritages});
-    });
-  });
-
-  app.get('/api/heritage/:id' , (req, res) => {
-    let heritageId = req.params.id;
-    db.Heritage.findById( heritageId , (err, foundHeritage) => {
-      if(err) { return console.log(err) };
-      res.json(foundHeritage);
-    });
-  }); 
 
 app.post('/api/legacy' , (req, res) => {
   db.Heritage.find({name: req.body.name})

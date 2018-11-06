@@ -1,4 +1,4 @@
-$('#formLogin'). on ('submit', function (e) {
+$('#formLogin'). on ('submit', (e) => {
     e.preventDefault();
 
     console.log($('#formLogin').serialize())
@@ -11,14 +11,9 @@ $('#formLogin'). on ('submit', function (e) {
     });
 })
 
-$('#formSignUp'). on ('submit', function (e) {
+$('#formSignUp'). on ('submit', (e) => {
     e.preventDefault();
-    // var newUser = {
-    //     name: $('#signUpName').val(),
-    //     email: $('#signUpEmail').val(),
-    //     password: $('#signUpPassword').val(),
-    // }
-    
+
     $.ajax({
         method: 'POST',
         url:'/api/signup',
