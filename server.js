@@ -32,38 +32,6 @@ app.use('/api', routes.api)
 // app.use('/api/heritage', routes.heritage);
 // app.use('/api/legacy', routes.legacy);
 
-// app.get('/api/user', (req, res) => {
-//   db.User.find( {}, (err, allUsers) => {
-//     if(err){console.log(err)};
-//     res.json({data: allUsers});
-//     })
-// });    
-
-// app.post('/api/login' , (req, res) => {
-//   var email = req.body.email;
-//   var password = req.body.password;
-
-//   db.User.find({email: req.body.email})
-//     .exec()
-//     .then( users => {
-//       if(users.length < 1) {
-//         return res.status(401).json({
-//           message: "Email/Password incorrect"
-//         })
-//       }
-//       let passCheck = bcrypt.compare(password, users[0].password, (err, match) => {
-//         if (err) {
-//           console.log('hasing error:', err);
-//           return res.status(401).json({message:"Email/Password incorrect"})
-//         } 
-//         if (match){
-//           return res.status(200).json(
-//             {message: 'Auth successful'}
-//           )
-//         }
-//       }); 
-//     }); 
-// });
 
 app.get('/api/heritage', (req, res) => {
   db.Heritage.find( {}, (err, allHeritages) => {
