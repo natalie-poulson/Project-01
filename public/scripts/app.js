@@ -1,14 +1,11 @@
 $('#formLogin'). on ('submit', function (e) {
     e.preventDefault();
-    console.log($(this))   
-    var user = {
-        email:$('#loginEmail').val(),
-        password: $('#loginPassword').val()
-    }
+
+    console.log($('#formLogin').serialize())
     $.ajax({
         method: 'POST',
         url:'/api/login',
-        data:user,
+        data: $('#formLogin').serialize(),
         success:loginSuccess,
         error: loginError
     });
@@ -16,16 +13,16 @@ $('#formLogin'). on ('submit', function (e) {
 
 $('#formSignUp'). on ('submit', function (e) {
     e.preventDefault();
-    var newUser = {
-        name: $('#signUpName').val(),
-        email: $('#signUpEmail').val(),
-        password: $('#signUpPassword').val(),
-    }
+    // var newUser = {
+    //     name: $('#signUpName').val(),
+    //     email: $('#signUpEmail').val(),
+    //     password: $('#signUpPassword').val(),
+    // }
     
     $.ajax({
         method: 'POST',
         url:'/api/signup',
-        data:newUser,
+        data:$('#formSignUp').serialize(),
         success:signUpSuccess,
         error: signUpError
     });
@@ -55,17 +52,15 @@ function signUpError (json) {
 };
 
 function loginSuccess (json) {
-    console.log(json)
     $('main p').first('.error-message').fadeOut();
-    setTimeout(function () {
-        window.location.pathname = '/map';}, 500);
+    window.location.pathname = '/map'
 }   
 
 function loginError (json) {
     console.log(json)
-    $('main p').first('.error-message').fadeOut(200);
-    $('main p').first('.error-message').fadeIn(500);
-        $('main p').css('display', 'flex');
+    $('main p').first('.error-message').fadeOut();
+    $('main p').first('.error-message').fadeIn();
+    $('main p').css('display', 'flex');
 }
 
 function signUpSuccess (json) {

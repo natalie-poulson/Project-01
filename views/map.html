@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin="" defer></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg&libraries=places" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous" defer></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" defer></script>
     <script src="scripts/app.js" defer></script>
     <script src="scripts/map.js" defer></script>
-    <title>Map</title>
+
+    <title>SF Legacy Eats</title>
 </head>
 <body>
     <header>
-        <h2>flux capacEATor</h2>
+        <h2>SF Legacy Eats</h2>
         <h4>eat and drink your way through San Francisco history</h4>
         <nav>
-            <button id="mapToggle" class="navbar">Map</button>
-            <button id="list" class="navbar">List</button>
-            <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter">Submit</button>
+            <button id="mapToggle" class="navbar">Map View</button>
+            <button id="list" class="navbar">List View</button>
+            <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter">Add a Pin</button>
         </nav>
     </header>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
@@ -47,21 +50,18 @@
                         <input type="hidden" id="legacyAddress" name="city2" />
                         <input type="hidden" id="legacyLat" name="cityLat" />
                         <input type="hidden" id="legacyLng" name="cityLng" /> 
-                        <!-- <input type="hidden" id="legacyWebsite" name="website" />  -->
                     </div>
                     <button id="legacySubmit" type="submit" class="btn btn-secondary">Submit</button>
                 </form>
-
-            </div>
             </div>
         </div>
+    </div>
     <div id="map"></div>
     <div id="listView" style="overflow:scroll">
         <ul id="heritageList"></ul>
     </div>
     <footer>
         <a href="about#a1">About Us</a>
-        <a href="about#a2">Contact</a>
         <button id="logout" type="button">Logout</button>
     </footer>
 </body>

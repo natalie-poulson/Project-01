@@ -2,13 +2,16 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const routes = require('./config');
+
 const db = require('./models');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('public'))
 
-//Routes
+/**********
+ * ROUTES *
+ **********/
 app.use(express.static('public'));
 
 //HTML Endpoints
@@ -24,107 +27,43 @@ app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/views/about.html');
 })
 
-app.get('/contact', (req, res) => {
-  res.sendFile(__dirname + '/views/about.html');
-})
-
 //JSON API Endpoints
-app.get('/api', (req, res) => {
-  res.json({
-    documentationUrl: "https://github.com/aduncan12/Project-01", 
-    baseUrl: "https://hidden-falls-48101.herokuapp.com/", 
-    endpoints: [
-      {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/heritage", description: "View all SF Heritage Legacy bars and restaurants"}, 
-      {method: "GET", path: "/api/heritage/:id", description: "View a specific SF Heritage Legacy bar or restaurant by id"}, 
-      {method: "POST", path: "/api/legacy", description: "Add a SF Legacy bar or restaurant"},
-      {method: "GET", path: "/api/legacy", description: "View all user submitted SF Legacy bar or restaurant"},
-      {method: "GET", path: "/api/legacy/:id", description: "View a specific user submitted Legacy bar or restaurant by id"}, 
-      {method: "POST", path: "/api/signup", description: "Add new user to database"},
-      {method: "POST", path: "/api/login", description: "User login"},
-      {method: "GET", path: "/api/user", description: "View all users"}, 
-    ]
-  })
-});
+app.use('/api', routes.api)
+// app.use('/api/heritage', routes.heritage);
+// app.use('/api/legacy', routes.legacy);
 
-app.post('/api/signup' , (req, res) => {
-  var email = req.body.email;
-  var password = req.body.password;
+// app.get('/api/user', (req, res) => {
+//   db.User.find( {}, (err, allUsers) => {
+//     if(err){console.log(err)};
+//     res.json({data: allUsers});
+//     })
+// });    
 
-  db.User.find({email:req.body.email})
-    .exec()
-    .then ( user => {
-      if (user.length >=1) {
-        return res.status(409).json({
-          message: "email already exits"
-        })
-      } 
-        else {
-          bcrypt.hash(req.body.password, 10, (err, hash) => {
-            if (err) {
-              console.log('hasing error:', err)
-              res.status(500).json({error:err})
-            } else {
-                const user = new db.User({
-                  name:req.body.name,
-                  email:req.body.email,
-                  password:hash
-                });
-                user  
-                  .save()
-                  .then (result => {
-                  res.json({message:'User created',
-                          user: result
-                          })
-                  })
-                  .catch ( err => {
-                    console.log(err);
-                    res.status(500).json({err})
-                  })
-              }
-            })
-          }
-    })
-    .catch( err => {
-      console.log(err);
-      res.status(500).json({err})
-    })
-});
+// app.post('/api/login' , (req, res) => {
+//   var email = req.body.email;
+//   var password = req.body.password;
 
-app.get('/api/user', (req, res) => {
-  db.User.find( {}, (err, allUsers) => {
-    if(err){console.log(err)};
-    res.json({data: allUsers});
-    })
-});    
-
-app.post('/api/login' , (req, res) => {
-  var email = req.body.email;
-  var password = req.body.password;
-
-  console.log("LOGIN CALLED");
-  db.User.find({email: req.body.email})
-    .exec()
-    .then( users => {
-      if(users.length < 1) {
-        return res.status(401).json({
-          message: "Email/Password incorrect"
-        })
-      }
-      let passCheck = bcrypt.compare(password, users[0].password, (err, match) => {
-        console.log("got to hashing");
-        if (err) {
-          console.log('hasing error:', err);
-          return res.status(401).json({message:"Email/Password incorrect"})
-        } 
-        if (match){
-          return res.status(200).json(
-            {message: 'Auth successful'}
-          )
-        }
-      }); 
-    }); 
-});
+//   db.User.find({email: req.body.email})
+//     .exec()
+//     .then( users => {
+//       if(users.length < 1) {
+//         return res.status(401).json({
+//           message: "Email/Password incorrect"
+//         })
+//       }
+//       let passCheck = bcrypt.compare(password, users[0].password, (err, match) => {
+//         if (err) {
+//           console.log('hasing error:', err);
+//           return res.status(401).json({message:"Email/Password incorrect"})
+//         } 
+//         if (match){
+//           return res.status(200).json(
+//             {message: 'Auth successful'}
+//           )
+//         }
+//       }); 
+//     }); 
+// });
 
 app.get('/api/heritage', (req, res) => {
   db.Heritage.find( {}, (err, allHeritages) => {
