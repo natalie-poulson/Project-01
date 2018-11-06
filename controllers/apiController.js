@@ -38,7 +38,7 @@ module.exports = {
                             });
                             user  
                                 .save()
-                                .then (result => {res.json({message:'User created', result})})
+                                .then (result => {res.json({message:'User created', user:result})})
                                 .catch ( err => {res.status(500).json({err})})
                         };
                     });
