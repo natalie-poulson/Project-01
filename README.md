@@ -67,10 +67,6 @@ Our user is:
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
 * User can toggle between "Map" and "List" views
 
-## Unsolved Problems...
-* List page creates duplicate listings on each click
-* Initial map load doesn't show pins (moved to inside a click on the map function)
-
 
 ## Still to Come...
 * Add form validation to "Year Opened" in user submission form
@@ -83,10 +79,22 @@ Our user is:
 
 
 ## Links:
+### First Iteration (https://github.com/aduncan12/Project-01):
 
-### Herkou Link
-* https://frozen-sea-79124.herokuapp.com/
-
-### Created By
+#### Created By
 * [Natalie Poulson](https://github.com/natalie-poulson)
 * [Alan Duncan](https://github.com/aduncan12)
+
+#### Herkou Link
+* https://frozen-sea-79124.herokuapp.com/
+
+
+### Refactored Version (this repo):
+
+#### Created By
+* [Natalie Poulson](https://github.com/natalie-poulson)
+
+
+
+
+
