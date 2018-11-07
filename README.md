@@ -65,7 +65,6 @@ Our user is:
     * Google Places API stores the neccessary information about the bar or restaurant (address, name, website) for the user so the user does not have to enter this information themselves
 * Two different colors of pins, to distinguish the source of the submission (SF Heritage's Legacy Project or user)
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
-* User can toggle between "Map" and "List" views
 
 
 ## Still to Come...
