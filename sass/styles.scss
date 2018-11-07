@@ -1,234 +1,64 @@
 @import 'reset';
+@import 'map';
+@import 'about';
 
-// landing page
-body {
-    height: 100vh;
-    width: 100vw;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    font-family: 'EB Garamond', serif;
-}
-
-main {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
+header {
+    display:flex;
+    flex-direction:column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(rgba(0,0,0,.5), rgba(100,100,100,.35)), url('../images/TEMP_historical_map_of_san_francisco.jpg');
-    background-size: cover;
+    width:100vw;
+    h2 {
+        font-size:3em;
+        line-height: 1.2em;
+    }
+    h4 {
+        font-size:1.4em;
+        line-height: 1.2em;
+    }
+    nav {
+        display:flex;
+        justify-content: space-around;
+        width:100vw;
+        margin:2em 0 1em 0;
+        a {
+            color:black;
+            font-size:1.5em;
+            &:hover {
+                color:orange;
+                text-decoration: none;
+            }
+        }
+    }
 }
 
-h1 {
-    font-size: 3em;
-    font-weight: bold;
-    color: #FFFFFF;
-}
-
-main h4 {
-    color: #27251F;
-    text-align: center;
-    margin: 2%;
-    font-size: 1.25em;
-    color: #FFFFFF;
-}
-
-.login {
-    border: 2px solid #6d6d6d;
-    border-radius: 5px;
-    height: 4vh;
-    font-size: .75em;
-    margin: .5%;
-    text-align: center;
-}
-
-#loginEmail, #loginPassword {
-    width: 25vw;
-}
-
-#formLogin {
-    display: flex;
+#addLegacy, #logout {
+    border:none;
+    cursor:pointer;
+    font-size:1.5em;
+    display:flex;
     align-items: center;
-    margin-bottom: 1%;
-}
-
-input[type=submit], #legacySubmit, #signUpSubmit {
-    background-color: #4CAF50;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 auto;
-}
-
-input[type=submit]:hover {
-    background-color: #45a049;
-}
-
-#buttonModal {
-    font-size: .85em;
-    color: #FFFFFF;
-    background: transparent;
-    border: none;
-}
-
-#buttonModal:hover {
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.close {
-    float: right;
-    font-size: 1em;
-    font-weight: 700;
-    line-height: 0;
-    color: #000000;
-    text-shadow: none;
-    opacity: .5;
-}
-
-span {
-    margin-left: 95%;
+    margin:0;
+    padding:0;
+    &:hover {
+        color:orange;
+    }
 }
 
 #formSignUp, #legacyForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1%;
-}
-
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 5px;
+    padding: 1em 2em;
 }
 
 .signUp, #pac-input {
-    border: 2px solid black;
-    height: 4vh;
-    font-size: .85em;
-    margin: .5%;
+    border: 1px solid black;
+    font-size: 1em;
     text-align: center;
-    width: 100%;
-}
-
-// map page
-
-h2 {
-    font-size: 2em;
-    font-weight: bold;
-    color: #27251F;
-    text-align: center;
-}
-
-h4 {
-    color: #27251F;
-    text-align: center;
-    font-size: 1.25em;
-    margin: 1%;
-}
-
-nav {
-    background: #FD5A1E;
-    border-top: 2.5px solid #27251F;
-    border-bottom: 3px solid #27251F;
-    padding: 1.25%;
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-}
-
-.navbar {
-    font-size: 1.1em;
-    color: #27251F;
-    background: #FD5A1E;
-    border: 1px solid #EFD19F;
-    border-radius: 15px;
-    margin: 0 auto;
-}
-
-.navbar:focus {
-    color: #FD5A1E;
-    background: #27251F;
-}
-
-.my-new-list {
-    color: #000000;
-    background-color: rgba(39,37,31,.4);
-    font-style: italic;
-}
-
-#search {
-    width: 60%;
-}
-
-#map {
-    height: 100%;
-    width: 100vw;
-    z-index: 1;
-}
-
-#heritageList {
-    color: #EFD19F;
-    font-size: 1.15em;
-    line-height: 1.25em;
-    width: 100%;
-    columns: 2;
-    column-gap: 1%;
-}
-
-#listView {
-    overflow: scroll;
-    background: linear-gradient(rgba(0,0,0,.7), rgba(100,100,100,.35)), url('../images/joes.jpg');
-    background-size: cover;
-}
-
-li {
-    border-bottom: 1px solid #000000;
-    padding: 2%;
-}
-
-li a {
-    text-decoration: none;
-    color: #EFD19F;
-}
-
-footer {
-    background-color: #27251F;
-    height: 7%;
-    width: 100vw;
-    border-top: 2.5px solid #EFD19F;
-    display: flex;
-    justify-content: space-around;
-    padding: 1.25%;
-    align-items: center;
-    color: #EFD19F;
-}
-
-footer a {
-    text-decoration: none;
-    color: #EFD19F;
-    font-size: 1.15em;
-}
-
-a:hover, #logout:hover {
-    text-decoration: underline;
-    font-weight: bold;
-    color: #EFD19F;
-}
-
-#logout {
-    background: transparent;
-    color: #EFD19F;
-    border: none;
-    font-size: 1.15em;
+    width:100%;
+    padding:.5em 1em;
+    margin:.25em 0;
 }
 
 .error-message {
@@ -241,145 +71,388 @@ a:hover, #logout:hover {
     justify-content: center;    
 }
 
-.pac-container {
-    background-color: white;
-    position: absolute!important;
-    z-index: 10000;
-    border-radius: 2px;
-    border-top: 1px solid #d9d9d9;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    overflow: hidden
-}
 
-.pac-logo:after {
-    content: "";
-    padding: 1px 1px 1px 0;
-    height: 16px;
-    text-align: right;
-    display: block;
-    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: 120px 14px
-}
-.hdpi.pac-logo:after {
-    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
-}
-.pac-item {
-    cursor: default;
-    padding: 0 4px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 30px;
-    text-align: left;
-    border-bottom: 1px solid #000000;
-    font-size:11px;
-    color: rgb(0, 0, 0) !important;
-}
-.pac-item:hover {
-    background-color: lightgray;
-}
-.pac-item-selected, .pac-item-selected:hover {
-    background-color: #ebf2fe
-}
-.pac-matched {
-    font-weight: 700;
-}
-.pac-item-query {
-    font-size: 13px;
-    padding-right: 3px;
-    color: #000;
-    z-index: 20000;
-    margin: 0;
-}
-.pac-icon {
-    display: none;
-    width: 15px;
-    height: 20px;
-    margin-right: 7px;
-    margin-top: 6px;
-    display: inline-block;
-    vertical-align: top;
-    background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
-    background-size: 34px;
-}
-.pac-item-selected .pac-icon-search {
-    background-position: -18px -1px;
-}
-.pac-icon-marker {
-    background-position: -1px -161px;
-    display: none;
-}
-.pac-item-selected .pac-icon-marker {
-    background-position: -18px -161px;
-}
-.pac-placeholder {
-    color: gray;
-}
-.pac-item span {
-  color: #000 !important;
-  margin: 0;
-}
+// // landing page
+// body {
+//     height: 100vh;
+//     width: 100vw;
+//     max-width: 1200px;
+//     display: flex;
+//     flex-direction: column;
+//     font-family: 'EB Garamond', serif;
+// }
 
-// about and contact page
 
-#parallax1 {
-    background-image: url('../images/vesuvio.jpg');
-    min-height: 75%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+// main {
+//     height: 100vh;
+//     width: 100vw;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     background: linear-gradient(rgba(0,0,0,.5), rgba(100,100,100,.35)), url('../images/TEMP_historical_map_of_san_francisco.jpg');
+//     background-size: cover;
+// }
 
-#parallax2 {
-    background-image: url('../images/its_tops.jpg');
-    min-height: 75%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+// h1 {
+//     font-size: 3em;
+//     font-weight: bold;
+//     color: #FFFFFF;
+// }
 
-#parallax3 {
-    background-image: url('../images/vesuvio.jpg');
-    min-height: 75%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+// main h4 {
+//     color: #27251F;
+//     text-align: center;
+//     margin: 2%;
+//     font-size: 1.25em;
+//     color: #FFFFFF;
+// }
 
-.contact {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical;
-}
+// .login {
+//     border: 2px solid #6d6d6d;
+//     border-radius: 5px;
+//     height: 4vh;
+//     font-size: .75em;
+//     margin: .5%;
+//     text-align: center;
+// }
 
-.about {
-    background-color: #dadada;
-}
+// #loginEmail, #loginPassword {
+//     width: 25vw;
+// }
 
-#formContact {
-    padding: 2%;
-    font-size: 1.25em;
-    height: 100%;
-}
+// #formLogin {
+//     display: flex;
+//     align-items: center;
+//     margin-bottom: 1%;
+// }
 
-h3 {
-    text-align: center;
-    font-size: 1.75em;
-}
+// input[type=submit], #legacySubmit, #signUpSubmit {
+//     background-color: #4CAF50;
+//     color: #FFFFFF;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     margin: 0 auto;
+// }
 
-.about p {
-    font-size: 1.25em;
-}
+// input[type=submit]:hover {
+//     background-color: #45a049;
+// }
+
+// #buttonModal {
+//     font-size: .85em;
+//     color: #FFFFFF;
+//     background: transparent;
+//     border: none;
+// }
+
+// #buttonModal:hover {
+//     text-decoration: underline;
+//     font-weight: bold;
+// }
+
+// .close {
+//     float: right;
+//     font-size: 1em;
+//     font-weight: 700;
+//     line-height: 0;
+//     color: #000000;
+//     text-shadow: none;
+//     opacity: .5;
+// }
+
+// span {
+//     margin-left: 95%;
+// }
+
+// #formSignUp, #legacyForm {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     padding: 1%;
+// }
+
+// .modal-content {
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     background-color: #FFFFFF;
+//     border: 1px solid rgba(0,0,0,.2);
+//     border-radius: 5px;
+// }
+
+// .signUp, #pac-input {
+//     border: 2px solid black;
+//     height: 4vh;
+//     font-size: .85em;
+//     margin: .5%;
+//     text-align: center;
+//     width: 100%;
+// }
+
+// // map page
+
+// h2 {
+//     font-size: 2em;
+//     font-weight: bold;
+//     color: #27251F;
+//     text-align: center;
+// }
+
+// h4 {
+//     color: #27251F;
+//     text-align: center;
+//     font-size: 1.25em;
+//     margin: 1%;
+// }
+
+// nav {
+//     background: #FD5A1E;
+//     border-top: 2.5px solid #27251F;
+//     border-bottom: 3px solid #27251F;
+//     padding: 1.25%;
+//     display: flex;
+//     justify-content: center;
+//     width: 100vw;
+// }
+
+// .navbar {
+//     font-size: 1.1em;
+//     color: #27251F;
+//     background: #FD5A1E;
+//     border: 1px solid #EFD19F;
+//     border-radius: 15px;
+//     margin: 0 auto;
+// }
+
+// .navbar:focus {
+//     color: #FD5A1E;
+//     background: #27251F;
+// }
+
+// .my-new-list {
+//     color: #000000;
+//     background-color: rgba(39,37,31,.4);
+//     font-style: italic;
+// }
+
+// #search {
+//     width: 60%;
+// }
+
+// #map {
+//     height: 100%;
+//     width: 100vw;
+//     z-index: 1;
+// }
+
+// #heritageList {
+//     color: #EFD19F;
+//     font-size: 1.15em;
+//     line-height: 1.25em;
+//     width: 100%;
+//     columns: 2;
+//     column-gap: 1%;
+// }
+
+// #listView {
+//     overflow: scroll;
+//     background: linear-gradient(rgba(0,0,0,.7), rgba(100,100,100,.35)), url('../images/joes.jpg');
+//     background-size: cover;
+// }
+
+// li {
+//     border-bottom: 1px solid #000000;
+//     padding: 2%;
+// }
+
+// li a {
+//     text-decoration: none;
+//     color: #EFD19F;
+// }
+
+// footer {
+//     background-color: #27251F;
+//     height: 7%;
+//     width: 100vw;
+//     border-top: 2.5px solid #EFD19F;
+//     display: flex;
+//     justify-content: space-around;
+//     padding: 1.25%;
+//     align-items: center;
+//     color: #EFD19F;
+// }
+
+// footer a {
+//     text-decoration: none;
+//     color: #EFD19F;
+//     font-size: 1.15em;
+// }
+
+// a:hover, #logout:hover {
+//     text-decoration: underline;
+//     font-weight: bold;
+//     color: #EFD19F;
+// }
+
+// #logout {
+//     background: transparent;
+//     color: #EFD19F;
+//     border: none;
+//     font-size: 1.15em;
+// }
+
+// .error-message {
+//     font-size: 1em;
+//     color: #ff0000;
+//     display: none;
+//     background: linear-gradient(rgba(250,250,250, 0), rgba(250,250,250, .9), rgba(250,250,250, 0));
+//     height: 5%;
+//     flex-direction: column;
+//     justify-content: center;    
+// }
+
+// .pac-container {
+//     background-color: white;
+//     position: absolute!important;
+//     z-index: 10000;
+//     border-radius: 2px;
+//     border-top: 1px solid #d9d9d9;
+//     font-family: Arial, sans-serif;
+//     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+//     -moz-box-sizing: border-box;
+//     -webkit-box-sizing: border-box;
+//     box-sizing: border-box;
+//     overflow: hidden
+// }
+
+// .pac-logo:after {
+//     content: "";
+//     padding: 1px 1px 1px 0;
+//     height: 16px;
+//     text-align: right;
+//     display: block;
+//     background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);
+//     background-position: right;
+//     background-repeat: no-repeat;
+//     background-size: 120px 14px
+// }
+// .hdpi.pac-logo:after {
+//     background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)
+// }
+// .pac-item {
+//     cursor: default;
+//     padding: 0 4px;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     line-height: 30px;
+//     text-align: left;
+//     border-bottom: 1px solid #000000;
+//     font-size:11px;
+//     color: rgb(0, 0, 0) !important;
+// }
+// .pac-item:hover {
+//     background-color: lightgray;
+// }
+// .pac-item-selected, .pac-item-selected:hover {
+//     background-color: #ebf2fe
+// }
+// .pac-matched {
+//     font-weight: 700;
+// }
+// .pac-item-query {
+//     font-size: 13px;
+//     padding-right: 3px;
+//     color: #000;
+//     z-index: 20000;
+//     margin: 0;
+// }
+// .pac-icon {
+//     display: none;
+//     width: 15px;
+//     height: 20px;
+//     margin-right: 7px;
+//     margin-top: 6px;
+//     display: inline-block;
+//     vertical-align: top;
+//     background-image: url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);
+//     background-size: 34px;
+// }
+// .pac-item-selected .pac-icon-search {
+//     background-position: -18px -1px;
+// }
+// .pac-icon-marker {
+//     background-position: -1px -161px;
+//     display: none;
+// }
+// .pac-item-selected .pac-icon-marker {
+//     background-position: -18px -161px;
+// }
+// .pac-placeholder {
+//     color: gray;
+// }
+// .pac-item span {
+//   color: #000 !important;
+//   margin: 0;
+// }
+
+// // about and contact page
+
+// #parallax1 {
+//     background-image: url('../images/vesuvio.jpg');
+//     min-height: 75%;
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
+
+// #parallax2 {
+//     background-image: url('../images/its_tops.jpg');
+//     min-height: 75%;
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
+
+// #parallax3 {
+//     background-image: url('../images/vesuvio.jpg');
+//     min-height: 75%;
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
+
+// .contact {
+//     width: 100%;
+//     padding: 12px;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     box-sizing: border-box;
+//     margin-top: 6px;
+//     margin-bottom: 16px;
+//     resize: vertical;
+// }
+
+// .about {
+//     background-color: #dadada;
+// }
+
+// #formContact {
+//     padding: 2%;
+//     font-size: 1.25em;
+//     height: 100%;
+// }
+
+// h3 {
+//     text-align: center;
+//     font-size: 1.75em;
+// }
+
+// .about p {
+//     font-size: 1.25em;
+// }

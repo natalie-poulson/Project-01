@@ -25,16 +25,20 @@
         <nav>
             <a href="list">List</a>
             <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter">Add a Pin</button>
+            <a href="about">About </a>
+            <button id="logout" type="button">Logout</button>
         </nav>
     </header>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                    <h1>Add a legacy to the map</h1>
+                    <h5>What bar or restaurant do you consider to be a San Francisco legacy? Add it to the map!</h5>
+                    <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
                 </div>
                 <form id="legacyForm" autocomplete="off" method="POST" action="/map">
                     <div>

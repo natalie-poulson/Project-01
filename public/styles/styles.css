@@ -52,103 +52,9 @@ table {
   border-spacing: 0;
 }
 
-body {
-  height: 100vh;
+#map {
+  height: 80vh;
   width: 100vw;
-  max-width: 1200px;
-  display: flex;
-  flex-direction: column;
-  font-family: "EB Garamond", serif;
-}
-
-main {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(100, 100, 100, 0.35)), url("../images/TEMP_historical_map_of_san_francisco.jpg");
-  background-size: cover;
-}
-
-h1 {
-  font-size: 3em;
-  font-weight: bold;
-  color: #FFFFFF;
-}
-
-main h4 {
-  color: #27251F;
-  text-align: center;
-  margin: 2%;
-  font-size: 1.25em;
-  color: #FFFFFF;
-}
-
-.login {
-  border: 2px solid #6d6d6d;
-  border-radius: 5px;
-  height: 4vh;
-  font-size: 0.75em;
-  margin: 0.5%;
-  text-align: center;
-}
-
-#loginEmail, #loginPassword {
-  width: 25vw;
-}
-
-#formLogin {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1%;
-}
-
-input[type=submit], #legacySubmit, #signUpSubmit {
-  background-color: #4CAF50;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-#buttonModal {
-  font-size: 0.85em;
-  color: #FFFFFF;
-  background: transparent;
-  border: none;
-}
-
-#buttonModal:hover {
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-.close {
-  float: right;
-  font-size: 1em;
-  font-weight: 700;
-  line-height: 0;
-  color: #000000;
-  text-shadow: none;
-  opacity: 0.5;
-}
-
-span {
-  margin-left: 95%;
-}
-
-#formSignUp, #legacyForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1%;
 }
 
 .modal-content {
@@ -160,134 +66,34 @@ span {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
-
-.signUp, #pac-input {
-  border: 2px solid black;
-  height: 4vh;
-  font-size: 0.85em;
-  margin: 0.5%;
-  text-align: center;
-  width: 100%;
-}
-
-h2 {
-  font-size: 2em;
-  font-weight: bold;
-  color: #27251F;
-  text-align: center;
-}
-
-h4 {
-  color: #27251F;
-  text-align: center;
-  font-size: 1.25em;
-  margin: 1%;
-}
-
-nav {
-  background: #FD5A1E;
-  border-top: 2.5px solid #27251F;
-  border-bottom: 3px solid #27251F;
-  padding: 1.25%;
+.modal-content .modal-header {
   display: flex;
-  justify-content: center;
-  width: 100vw;
-}
-
-.navbar {
-  font-size: 1.1em;
-  color: #27251F;
-  background: #FD5A1E;
-  border: 1px solid #EFD19F;
-  border-radius: 15px;
-  margin: 0 auto;
-}
-
-.navbar:focus {
-  color: #FD5A1E;
-  background: #27251F;
-}
-
-.my-new-list {
-  color: #000000;
-  background-color: rgba(39, 37, 31, 0.4);
-  font-style: italic;
-}
-
-#search {
-  width: 60%;
-}
-
-#map {
-  height: 100%;
-  width: 100vw;
-  z-index: 1;
-}
-
-#heritageList {
-  color: #EFD19F;
-  font-size: 1.15em;
-  line-height: 1.25em;
-  width: 100%;
-  columns: 2;
-  column-gap: 1%;
-}
-
-#listView {
-  overflow: scroll;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(100, 100, 100, 0.35)), url("../images/joes.jpg");
-  background-size: cover;
-}
-
-li {
-  border-bottom: 1px solid #000000;
-  padding: 2%;
-}
-
-li a {
-  text-decoration: none;
-  color: #EFD19F;
-}
-
-footer {
-  background-color: #27251F;
-  height: 7%;
-  width: 100vw;
-  border-top: 2.5px solid #EFD19F;
-  display: flex;
-  justify-content: space-around;
-  padding: 1.25%;
-  align-items: center;
-  color: #EFD19F;
-}
-
-footer a {
-  text-decoration: none;
-  color: #EFD19F;
-  font-size: 1.15em;
-}
-
-a:hover, #logout:hover {
-  text-decoration: underline;
-  font-weight: bold;
-  color: #EFD19F;
-}
-
-#logout {
-  background: transparent;
-  color: #EFD19F;
-  border: none;
-  font-size: 1.15em;
-}
-
-.error-message {
-  font-size: 1em;
-  color: #ff0000;
-  display: none;
-  background: linear-gradient(rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0));
-  height: 5%;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.modal-content .modal-header h1 {
+  font-size: 2em;
+  line-height: 1.2em;
+  margin-bottom: 0.7em;
+  border-bottom: 1px solid black;
+}
+.modal-content .modal-header h5 {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+.modal-content .modal-header p {
+  margin-top: 1em;
+}
+.modal-content form #legacySubmit {
+  margin-top: 0.25em;
+  background-color: white;
+  border-radius: 0;
+  color: black;
+}
+.modal-content form #legacySubmit:hover {
+  background-color: black;
+  color: white;
 }
 
 .pac-container {
@@ -386,61 +192,89 @@ a:hover, #logout:hover {
   margin: 0;
 }
 
-#parallax1 {
-  background-image: url("../images/vesuvio.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#parallax2 {
-  background-image: url("../images/its_tops.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-#parallax3 {
-  background-image: url("../images/vesuvio.jpg");
-  min-height: 75%;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.contact {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
 .about {
-  background-color: #dadada;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2em 6em;
 }
-
-#formContact {
-  padding: 2%;
-  font-size: 1.25em;
-  height: 100%;
+.about h3 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
 }
-
-h3 {
-  text-align: center;
-  font-size: 1.75em;
-}
-
 .about p {
-  font-size: 1.25em;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+header h2 {
+  font-size: 3em;
+  line-height: 1.2em;
+}
+header h4 {
+  font-size: 1.4em;
+  line-height: 1.2em;
+}
+header nav {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  margin: 2em 0 1em 0;
+}
+header nav a {
+  color: black;
+  font-size: 1.5em;
+}
+header nav a:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+#addLegacy, #logout {
+  border: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+#addLegacy:hover, #logout:hover {
+  color: orange;
+}
+
+#formSignUp, #legacyForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 2em;
+}
+
+.signUp, #pac-input {
+  border: 1px solid black;
+  font-size: 1em;
+  text-align: center;
+  width: 100%;
+  padding: 0.5em 1em;
+  margin: 0.25em 0;
+}
+
+.error-message {
+  font-size: 1em;
+  color: #ff0000;
+  display: none;
+  background: linear-gradient(rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0));
+  height: 5%;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
