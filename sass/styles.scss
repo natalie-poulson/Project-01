@@ -1,32 +1,55 @@
 @import 'reset';
 @import 'map';
 @import 'about';
+@import 'list';
+@import 'index';
+
+
+a {
+    text-decoration:none;
+}
 
 header {
     display:flex;
-    flex-direction:column;
     justify-content: center;
     align-items: center;
     width:100vw;
-    h2 {
-        font-size:3em;
-        line-height: 1.2em;
-    }
-    h4 {
-        font-size:1.4em;
-        line-height: 1.2em;
+    margin:.5em 0;
+    div {
+        width:60vw;
+        margin-left:2em;
+        h2 {
+            font-size:3em;
+            line-height: 1.2em;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: lowercase;
+            color:#f03f35;
+        }
+        h4 {
+            font-size:1.4em;
+            line-height: 1.2em;
+            font-family: 'Judson', serif;
+            text-transform: lowercase;
+            color:#f03f35;
+        }
     }
     nav {
         display:flex;
         justify-content: space-around;
-        width:100vw;
+        width:40vw;
         margin:2em 0 1em 0;
         a {
-            color:black;
+            color:grey;
             font-size:1.5em;
             &:hover {
                 color:orange;
                 text-decoration: none;
+            }
+        }
+        i {
+            color:grey;
+            &:hover {
+                color:#f03f35;
             }
         }
     }

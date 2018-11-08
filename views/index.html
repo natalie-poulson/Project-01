@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">  
@@ -16,16 +17,22 @@
 </head>
 <body>
     <main>
-        <h1>SF Legacy Eats</h1>
-        <h4>eat and drink your way through San Francisco history</h4>
-        <p class="error-message">Incorrect Email or Password.</p>  
-        <form id="formLogin" autocomplete="off"> 
-            <input type="text" class="login" id="loginEmail" name="email" placeholder="Email" required>
-            <input type="password" class="login" id="loginPassword" name="password" placeholder="Password" required> 
-            <input type="submit" class="login" id="loginSubmit" value="Login">
-        </form>
-        <!-- Button trigger modal -->
-        <button id="buttonModal" data-toggle="modal" data-target="#exampleModalCenter">Sign Up</button>
+        <div class = "title">
+            <h1>SF Legacy Eats</h1>
+            <h4>eat and drink your way through San Francisco history</h4>
+        </div>
+        <div class ="sign">
+            <p class="error-message">Incorrect Email or Password.</p>  
+            <form id="formLogin" autocomplete="off"> 
+                <input type="text"  id="loginEmail" name="email" placeholder="Email" required>
+                <input type="password" id="loginPassword" name="password" placeholder="Password" required> 
+                <input type="submit" class="login" id="loginSubmit" value="Login">
+            </form>
+        </div>
+        <div>
+            <!-- Button trigger modal -->
+            <button id="buttonModal" class="signup" data-toggle="modal" data-target="#exampleModalCenter">Sign Up</button>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -36,7 +43,7 @@
                     </button>
                     </div>
                     <form id="formSignUp" autocomplete="off">
-                        <p>Create an account:</p>
+                        <h1>Create an account</h1>
                         <div class="modal-body">
                             <div>
                                 <input type="text" class="signUp" id="signUpName" name="name" placeholder="Name" required>

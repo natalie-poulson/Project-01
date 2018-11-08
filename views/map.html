@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black|Judson:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     
@@ -20,13 +21,15 @@
 </head>
 <body>
     <header>
-        <h2>SF Legacy Eats</h2>
-        <h4>eat and drink your way through San Francisco history</h4>
+        <div>
+            <h2>SF Legacy Eats</h2>
+            <h4>eat and drink your way through San Francisco history</h4>
+        </div>
         <nav>
-            <a href="list">List</a>
-            <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter">Add a Pin</button>
-            <a href="about">About </a>
-            <button id="logout" type="button">Logout</button>
+            <a href="list"><i class="fas fa-list-ul"></i> </a>
+            <button id="addLegacy" type="button" class="navbar" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-map-marker-alt"></i></button>
+            <a href="about"><i class="fas fa-info"></i></a>
+            <button id="logout" type="button"><i class="fas fa-sign-out-alt"></i></button>
         </nav>
     </header>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -36,11 +39,11 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                </div>
+                <form id="legacyForm" autocomplete="off" method="POST" action="/map">
                     <h1>Add a legacy to the map</h1>
                     <h5>What bar or restaurant do you consider to be a San Francisco legacy? Add it to the map!</h5>
                     <p id="alreadyExists" class="error-message">This bar or restaurant is already on the map</p>
-                </div>
-                <form id="legacyForm" autocomplete="off" method="POST" action="/map">
                     <div>
                         <input id="pac-input" class="controls" type="text"  placeholder="Start typing bar or restaurant here" required>
                     </div>
@@ -59,9 +62,5 @@
         </div>
     </div>
     <div id="map"></div>
-    <footer>
-        <a href="about">About Us</a>
-        <button id="logout" type="button">Logout</button>
-    </footer>
 </body>
 </html>

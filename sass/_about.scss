@@ -3,13 +3,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2em 6em;
+    height:70vh;
     h3 {
-        font-size:2.5em;
+        font-size:3em;
         margin-bottom:.5em;
+        font-family: 'Judson', serif;
+        text-transform: lowercase;
+        color:slategray;
     }
     p {
-        font-size:1.3em;
+        width:50%;
+        font-size:2em;
         text-align: center;
+        line-height: 1.2em;
+        font-family: 'Judson', serif;
+        text-transform: lowercase;
+        color:grey;
+        a {
+            color:grey;
+            &:hover{
+                color:#f03f35;
+            }
+        }
     }
 }

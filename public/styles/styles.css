@@ -53,7 +53,7 @@ table {
 }
 
 #map {
-  height: 80vh;
+  height: 86vh;
   width: 100vw;
 }
 
@@ -72,24 +72,37 @@ table {
   align-items: center;
   text-align: center;
 }
-.modal-content .modal-header h1 {
+.modal-content form h1 {
   font-size: 2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
   line-height: 1.2em;
   margin-bottom: 0.7em;
   border-bottom: 1px solid black;
 }
-.modal-content .modal-header h5 {
+.modal-content form h5 {
   font-size: 1.2em;
   line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  margin-bottom: 1em;
 }
-.modal-content .modal-header p {
-  margin-top: 1em;
+.modal-content form p {
+  margin: 0 0 2em 0;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+}
+.modal-content form input {
+  font-family: "Judson", serif;
+  text-transform: lowercase;
 }
 .modal-content form #legacySubmit {
   margin-top: 0.25em;
   background-color: white;
   border-radius: 0;
   color: black;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
 }
 .modal-content form #legacySubmit:hover {
   background-color: black;
@@ -197,45 +210,213 @@ table {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 2em 6em;
+  height: 70vh;
 }
 .about h3 {
-  font-size: 2.5em;
+  font-size: 3em;
   margin-bottom: 0.5em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  color: slategray;
 }
 .about p {
-  font-size: 1.3em;
+  width: 50%;
+  font-size: 2em;
   text-align: center;
+  line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  color: grey;
+}
+.about p a {
+  color: grey;
+}
+.about p a:hover {
+  color: #f03f35;
 }
 
-header {
+.listView {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 4em;
+}
+.listView h1 {
+  font-size: 2em;
+  line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  margin-bottom: 1em;
+  text-align: center;
+  color: slategray;
+}
+.listView ul li {
+  font-size: 1.4em;
+  line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  margin-bottom: 2em;
+  color: grey;
+}
+.listView ul li a {
+  color: grey;
+}
+.listView ul li a:hover {
+  color: #f03f35;
+}
+
+main {
+  height: 80vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
 }
-header h2 {
+main .title {
+  margin-bottom: 1.5em;
+}
+main .title h1 {
+  font-size: 5em;
+  line-height: 1.2em;
+  font-family: "Archivo Black", sans-serif;
+  text-transform: lowercase;
+  color: #f03f35;
+  text-align: center;
+}
+main .title h4 {
+  font-size: 2em;
+  line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  color: #f03f35;
+  text-align: center;
+}
+main .sign form input {
+  margin: 0.5em 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+}
+main .sign form .login {
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+main .sign form .login:hover {
+  color: #f03f35;
+}
+main .signup {
+  margin-top: 1.5em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+}
+main .signup:hover {
+  color: #f03f35;
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.modal-content .modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.modal-content form h1 {
+  font-size: 2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  line-height: 1.2em;
+  margin-bottom: 0.7em;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+.modal-content form p {
+  margin-top: 1em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  text-align: center;
+}
+.modal-content form input {
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+}
+.modal-content form #signUpSubmit {
+  margin-top: 0.25em;
+  background-color: white;
+  border-radius: 0;
+  color: black;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  width: 100%;
+}
+.modal-content form #signUpSubmit:hover {
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  margin: 0.5em 0;
+}
+header div {
+  width: 60vw;
+  margin-left: 2em;
+}
+header div h2 {
   font-size: 3em;
   line-height: 1.2em;
+  font-family: "Archivo Black", sans-serif;
+  text-transform: lowercase;
+  color: #f03f35;
 }
-header h4 {
+header div h4 {
   font-size: 1.4em;
   line-height: 1.2em;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  color: #f03f35;
 }
 header nav {
   display: flex;
   justify-content: space-around;
-  width: 100vw;
+  width: 40vw;
   margin: 2em 0 1em 0;
 }
 header nav a {
-  color: black;
+  color: grey;
   font-size: 1.5em;
 }
 header nav a:hover {
   color: orange;
   text-decoration: none;
+}
+header nav i {
+  color: grey;
+}
+header nav i:hover {
+  color: #f03f35;
 }
 
 #addLegacy, #logout {
