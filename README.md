@@ -58,7 +58,8 @@ Our user is:
 ## Features:
 * User signup, login, logout
 * An interactive Open Street Map populated with pins of bars and restaurants from San Francisco Heritage's Legacy Project and user submissions
-  * When a user clicks on the name of the bar or restaurant in the pin popup, it opens that bar or restaurant's website in another window
+  * When a user clicks on a pin, it display a popup with basic information about that bar or restaurant
+    * When a user clicks on the name of the bar or restaurant in the popup, it opens that bar or restaurant's website in another window
 * Geolocation of user, displayed as a pin on the map when the page loads
 * User's can create a new legacy bar or restaurant 
   * User's can search and select a bar or restaurant with the help of Google Autocomplete, enter the year it was established, and submit it to be added as a pin on the map
@@ -68,8 +69,10 @@ Our user is:
 
 
 ## Still to Come...
+* Responsive Design
 * Add form validation to "Year Opened" in user submission form
-* Customize the design/look of the map
+* Reset form on modal close
+* Deploy refactored version to Heroku
 * An option to filter map pins by sources (either SF Heritage or user submitted)
 * JWT Authentication
 * Users can rate their favorite bars/restaurants
