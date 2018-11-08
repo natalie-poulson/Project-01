@@ -1,4 +1,6 @@
 # SF Legacy Eats
+<img src="./screenshots/1.png">
+
 
 ## Scope:
 SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historic establishments.
@@ -66,6 +68,19 @@ Our user is:
     * Google Places API stores the neccessary information about the bar or restaurant (address, name, website) for the user so the user does not have to enter this information themselves
 * Two different colors of pins, to distinguish the source of the submission (SF Heritage's Legacy Project or user)
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
+
+## Screenshots
+<img src="./screenshots/2.png">
+<img src="./screenshots/3.png">
+<img src="./screenshots/4.png">
+<img src="./screenshots/5.png">
+<img src="./screenshots/6.png">
+<img src="./screenshots/7.png">
+<img src="./screenshots/8.png">
+<img src="./screenshots/9.png">
+<img src="./screenshots/10.png">
+<img src="./screenshots/11.png">
+<img src="./screenshots/12.png">
 
 
 ## Still to Come...
