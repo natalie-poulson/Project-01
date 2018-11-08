@@ -2,11 +2,6 @@ const db = require('./models');
 
 let userList = [
     {
-    name: "Natalie",
-    email: "natalieplsn@gmail.com",
-    password: "cowboys"
-    },
-    {
     name: "Alan",
     email: "a386226@gmail.com",
     password: "niners"
