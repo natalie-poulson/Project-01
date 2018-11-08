@@ -1,7 +1,7 @@
 # SF Legacy Eats
 
 ## Scope:
-SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historical establishments.
+SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historic establishments.
 
 ## Getting Started:
 To run SF Legacy Eats on your local machine, clone the repository, then:
@@ -65,11 +65,6 @@ Our user is:
     * Google Places API stores the neccessary information about the bar or restaurant (address, name, website) for the user so the user does not have to enter this information themselves
 * Two different colors of pins, to distinguish the source of the submission (SF Heritage's Legacy Project or user)
 * A "List" page that shows all the bars and restaurants on the map and basic information about them
-* User can toggle between "Map" and "List" views
-
-## Unsolved Problems...
-* List page creates duplicate listings on each click
-* Initial map load doesn't show pins (moved to inside a click on the map function)
 
 
 ## Still to Come...
@@ -83,10 +78,22 @@ Our user is:
 
 
 ## Links:
+### First Iteration (https://github.com/aduncan12/Project-01):
 
-### Herkou Link
-* https://frozen-sea-79124.herokuapp.com/
-
-### Created By
+#### Created By
 * [Natalie Poulson](https://github.com/natalie-poulson)
 * [Alan Duncan](https://github.com/aduncan12)
+
+#### Herkou Link
+* https://frozen-sea-79124.herokuapp.com/
+
+
+### Refactored Version (this repo):
+
+#### By
+* [Natalie Poulson](https://github.com/natalie-poulson)
+
+
+
+
+
