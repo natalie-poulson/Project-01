@@ -13,16 +13,15 @@ var hereIcon = L.icon({
     iconSize: [40, 45]
 })
 
-var map = L.map('map').setView([37.773972, -122.431297], 12);
 var input = document.getElementById("pac-input");
 var autocomplete = new google.maps.places.Autocomplete(input);
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.streets',
-        accessToken: 'pk.eyJ1IjoibmF0YWxpZXBsc24iLCJhIjoiY2psZm8ybnFnMHl4NDNwcG16eGFmMTdwaCJ9.2xYdBHCpcf5cdap8BvhVgQ'
-}).addTo(map);
+L.mapbox.accessToken = 'pk.eyJ1IjoibmF0YWxpZXBsc24iLCJhIjoiY2psZm8ybnFnMHl4NDNwcG16eGFmMTdwaCJ9.2xYdBHCpcf5cdap8BvhVgQ';
+var map = L.mapbox.map('map')
+    .setView([37.773972, -122.431297], 12);
+
+L.mapbox.styleLayer('mapbox://styles/natalieplsn/cjo6sbk6z0m5r2sl4whwh78bx').addTo(map);
+
 
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {

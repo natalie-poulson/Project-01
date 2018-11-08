@@ -25,6 +25,13 @@ main {
         }
     }
     .sign {
+        p {
+            text-align:center;
+            font-family: 'Judson', serif;
+            text-transform: lowercase;
+            font-size:1.2em;
+            color:orange;
+        }
         form {
             input {
                 margin:.5em .25em;

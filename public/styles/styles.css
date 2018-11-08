@@ -292,6 +292,13 @@ main .title h4 {
   color: #f03f35;
   text-align: center;
 }
+main .sign p {
+  text-align: center;
+  font-family: "Judson", serif;
+  text-transform: lowercase;
+  font-size: 1.2em;
+  color: orange;
+}
 main .sign form input {
   margin: 0.5em 0.25em;
   padding: 0.25em 0.5em;
@@ -456,6 +463,7 @@ header nav i:hover {
   height: 5%;
   flex-direction: column;
   justify-content: center;
+  font-family: "Judson", serif;
 }
 
 /*# sourceMappingURL=styles.css.map */
