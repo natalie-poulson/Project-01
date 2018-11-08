@@ -102,8 +102,7 @@ Our user is:
 * [Alan Duncan](https://github.com/aduncan12)
 
 #### Herkou Link
-* https://frozen-sea-79124.herokuapp.com/
-
+* https://flux-capaceator.herokuapp.com/
 
 ### Refactored Version (this repo):
 
