@@ -90,7 +90,7 @@ Our user is:
 
 ### Refactored Version (this repo):
 
-#### Created By
+#### By
 * [Natalie Poulson](https://github.com/natalie-poulson)
 
 
