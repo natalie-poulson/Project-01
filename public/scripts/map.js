@@ -1,12 +1,20 @@
-var heritageIcon = L.icon({
-    iconUrl: './images/heritage.png',
-    iconSize: [40, 45],
-})
+var blackIcon = new L.Icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
-var legacyIcon = L.icon({
-    iconUrl: './images/legacy.png',
-    iconSize: [40, 45]
-})
+var greyIcon = new L.Icon({
+    iconUrl: 'https://cdn.rawgit.com/pointhi/leaflet-color-markers/master/img/marker-icon-grey.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+});
 
 var hereIcon = L.icon({
     iconUrl: './images/here.png',
@@ -65,7 +73,7 @@ $('#legacyForm').on('submit', (e) => {
             alert("thank you for adding a legacy to the map!")
         
             let place = json.legacy;
-            L.marker([place.coordinates[0], place.coordinates[1]], {icon: legacyIcon}).bindPopup(`<p><a href="${place.website}" target="_blank">${place.name}</a><br>${place.address}<br>Est. ${place.yearOpened}</p>`).addTo(map).openPopup()
+            L.marker([place.coordinates[0], place.coordinates[1]], {icon: greyIcon}).bindPopup(`<p><a href="${place.website}" target="_blank">${place.name}</a><br>${place.address}<br>Est. ${place.yearOpened}</p>`).addTo(map).openPopup()
         },
         error:(json) => {
             if (json.status === 401){
@@ -85,7 +93,7 @@ $.ajax({
 
         heritageArray.forEach ((heritage) => {
             let popupContent =(`<p><a href="${heritage.website}" target="_blank">${heritage.name}</a></br>${heritage.address}</br>Est. ${heritage.yearOpened}</br></p>`)
-            L.marker([heritage.coordinates[0], heritage.coordinates[1]], {icon: heritageIcon}).bindPopup(popupContent).openPopup().addTo(map);
+            L.marker([heritage.coordinates[0], heritage.coordinates[1]], {icon: blackIcon}).bindPopup(popupContent).openPopup().addTo(map);
         })
     },
     error: (e) => {
@@ -101,7 +109,7 @@ $.ajax({
 
         legacyArray.forEach((legacy) => {
             let legacyContent = (`<p><a href="${legacy.website}" target="_blank">${legacy.name}</a></br>${legacy.address}</br>Est. ${legacy.yearOpened}</br></p>`)
-            L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: legacyIcon}).bindPopup(legacyContent).openPopup().addTo(map);
+            L.marker([legacy.coordinates[0], legacy.coordinates[1]], {icon: greyIcon}).bindPopup(legacyContent).openPopup().addTo(map);
         })
     },
     error: (e) => {

@@ -14,7 +14,8 @@ header {
     justify-content: center;
     align-items: center;
     width:100vw;
-    margin:.5em 0;
+    padding:.5em 0;
+    background-color:#fbf9f4;
     div {
         width:60vw;
         margin-left:2em;
@@ -23,14 +24,14 @@ header {
             line-height: 1.2em;
             font-family: 'Archivo Black', sans-serif;
             text-transform: lowercase;
-            color:#f03f35;
+            color:#E89E81;
         }
         h4 {
             font-size:1.4em;
             line-height: 1.2em;
             font-family: 'Judson', serif;
             text-transform: lowercase;
-            color:#f03f35;
+            color:#E89E81;
         }
     }
     nav {
@@ -39,17 +40,18 @@ header {
         width:40vw;
         margin:2em 0 1em 0;
         a {
-            color:grey;
             font-size:1.5em;
-            &:hover {
-                color:orange;
-                text-decoration: none;
-            }
         }
         i {
-            color:grey;
+            background-color:#fbf9f4;
+            color:#E89E81;
+            // color:#D9726D;
+            // color:#9F9CBF;
+            // color:#4EB7E7;
+            // color:#D6D3CA;
             &:hover {
-                color:#f03f35;
+                color:#8B89B9;
+                ;
             }
         }
     }
@@ -86,9 +88,7 @@ header {
 
 .error-message {
     font-size: 1em;
-    color: #ff0000;
     display: none;
-    background: linear-gradient(rgba(250,250,250, 0), rgba(250,250,250, .9), rgba(250,250,250, 0));
     height: 5%;
     flex-direction: column;
     justify-content: center;

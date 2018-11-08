@@ -1,28 +1,41 @@
-.about {
+.about-page {
+    background-color:#f5f1e6;
+    height:100vh;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height:70vh;
-    h3 {
-        font-size:3em;
-        margin-bottom:.5em;
-        font-family: 'Judson', serif;
-        text-transform: lowercase;
-        color:slategray;
-    }
-    p {
-        width:50%;
-        font-size:2em;
-        text-align: center;
-        line-height: 1.2em;
-        font-family: 'Judson', serif;
-        text-transform: lowercase;
-        color:grey;
-        a {
-            color:grey;
-            &:hover{
-                color:#f03f35;
+    .about {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#f5f1e6;
+    border: 6px dotted#9ab66d;
+    width:55vw;
+    height:55vh;
+        h3 {
+            font-size:3em;
+            margin-bottom:.5em;
+            font-family: 'Judson', serif;
+            text-transform: lowercase;
+            color:#91af5f;
+            border-bottom:.5px solid #9ab66d;
+
+        }
+        p {
+            width:79%;
+            font-size:2em;
+            text-align: center;
+            line-height: 1.2em;
+            font-family: 'Judson', serif;
+            text-transform: lowercase;
+            color:#acc387;
+            a {
+                color:#91af5f;
+                &:hover{
+                    color:#E89E81;
+                }
             }
         }
     }

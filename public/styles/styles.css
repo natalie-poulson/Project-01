@@ -57,60 +57,72 @@ table {
   width: 100vw;
 }
 
-.modal-content {
+#exampleModalCenter .modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #f5f1e6;
   border-radius: 5px;
 }
-.modal-content .modal-header {
+#exampleModalCenter .modal-content .modal-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
-.modal-content form h1 {
+#exampleModalCenter .modal-content .modal-header button {
+  color: #9F9CBF;
+}
+#exampleModalCenter .modal-content form h1 {
   font-size: 2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
   line-height: 1.2em;
   margin-bottom: 0.7em;
-  border-bottom: 1px solid black;
+  color: #8B89B9;
+  border-bottom: 1px solid #8B89B9;
 }
-.modal-content form h5 {
+#exampleModalCenter .modal-content form h5 {
   font-size: 1.2em;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  color: #9F9CBF;
   margin-bottom: 1em;
 }
-.modal-content form p {
+#exampleModalCenter .modal-content form p {
   margin: 0 0 2em 0;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  color: #4EB7E7;
 }
-.modal-content form input {
+#exampleModalCenter .modal-content form input {
+  background-color: #f5f1e6;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  color: #D9726D;
+  border: 0.5px solid #E89E81;
 }
-.modal-content form #legacySubmit {
+#exampleModalCenter .modal-content form input::placeholder {
+  color: #E89E81;
+}
+#exampleModalCenter .modal-content form #legacySubmit {
   margin-top: 0.25em;
-  background-color: white;
+  background-color: #f5f1e6;
   border-radius: 0;
-  color: black;
+  color: #9F9CBF;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  border: 0.5px solid #9F9CBF;
 }
-.modal-content form #legacySubmit:hover {
-  background-color: black;
-  color: white;
+#exampleModalCenter .modal-content form #legacySubmit:hover {
+  background-color: #9F9CBF;
+  color: #f5f1e6;
 }
 
 .pac-container {
-  background-color: white;
+  background-color: #f5f1e6;
   position: absolute !important;
   z-index: 10000;
   border-radius: 2px;
@@ -146,7 +158,7 @@ table {
   white-space: nowrap;
   line-height: 30px;
   text-align: left;
-  border-bottom: 1px solid #000000;
+  border: 1px solid #8B89B9;
   font-size: 11px;
   color: black !important;
 }
@@ -205,127 +217,164 @@ table {
   margin: 0;
 }
 
-.about {
+.about-page {
+  background-color: #f5f1e6;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 70vh;
 }
-.about h3 {
+.about-page .about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f1e6;
+  border: 6px dotted #9ab66d;
+  width: 55vw;
+  height: 55vh;
+}
+.about-page .about h3 {
   font-size: 3em;
   margin-bottom: 0.5em;
   font-family: "Judson", serif;
   text-transform: lowercase;
-  color: slategray;
+  color: #91af5f;
+  border-bottom: 0.5px solid #9ab66d;
 }
-.about p {
-  width: 50%;
+.about-page .about p {
+  width: 79%;
   font-size: 2em;
   text-align: center;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
-  color: grey;
+  color: #acc387;
 }
-.about p a {
-  color: grey;
+.about-page .about p a {
+  color: #91af5f;
 }
-.about p a:hover {
-  color: #f03f35;
+.about-page .about p a:hover {
+  color: #E89E81;
 }
 
 .listView {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  margin-top: 4em;
+  padding-top: 4em;
+  background-color: #f5f1e6;
 }
-.listView h1 {
+.listView div {
+  padding: 2em 3em;
+  border: 4px dotted #8B89B9;
+}
+.listView div h1 {
   font-size: 2em;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
   margin-bottom: 1em;
   text-align: center;
-  color: slategray;
+  border-bottom: 0.5px solid #8B89B9;
+  color: #8B89B9;
 }
-.listView ul li {
+.listView div ul li {
   font-size: 1.4em;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
   margin-bottom: 2em;
-  color: grey;
+  color: #9F9CBF;
 }
-.listView ul li a {
-  color: grey;
+.listView div ul li a {
+  color: #9F9CBF;
 }
-.listView ul li a:hover {
-  color: #f03f35;
+.listView div ul li a:hover {
+  color: #E89E81;
 }
 
 main {
-  height: 80vh;
+  height: 100vh;
   width: 100vw;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url("../images/map_crop.png");
+  background-size: cover;
+}
+main .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 5em;
+  padding-right: 25em;
+  padding-left: 0;
+  width: 100%;
 }
-main .title {
+main .container .title {
   margin-bottom: 1.5em;
 }
-main .title h1 {
+main .container .title h1 {
   font-size: 5em;
   line-height: 1.2em;
   font-family: "Archivo Black", sans-serif;
   text-transform: lowercase;
-  color: #f03f35;
+  color: #D9726D;
   text-align: center;
 }
-main .title h4 {
+main .container .title h4 {
   font-size: 2em;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
-  color: #f03f35;
+  color: #D9726D;
   text-align: center;
 }
-main .sign p {
+main .container .sign p {
   text-align: center;
   font-family: "Judson", serif;
   text-transform: lowercase;
   font-size: 1.2em;
-  color: orange;
+  color: #4EB7E7;
 }
-main .sign form input {
+main .container .sign form input {
   margin: 0.5em 0.25em;
   padding: 0.25em 0.5em;
   font-size: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 5px;
+  color: #D9726D;
 }
-main .sign form .login {
+main .container .sign form input::placeholder {
+  color: #D9726D;
+}
+main .container .sign form .login {
   font-family: "Judson", serif;
   text-transform: lowercase;
   border: none;
   cursor: pointer;
   font-size: 1.2em;
+  background: transparent;
+  color: #D9726D;
 }
-main .sign form .login:hover {
-  color: #f03f35;
+main .container .sign form .login:hover {
+  color: #4EB7E7;
 }
-main .signup {
+main .container .signup {
   margin-top: 1.5em;
   font-family: "Judson", serif;
   text-transform: lowercase;
   border: none;
   cursor: pointer;
   font-size: 2em;
+  background: transparent;
+  color: #E89E81;
 }
-main .signup:hover {
-  color: #f03f35;
+main .container .signup:hover {
+  color: #D9726D;
 }
 
 .modal-content {
@@ -333,7 +382,6 @@ main .signup:hover {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
@@ -361,19 +409,24 @@ main .signup:hover {
 .modal-content form input {
   font-family: "Judson", serif;
   text-transform: lowercase;
+  color: #D9726D;
+}
+.modal-content form input::placeholder {
+  color: #E89E81;
 }
 .modal-content form #signUpSubmit {
   margin-top: 0.25em;
-  background-color: white;
+  background-color: #f5f1e6;
   border-radius: 0;
-  color: black;
+  color: #9F9CBF;
   font-family: "Judson", serif;
   text-transform: lowercase;
+  border: 0.5px solid #9F9CBF;
   width: 100%;
 }
 .modal-content form #signUpSubmit:hover {
-  background-color: black;
-  color: white;
+  background-color: #9F9CBF;
+  color: #f5f1e6;
 }
 
 a {
@@ -385,7 +438,8 @@ header {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  margin: 0.5em 0;
+  padding: 0.5em 0;
+  background-color: #fbf9f4;
 }
 header div {
   width: 60vw;
@@ -396,14 +450,14 @@ header div h2 {
   line-height: 1.2em;
   font-family: "Archivo Black", sans-serif;
   text-transform: lowercase;
-  color: #f03f35;
+  color: #E89E81;
 }
 header div h4 {
   font-size: 1.4em;
   line-height: 1.2em;
   font-family: "Judson", serif;
   text-transform: lowercase;
-  color: #f03f35;
+  color: #E89E81;
 }
 header nav {
   display: flex;
@@ -412,18 +466,14 @@ header nav {
   margin: 2em 0 1em 0;
 }
 header nav a {
-  color: grey;
   font-size: 1.5em;
 }
-header nav a:hover {
-  color: orange;
-  text-decoration: none;
-}
 header nav i {
-  color: grey;
+  background-color: #fbf9f4;
+  color: #E89E81;
 }
 header nav i:hover {
-  color: #f03f35;
+  color: #8B89B9;
 }
 
 #addLegacy, #logout {
@@ -457,9 +507,7 @@ header nav i:hover {
 
 .error-message {
   font-size: 1em;
-  color: #ff0000;
   display: none;
-  background: linear-gradient(rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0));
   height: 5%;
   flex-direction: column;
   justify-content: center;

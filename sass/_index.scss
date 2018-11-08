@@ -1,66 +1,85 @@
 main {
-    height:80vh;
+    height:100vh;
     width:100vw;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .title {
-        margin-bottom:1.5em;
-        h1 {
-            font-size:5em;
-            line-height: 1.2em;
-            font-family: 'Archivo Black', sans-serif;
-            text-transform: lowercase;
-            color:#f03f35;
-            text-align: center;
-        }
-        h4 {
-            font-size:2em;
-            line-height: 1.2em;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-            color:#f03f35;
-            text-align: center;
-        }
-    }
-    .sign {
-        p {
-            text-align:center;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-            font-size:1.2em;
-            color:orange;
-        }
-        form {
-            input {
-                margin:.5em .25em;
-                padding:.25em .5em;
-                font-size:1.2em;
-                font-family: 'Judson', serif;
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('../images/map_crop.png');
+    background-size: cover;
+    .container {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top:5em;
+        padding-right:25em;
+        padding-left:0;
+        width:100%;
+        .title {
+            margin-bottom:1.5em;
+            h1 {
+                font-size:5em;
+                line-height: 1.2em;
+                font-family: 'Archivo Black', sans-serif;
                 text-transform: lowercase;
+                color:#D9726D;
+                text-align: center;
             }
-            .login {
+            h4 {
+                font-size:2em;
+                line-height: 1.2em;
                 font-family: 'Judson', serif;
                 text-transform: lowercase;
-                border:none;
-                cursor:pointer;
+                color:#D9726D;
+                text-align: center;
+            }
+        }
+        .sign {
+            p {
+                text-align:center;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
                 font-size:1.2em;
-                &:hover {
-                    color:#f03f35;
+                color:#4EB7E7;
+            }
+            form {
+                input {
+                    margin:.5em .25em;
+                    padding:.25em .5em;
+                    font-size:1.2em;
+                    font-family: 'Judson', serif;
+                    text-transform: lowercase;
+                    background-color: rgba(255,255,255,0.6);
+                    border:none;
+                    border-radius:5px;
+                    color:#D9726D;
+                    &::placeholder {
+                        color:#D9726D;
+                    }
+                }
+                .login {
+                    font-family: 'Judson', serif;
+                    text-transform: lowercase;
+                    border:none;
+                    cursor:pointer;
+                    font-size:1.2em;
+                    background: transparent;
+                    color:#D9726D;
+                    &:hover {
+                        color:#4EB7E7;
+                    }
                 }
             }
         }
-    }
-    .signup {
-        margin-top:1.5em;
-        font-family: 'Judson', serif;
-        text-transform: lowercase;
-        border:none;
-        cursor:pointer;
-        font-size:2em;
-        &:hover {
-            color:#f03f35;
+        .signup {
+            margin-top:1.5em;
+            font-family: 'Judson', serif;
+            text-transform: lowercase;
+            border:none;
+            cursor:pointer;
+            font-size:2em;
+            background: transparent;
+            color:#E89E81;
+            &:hover {
+                color:#D9726D;
+            }
         }
     }
 }
@@ -70,7 +89,6 @@ main {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #FFFFFF;
     border: 1px solid rgba(0,0,0,.2);
     border-radius: 5px;
     .modal-header {
@@ -98,18 +116,23 @@ main {
         input {
             font-family: 'Judson', serif;
             text-transform: lowercase;
+            color:#D9726D;
+            &::placeholder {
+                color:#E89E81;
+            }
         }
         #signUpSubmit {
             margin-top:.25em;
-            background-color:white;
+            background-color:#f5f1e6;
             border-radius:0;
-            color:black;
+            color:#9F9CBF;
             font-family: 'Judson', serif;
             text-transform: lowercase;
+            border:.5px solid #9F9CBF;
             width:100%;
             &:hover{
-                background-color:black;
-                color:white;
+                background-color:#9F9CBF;
+                color:#f5f1e6;
             }
         }
     }

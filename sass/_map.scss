@@ -3,63 +3,77 @@
     width: 100vw;
 }
 
-
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #FFFFFF;
-    border: 1px solid rgba(0,0,0,.2);
-    border-radius: 5px;
-    .modal-header {
-        display:flex;
+#exampleModalCenter {
+    .modal-content {
+        position: relative;
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    form {
-        h1 {
-            font-size:2em;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-            line-height: 1.2em;
-            margin-bottom:.7em;
-            border-bottom: 1px solid black;
+        width: 100%;
+        background-color:#f5f1e6;
+        border-radius: 5px;
+        .modal-header {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            button {
+                color:#9F9CBF;
+            }
         }
-        h5 {
-            font-size:1.2em;
-            line-height: 1.2em;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-            margin-bottom:1em;
-        }
-        p {
-            margin: 0 0 2em 0;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-        }
-        input {
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-        }
-        #legacySubmit {
-            margin-top:.25em;
-            background-color:white;
-            border-radius:0;
-            color:black;
-            font-family: 'Judson', serif;
-            text-transform: lowercase;
-            &:hover{
-                background-color:black;
-                color:white;
+        form {
+            h1 {
+                font-size:2em;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
+                line-height: 1.2em;
+                margin-bottom:.7em;
+                color:#8B89B9;
+                border-bottom: 1px solid #8B89B9;
+            }
+            h5 {
+                font-size:1.2em;
+                line-height: 1.2em;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
+                color:#9F9CBF;
+                margin-bottom:1em;
+            }
+            p {
+                margin: 0 0 2em 0;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
+                color:#4EB7E7;
+            }
+            input {
+                background-color:#f5f1e6;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
+                color:#D9726D;
+                border:.5px solid #E89E81;
+                &::placeholder {
+                    color:#E89E81;
+                }
+            }
+            #legacySubmit {
+                margin-top:.25em;
+                background-color:#f5f1e6;
+                border-radius:0;
+                color:#9F9CBF;
+                font-family: 'Judson', serif;
+                text-transform: lowercase;
+                border:.5px solid #9F9CBF;
+                &:hover{
+                    background-color:#9F9CBF;
+                    color:#f5f1e6;
+                }
             }
         }
     }
 }
 
+
 .pac-container {
-    background-color: white;
+    background-color: #f5f1e6;
     position: absolute!important;
     z-index: 10000;
     border-radius: 2px;
@@ -93,7 +107,7 @@
     white-space: nowrap;
     line-height: 30px;
     text-align: left;
-    border-bottom: 1px solid #000000;
+    border: 1px solid #8B89B9;
     font-size:11px;
     color: rgb(0, 0, 0) !important;
 }
