@@ -1,7 +1,7 @@
 # SF Legacy Eats
 
 ## Scope:
-SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historical establishments.
+SF Legacy Eats is an interactive map that connects users with bars and restaurants that have had a long lasting cultural impact on San Francisco. The main list is provided by SF Heritage (https://www.sfheritage.org/legacy/), and can be supplemented by user-submitted suggestions. San Francisco has a diverse and compelling history, and we feel one of the best ways to engage with the past is through food and drink at one of the city's many historica establishments.
 
 ## Getting Started:
 To run SF Legacy Eats on your local machine, clone the repository, then:
