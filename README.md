@@ -69,6 +69,7 @@ Our user is:
 
 
 ## Still to Come...
+* Responsive Design
 * Add form validation to "Year Opened" in user submission form
 * Reset form on modal close
 * Deploy refactored version to Heroku
