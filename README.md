@@ -87,7 +87,6 @@ Our user is:
 * Responsive Design
 * Add form validation to "Year Opened" in user submission form
 * Reset form on modal close
-* Deploy refactored version to Heroku
 * An option to filter map pins by sources (either SF Heritage or user submitted)
 * JWT Authentication
 * Users can rate their favorite bars/restaurants
@@ -111,7 +110,8 @@ Our user is:
 #### By
 * [Natalie Poulson](https://github.com/natalie-poulson)
 
-
+#### Herkou Link
+* https://sf-legacy-eats.herokuapp.com/
 
 
 
