@@ -70,7 +70,6 @@ Our user is:
 
 ## Still to Come...
 * Add form validation to "Year Opened" in user submission form
-* Customize the design/look of the map
 * Reset form on modal close
 * Deploy refactored version to Heroku
 * An option to filter map pins by sources (either SF Heritage or user submitted)
